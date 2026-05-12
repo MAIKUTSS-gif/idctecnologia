@@ -30,17 +30,21 @@ function AboutPage() {
               Ingeniería industrial con visión <span className="text-gradient">2026</span>
             </h1>
             <p className="mt-6 max-w-2xl text-lg text-white/70">
-              Desde 2004 trabajamos junto a fabricantes para optimizar procesos productivos
-              mediante automatización, digitalización y mantenimiento técnico de alto nivel.
+              IDC Tecnología es una compañía industrial especializada en automatización
+              de procesos productivos, ingeniería avanzada y mantenimiento electromecánico.
+              Desde 1996 ayudamos a empresas industriales a digitalizar, optimizar y
+              modernizar sus sistemas de producción mediante soluciones tecnológicas de
+              alto rendimiento, trabajando con fabricantes líderes y desarrollando
+              proyectos llave en mano adaptados a cada cliente.
             </p>
           </div>
 
           <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-4">
             {[
-              { v: "20+", l: "Años" },
-              { v: "450", l: "Proyectos" },
-              { v: "80", l: "Ingenieros" },
-              { v: "12", l: "Sectores" },
+              { v: "+25", l: "Años" },
+              { v: "+1.100", l: "Proyectos" },
+              { v: "+340", l: "Clientes" },
+              { v: "51-200", l: "Empleados" },
             ].map((s) => (
               <div key={s.l} className="bg-graphite p-8 text-center">
                 <div className="font-display text-4xl font-semibold text-gradient md:text-5xl">{s.v}</div>

@@ -12,7 +12,7 @@ export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
       { title: "IDC Tecnología — Automatización industrial del futuro" },
-      { name: "description", content: "Ingeniería, automatización, mantenimiento industrial y distribución de componentes técnicos. Soluciones llave en mano para la industria 4.0." },
+      { name: "description", content: "Desde 1996 diseñamos, integramos y mantenemos soluciones industriales avanzadas. Ingeniería, mantenimiento electromecánico, distribución técnica e Industria 4.0." },
     ],
   }),
   component: Index,

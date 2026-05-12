@@ -1,7 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X, Zap } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/idc-logo.png";
 
 const NAV = [
   { to: "/", label: "Inicio" },
@@ -34,16 +35,14 @@ export function SiteHeader() {
             scrolled ? "glass shadow-soft" : "bg-transparent"
           }`}
         >
-          <Link to="/" className="flex items-center gap-2.5 group">
-            <div className="relative grid h-9 w-9 place-items-center rounded-xl bg-gradient-tech shadow-glow">
-              <Zap className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
-            </div>
-            <div className="leading-tight">
-              <div className="font-display text-base font-semibold tracking-tight">IDC TECNOLOGÍA</div>
-              <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
-                Industrial Automation
-              </div>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img
+              src={logo}
+              alt="IDC Tecnología — Factory Automation"
+              width={180}
+              height={56}
+              className={`h-10 w-auto transition-all duration-300 ${scrolled ? "" : "drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]"}`}
+            />
           </Link>
 
           <nav className="hidden items-center gap-1 lg:flex">

@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Zap, Send } from "lucide-react";
+import { Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Send } from "lucide-react";
+import logo from "@/assets/idc-logo.png";
 
 export function SiteFooter() {
   return (
@@ -38,16 +39,14 @@ export function SiteFooter() {
 
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-5">
           <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2.5">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-gradient-tech shadow-glow">
-                <Zap className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
-              </div>
-              <div>
-                <div className="font-display text-lg font-semibold">IDC TECNOLOGÍA</div>
-                <div className="text-[10px] uppercase tracking-[0.18em] text-white/50">
-                  Industrial Automation
-                </div>
-              </div>
+            <Link to="/" className="inline-flex items-center">
+              <img
+                src={logo}
+                alt="IDC Tecnología — Factory Automation"
+                width={220}
+                height={68}
+                className="h-12 w-auto brightness-0 invert"
+              />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">
               Ingeniería, automatización y mantenimiento industrial para fábricas que

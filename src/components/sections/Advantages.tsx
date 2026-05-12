@@ -1,12 +1,12 @@
 import { Award, Headphones, Settings2, Zap, MapPin, Layers } from "lucide-react";
 
 const ITEMS = [
-  { icon: Award, title: "+20 años de experiencia", desc: "Dos décadas integrando soluciones industriales en sectores exigentes." },
-  { icon: Headphones, title: "Soporte técnico 24/7", desc: "Ingenieros disponibles en remoto y on-site cuando los necesitas." },
-  { icon: Settings2, title: "Soluciones a medida", desc: "Diseñamos cada proyecto según los KPIs reales de tu planta." },
-  { icon: Zap, title: "Rapidez de ejecución", desc: "Equipos propios de ingeniería, automatización y mantenimiento." },
-  { icon: Layers, title: "Ingeniería propia", desc: "Departamento técnico interno: diseño, programación y puesta en marcha." },
-  { icon: MapPin, title: "Cobertura nacional", desc: "Operativos en toda la península, Baleares y Canarias." },
+  { icon: Award, title: "+25 años de experiencia", desc: "Más de dos décadas integrando soluciones industriales en sectores exigentes desde 1996." },
+  { icon: Headphones, title: "Soporte técnico 24/7", desc: "Ingenieros especializados disponibles en remoto y on-site cuando los necesitas." },
+  { icon: Settings2, title: "Ingeniería llave en mano", desc: "Diseñamos cada proyecto según los KPIs reales de tu planta, de principio a fin." },
+  { icon: Zap, title: "+1.100 proyectos entregados", desc: "Resultados demostrados con +340 clientes activos en toda España." },
+  { icon: Layers, title: "Partners oficiales líderes", desc: "Siemens, ABB, SICK, SMC, Omron y Schneider Electric." },
+  { icon: MapPin, title: "Cobertura nacional", desc: "Operativos en toda la península, Baleares y Canarias desde Alcalá de Henares." },
 ];
 
 export function Advantages() {

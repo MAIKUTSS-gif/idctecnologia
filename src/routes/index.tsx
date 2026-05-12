@@ -11,7 +11,7 @@ import { CtaFinal } from "@/components/sections/CtaFinal";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Novatek — Automatización industrial del futuro" },
+      { title: "IDC Tecnología — Automatización industrial del futuro" },
       { name: "description", content: "Ingeniería, automatización, mantenimiento industrial y distribución de componentes técnicos. Soluciones llave en mano para la industria 4.0." },
     ],
   }),

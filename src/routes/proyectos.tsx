@@ -5,9 +5,9 @@ import { CtaFinal } from "@/components/sections/CtaFinal";
 export const Route = createFileRoute("/proyectos")({
   head: () => ({
     meta: [
-      { title: "Proyectos industriales destacados | Novatek" },
+      { title: "Proyectos industriales destacados | IDC Tecnología" },
       { name: "description", content: "Casos reales de automatización industrial: líneas robotizadas, cuadros eléctricos, smart factories e integraciones SCADA." },
-      { property: "og:title", content: "Proyectos industriales — Novatek" },
+      { property: "og:title", content: "Proyectos industriales — IDC Tecnología" },
       { property: "og:description", content: "+450 proyectos llave en mano para la industria." },
     ],
   }),

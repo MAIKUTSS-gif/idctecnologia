@@ -62,10 +62,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Novatek — Automatización industrial e ingeniería 4.0" },
+      { title: "IDC Tecnología — Automatización industrial e ingeniería 4.0" },
       { name: "description", content: "Soluciones llave en mano de automatización, ingeniería y mantenimiento industrial. Más de 20 años transformando fábricas." },
-      { name: "author", content: "Novatek" },
-      { property: "og:title", content: "Novatek — Automatización industrial" },
+      { name: "author", content: "IDC Tecnología" },
+      { property: "og:title", content: "IDC Tecnología — Automatización industrial" },
       { property: "og:description", content: "Ingeniería, automatización y mantenimiento industrial para la industria 4.0." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -102,7 +102,7 @@ function RootComponent() {
       </main>
       <SiteFooter />
       <a
-        href="https://wa.me/34910000000"
+        href="https://wa.me/34918796046"
         target="_blank"
         rel="noreferrer"
         aria-label="WhatsApp"

@@ -7,9 +7,9 @@ import { Partners } from "@/components/sections/Partners";
 export const Route = createFileRoute("/servicios")({
   head: () => ({
     meta: [
-      { title: "Servicios — Ingeniería, automatización y mantenimiento industrial | Novatek" },
+      { title: "Servicios — Ingeniería, automatización y mantenimiento industrial | IDC Tecnología" },
       { name: "description", content: "Automatización PLC/SCADA, mantenimiento preventivo y predictivo, distribución de componentes industriales. Servicios técnicos para la industria." },
-      { property: "og:title", content: "Servicios industriales — Novatek" },
+      { property: "og:title", content: "Servicios industriales — IDC Tecnología" },
       { property: "og:description", content: "Ingeniería, automatización y mantenimiento llave en mano." },
     ],
   }),

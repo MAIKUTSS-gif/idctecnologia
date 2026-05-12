@@ -6,10 +6,10 @@ import { CtaFinal } from "@/components/sections/CtaFinal";
 export const Route = createFileRoute("/sobre-nosotros")({
   head: () => ({
     meta: [
-      { title: "Sobre Novatek — 20 años de ingeniería industrial" },
-      { name: "description", content: "Conoce el equipo, la metodología y la visión de Novatek: ingeniería industrial avanzada con cobertura nacional." },
-      { property: "og:title", content: "Sobre Novatek" },
-      { property: "og:description", content: "Equipo, metodología y visión de Novatek Industrial Automation." },
+      { title: "Sobre IDC Tecnología — 20 años de ingeniería industrial" },
+      { name: "description", content: "Conoce el equipo, la metodología y la visión de IDC Tecnología: ingeniería industrial avanzada con cobertura nacional." },
+      { property: "og:title", content: "Sobre IDC Tecnología" },
+      { property: "og:description", content: "Equipo, metodología y visión de IDC Tecnología." },
     ],
   }),
   component: AboutPage,

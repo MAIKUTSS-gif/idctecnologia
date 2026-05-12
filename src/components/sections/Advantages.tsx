@@ -15,7 +15,7 @@ export function Advantages() {
       <div className="container mx-auto px-4">
         <div className="mx-auto max-w-2xl text-center">
           <div className="inline-flex items-center gap-2 rounded-full border border-border bg-surface px-4 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-tech-green" /> Por qué Novatek
+            <span className="h-1.5 w-1.5 rounded-full bg-tech-green" /> Por qué IDC Tecnología
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
             La diferencia está en la <span className="text-gradient">ingeniería</span>

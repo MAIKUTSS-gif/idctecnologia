@@ -2,7 +2,7 @@ import { Quote, Star } from "lucide-react";
 
 const TESTIMONIALS = [
   {
-    quote: "Novatek transformó nuestra línea de envasado con un sistema de visión artificial que redujo defectos en un 27%. Profesionales de primer nivel.",
+    quote: "IDC Tecnología transformó nuestra línea de envasado con un sistema de visión artificial que redujo defectos en un 27%. Profesionales de primer nivel.",
     name: "Carlos Méndez",
     role: "Director Técnico",
     company: "Grupo Alimentario Iberia",

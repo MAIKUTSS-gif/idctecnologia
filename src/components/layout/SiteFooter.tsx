@@ -1,5 +1,6 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Zap, Send } from "lucide-react";
+import { Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Send } from "lucide-react";
+import logo from "@/assets/idc-logo.png";
 
 export function SiteFooter() {
   return (

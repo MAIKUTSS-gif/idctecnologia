@@ -28,7 +28,7 @@ export function CtaFinal() {
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
           <Button asChild variant="hero" size="xl">
             <Link to="/contacto">
-              Hablar con un ingeniero <ArrowRight className="h-4 w-4" />
+              Solicitar asesoramiento técnico <ArrowRight className="h-4 w-4" />
             </Link>
           </Button>
           <Button asChild variant="glass" size="xl" className="text-white">

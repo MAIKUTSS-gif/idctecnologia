@@ -2,22 +2,22 @@ import { Quote, Star } from "lucide-react";
 
 const TESTIMONIALS = [
   {
-    quote: "IDC Tecnología transformó nuestra línea de envasado con un sistema de visión artificial que redujo defectos en un 27%. Profesionales de primer nivel.",
-    name: "Carlos Méndez",
-    role: "Director Técnico",
-    company: "Grupo Alimentario Iberia",
+    quote: "La automatización implementada por IDC mejoró nuestra productividad y redujo incidencias desde el primer mes.",
+    name: "Director de Planta",
+    role: "Director de Planta",
+    company: "Sector Automoción",
   },
   {
-    quote: "El soporte 24/7 nos ha salvado en momentos críticos. Equipo cercano, técnico y resolutivo. Han sido un partner desde hace 7 años.",
-    name: "Marta Ferrer",
-    role: "Responsable de Planta",
-    company: "Auto Components SA",
+    quote: "Destacamos su capacidad de respuesta, nivel técnico y soluciones personalizadas.",
+    name: "Responsable Técnico",
+    role: "Responsable Técnico",
+    company: "Industria Alimentaria",
   },
   {
-    quote: "La integración SCADA y la digitalización del proceso nos dio visibilidad real del OEE por primera vez. Recomendados sin dudar.",
-    name: "Javier Romero",
-    role: "Ingeniero Industrial Senior",
-    company: "Pharma Solutions",
+    quote: "Un partner tecnológico fiable para proyectos industriales complejos.",
+    name: "Production Manager",
+    role: "Production Manager",
+    company: "Industria Farmacéutica",
   },
 ];
 

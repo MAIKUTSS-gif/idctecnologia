@@ -41,7 +41,11 @@ export function SiteHeader() {
               alt="IDC Tecnología — Factory Automation"
               width={180}
               height={56}
-              className={`h-10 w-auto transition-all duration-300 ${scrolled ? "" : "drop-shadow-[0_2px_8px_rgba(0,0,0,0.25)]"}`}
+              className={`h-11 w-auto transition-all duration-300 ${
+                scrolled
+                  ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
+                  : "drop-shadow-[0_0_14px_rgba(120,170,255,0.55)]"
+              }`}
             />
           </Link>
 

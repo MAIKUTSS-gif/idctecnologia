@@ -45,7 +45,7 @@ export function SiteFooter() {
                 alt="IDC Tecnología — Factory Automation"
                 width={220}
                 height={68}
-                className="h-12 w-auto brightness-0 invert"
+                className="h-14 w-auto drop-shadow-[0_0_18px_rgba(80,140,255,0.45)]"
               />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">

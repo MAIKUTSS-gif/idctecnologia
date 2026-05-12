@@ -114,8 +114,8 @@ export function Hero() {
 }
 
 const STATS = [
-  { value: "20+", label: "Años de experiencia" },
-  { value: "450", label: "Proyectos entregados" },
-  { value: "24/7", label: "Soporte técnico" },
-  { value: "99.7%", label: "Uptime garantizado" },
+  { value: "+25", label: "Años de experiencia" },
+  { value: "+1.100", label: "Proyectos industriales" },
+  { value: "+340", label: "Clientes activos" },
+  { value: "24/7", label: "Soporte especializado" },
 ];

@@ -137,7 +137,7 @@ function ContactPage() {
           <div className="space-y-4">
             <ContactCard icon={Phone} title="Teléfono" value="+34 91 879 60 46" sub="Lun–Vie 8:00–20:00" />
             <ContactCard icon={Mail} title="Email" value="informacion@idc.es" sub="Respuesta en 24h" />
-            <ContactCard icon={MapPin} title="Oficina central" value="Polígono Industrial Norte" sub="28100 Madrid, España" />
+            <ContactCard icon={MapPin} title="Oficina central" value="Parque Científico TecnoAlcalá" sub="C/ Punto Mobi, 10 · 28805 Alcalá de Henares, Madrid" />
             <a
               href="https://wa.me/34918796046"
               target="_blank"

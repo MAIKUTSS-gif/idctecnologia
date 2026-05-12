@@ -43,7 +43,7 @@ export function SiteFooter() {
                 <Zap className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
               </div>
               <div>
-                <div className="font-display text-lg font-semibold">NOVATEK</div>
+                <div className="font-display text-lg font-semibold">IDC TECNOLOGÍA</div>
                 <div className="text-[10px] uppercase tracking-[0.18em] text-white/50">
                   Industrial Automation
                 </div>
@@ -108,22 +108,22 @@ export function SiteFooter() {
             <ul className="mt-4 space-y-3 text-sm text-white/70">
               <li className="flex items-start gap-3">
                 <MapPin className="mt-0.5 h-4 w-4 text-electric" />
-                Polígono Industrial Norte<br />28100 Madrid, España
+                Parque Científico TecnoAlcalá<br />C/ Punto Mobi, 10 · 28805 Alcalá de Henares, Madrid
               </li>
               <li className="flex items-center gap-3">
                 <Phone className="h-4 w-4 text-electric" />
-                +34 910 000 000
+                +34 91 879 60 46
               </li>
               <li className="flex items-center gap-3">
                 <Mail className="h-4 w-4 text-electric" />
-                contacto@novatek.io
+                informacion@idc.es
               </li>
             </ul>
           </div>
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row">
-          <p>© {new Date().getFullYear()} Novatek Industrial Automation. Todos los derechos reservados.</p>
+          <p>© {new Date().getFullYear()} IDC Tecnología. Todos los derechos reservados.</p>
           <div className="flex gap-6">
             <span>ISO 9001:2015</span>
             <span>ISO 14001</span>

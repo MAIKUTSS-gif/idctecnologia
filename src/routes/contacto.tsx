@@ -7,9 +7,9 @@ import { Button } from "@/components/ui/button";
 export const Route = createFileRoute("/contacto")({
   head: () => ({
     meta: [
-      { title: "Contacto — Solicita presupuesto industrial | Novatek" },
+      { title: "Contacto — Solicita presupuesto industrial | IDC Tecnología" },
       { name: "description", content: "Habla con un ingeniero industrial. Presupuesto en 24h para proyectos de automatización, mantenimiento o distribución." },
-      { property: "og:title", content: "Contacto — Novatek" },
+      { property: "og:title", content: "Contacto — IDC Tecnología" },
       { property: "og:description", content: "Solicita presupuesto y habla con un ingeniero." },
     ],
   }),
@@ -135,11 +135,11 @@ function ContactPage() {
 
           {/* Aside contact */}
           <div className="space-y-4">
-            <ContactCard icon={Phone} title="Teléfono" value="+34 910 000 000" sub="Lun–Vie 8:00–20:00" />
-            <ContactCard icon={Mail} title="Email" value="contacto@novatek.io" sub="Respuesta en 24h" />
-            <ContactCard icon={MapPin} title="Oficina central" value="Polígono Industrial Norte" sub="28100 Madrid, España" />
+            <ContactCard icon={Phone} title="Teléfono" value="+34 91 879 60 46" sub="Lun–Vie 8:00–20:00" />
+            <ContactCard icon={Mail} title="Email" value="informacion@idc.es" sub="Respuesta en 24h" />
+            <ContactCard icon={MapPin} title="Oficina central" value="Parque Científico TecnoAlcalá" sub="C/ Punto Mobi, 10 · 28805 Alcalá de Henares, Madrid" />
             <a
-              href="https://wa.me/34910000000"
+              href="https://wa.me/34918796046"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-4 rounded-2xl border border-border bg-graphite p-5 text-graphite-foreground transition-transform hover:scale-[1.01]"

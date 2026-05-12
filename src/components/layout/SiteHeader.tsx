@@ -39,7 +39,7 @@ export function SiteHeader() {
               <Zap className="h-5 w-5 text-primary-foreground" strokeWidth={2.5} />
             </div>
             <div className="leading-tight">
-              <div className="font-display text-base font-semibold tracking-tight">NOVATEK</div>
+              <div className="font-display text-base font-semibold tracking-tight">IDC TECNOLOGÍA</div>
               <div className="text-[10px] uppercase tracking-[0.18em] text-muted-foreground">
                 Industrial Automation
               </div>

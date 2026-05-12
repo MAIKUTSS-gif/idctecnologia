@@ -27,18 +27,17 @@ export function Hero() {
         <div className="mx-auto max-w-4xl text-center animate-fade-up">
           <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md">
             <span className="grid h-1.5 w-1.5 place-items-center rounded-full bg-tech-green animate-pulse" />
-            Ingeniería industrial · Automatización · Industria 4.0
+            Desde 1996 · Automatización · Ingeniería · Industria 4.0
           </div>
 
           <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl lg:text-[88px]">
-            Impulsamos la{" "}
-            <span className="text-gradient">automatización industrial</span>{" "}
-            del futuro
+            Automatización industrial inteligente para{" "}
+            <span className="text-gradient">fábricas del futuro</span>
           </h1>
 
           <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl">
-            Soluciones avanzadas de ingeniería, mantenimiento y automatización para industrias
-            que quieren ser más eficientes, seguras y rentables.
+            Diseñamos, integramos y mantenemos soluciones industriales avanzadas para empresas
+            que buscan máxima eficiencia, productividad y control tecnológico.
           </p>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
@@ -115,8 +114,8 @@ export function Hero() {
 }
 
 const STATS = [
-  { value: "20+", label: "Años de experiencia" },
-  { value: "450", label: "Proyectos entregados" },
-  { value: "24/7", label: "Soporte técnico" },
-  { value: "99.7%", label: "Uptime garantizado" },
+  { value: "+25", label: "Años de experiencia" },
+  { value: "+1.100", label: "Proyectos industriales" },
+  { value: "+340", label: "Clientes activos" },
+  { value: "24/7", label: "Soporte especializado" },
 ];

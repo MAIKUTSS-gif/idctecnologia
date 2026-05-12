@@ -21,8 +21,8 @@ export function CtaFinal() {
         </h2>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-white/70">
-          Cuéntanos tu reto y te conectamos en 24h con el ingeniero que mejor encaja
-          con tu sector y proceso.
+          Optimiza tus procesos, reduce costes y acelera la digitalización de tu fábrica
+          con soluciones industriales avanzadas.
         </p>
 
         <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">

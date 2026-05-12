@@ -62,13 +62,17 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "IDC Tecnología — Automatización industrial e ingeniería 4.0" },
-      { name: "description", content: "Desde 1996. Automatización, ingeniería, mantenimiento electromecánico y distribución tecnológica industrial. +1.100 proyectos, +340 clientes." },
-      { name: "author", content: "IDC Tecnología" },
-      { property: "og:title", content: "IDC Tecnología — Automatización industrial" },
-      { property: "og:description", content: "Ingeniería, automatización y mantenimiento industrial para la Industria 4.0." },
+      { title: "IDC-TECNOLOGIA" },
+      { name: "description", content: "Soluciones llave en mano de automatización, ingeniería y mantenimiento industrial. Más de 20 años transformando fábricas." },
+      { name: "author", content: "Novatek" },
+      { property: "og:title", content: "IDC-TECNOLOGIA" },
+      { property: "og:description", content: "Soluciones llave en mano de automatización, ingeniería y mantenimiento industrial. Más de 20 años transformando fábricas." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "IDC-TECNOLOGIA" },
+      { name: "twitter:description", content: "Soluciones llave en mano de automatización, ingeniería y mantenimiento industrial. Más de 20 años transformando fábricas." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6419b624-cf49-4a1d-aa68-e57106df344f/id-preview-79ac3fe8--5b1871f9-672d-4f66-8b0b-2b467b5b1a84.lovable.app-1778610992316.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/6419b624-cf49-4a1d-aa68-e57106df344f/id-preview-79ac3fe8--5b1871f9-672d-4f66-8b0b-2b467b5b1a84.lovable.app-1778610992316.png" },
     ],
     links: [{ rel: "stylesheet", href: appCss }],
   }),
@@ -102,7 +106,7 @@ function RootComponent() {
       </main>
       <SiteFooter />
       <a
-        href="https://wa.me/34918796046"
+        href="https://wa.me/34910000000"
         target="_blank"
         rel="noreferrer"
         aria-label="WhatsApp"

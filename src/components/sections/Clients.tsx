@@ -3,7 +3,7 @@ const CLIENTS = [
   { name: "Valeo", domain: "valeo.com" },
   { name: "Zara", domain: "zara.com" },
   { name: "Universidad Carlos III", domain: "uc3m.es" },
-  { name: "Universidad Politécnica de Madrid", domain: "upm.es" },
+  { name: "Universidad Politécnica", domain: "upm.es" },
   { name: "3M", domain: "3m.com" },
   { name: "Aernnova", domain: "aernnova.com" },
   { name: "Alter Farmacia", domain: "alterfarmacia.com" },
@@ -29,57 +29,50 @@ const CLIENTS = [
 
 export function Clients() {
   return (
-    <section className="relative overflow-hidden border-y border-border bg-surface py-20 lg:py-28">
-      <div className="pointer-events-none absolute inset-0 bg-mesh opacity-30" aria-hidden />
-
-      <div className="container relative mx-auto px-4">
-        <div className="mx-auto max-w-2xl text-center">
-          <div className="inline-flex items-center gap-2 rounded-full border border-border bg-card px-4 py-1.5 text-xs font-medium text-muted-foreground">
-            <span className="h-1.5 w-1.5 rounded-full bg-electric" />
-            Clientes
-          </div>
-          <h2 className="mt-6 font-display text-3xl font-semibold tracking-tight md:text-4xl lg:text-5xl">
-            Empresas que <span className="text-gradient">confían en nosotros</span>
-          </h2>
-          <p className="mt-4 text-base text-muted-foreground md:text-lg">
-            Más de 25 años acompañando a referentes industriales, tecnológicos e institucionales.
-          </p>
-        </div>
-
-        <div className="mt-16 grid grid-cols-2 gap-px overflow-hidden rounded-3xl border border-border bg-border sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6">
-          {CLIENTS.map((c) => (
-            <div
-              key={c.name}
-              className="group relative flex aspect-[5/3] items-center justify-center bg-card p-5 transition-colors duration-300 hover:bg-surface-elevated"
-              title={c.name}
-            >
-              <img
-                src={`https://logo.clearbit.com/${c.domain}?size=200`}
-                alt={c.name}
-                loading="lazy"
-                width={160}
-                height={64}
-                className="max-h-12 w-auto max-w-[80%] object-contain opacity-60 grayscale transition-all duration-500 ease-out group-hover:scale-105 group-hover:opacity-100 group-hover:grayscale-0"
-                onError={(e) => {
-                  const img = e.currentTarget;
-                  img.style.display = "none";
-                  const fallback = img.nextElementSibling as HTMLElement | null;
-                  if (fallback) fallback.style.display = "flex";
-                }}
-              />
-              <span
-                className="hidden h-full w-full items-center justify-center text-center font-display text-sm font-semibold tracking-wide text-foreground/60 transition-colors group-hover:text-foreground"
-                aria-hidden
-              >
-                {c.name}
-              </span>
-            </div>
-          ))}
-        </div>
-
-        <p className="mt-10 text-center text-xs uppercase tracking-[0.2em] text-muted-foreground/70">
-          Industria · Automoción · Farma · Alimentación · Aeronáutica · Universidades · Centros de investigación
+    <section className="border-y border-border bg-surface py-20">
+      <div className="container mx-auto px-4">
+        <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+          Empresas que confían en nosotros
         </p>
+        <h2 className="mt-4 text-center font-display text-3xl font-semibold tracking-tight md:text-4xl">
+          Más de 25 años junto a <span className="text-gradient">líderes industriales</span>
+        </h2>
+
+        <div className="relative mt-12 overflow-hidden">
+          <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-surface to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-surface to-transparent" />
+
+          <div className="flex w-max animate-marquee items-center gap-16">
+            {[...CLIENTS, ...CLIENTS].map((c, i) => (
+              <div
+                key={`${c.name}-${i}`}
+                className="group flex h-16 w-40 shrink-0 items-center justify-center"
+                title={c.name}
+              >
+                <img
+                  src={`https://logo.clearbit.com/${c.domain}?size=200`}
+                  alt={c.name}
+                  loading="lazy"
+                  width={160}
+                  height={48}
+                  className="max-h-12 w-auto max-w-full object-contain opacity-60 grayscale transition-all duration-500 ease-out group-hover:scale-110 group-hover:opacity-100 group-hover:grayscale-0"
+                  onError={(e) => {
+                    const img = e.currentTarget;
+                    img.style.display = "none";
+                    const fallback = img.nextElementSibling as HTMLElement | null;
+                    if (fallback) fallback.style.display = "flex";
+                  }}
+                />
+                <span
+                  className="hidden h-full w-full items-center justify-center text-center font-display text-base font-semibold tracking-[0.15em] text-foreground/50 transition-colors group-hover:text-foreground"
+                  aria-hidden
+                >
+                  {c.name.toUpperCase()}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );

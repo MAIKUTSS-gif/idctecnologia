@@ -60,7 +60,7 @@
   --popover-foreground: oklch(0.22 0.025 255);
 
   /* Lighter "graphite" — luminous deep slate-blue */
-  --graphite: oklch(0.72 0.09 235);
+  --graphite: oklch(0.56 0.08 245);
   --graphite-foreground: oklch(0.99 0.004 240);
 
 

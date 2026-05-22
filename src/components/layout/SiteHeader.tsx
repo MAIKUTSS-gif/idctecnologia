@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logo from "@/assets/idc-logo.png";
+import logoVideo from "@/assets/idc-logo.mp4";
 
 const NAV = [
   { to: "/", label: "Inicio" },
@@ -35,13 +35,15 @@ export function SiteHeader() {
             scrolled ? "glass shadow-soft" : "bg-transparent"
           }`}
         >
-          <Link to="/" className="flex items-center group">
-            <img
-              src={logo}
-              alt="IDC Tecnología — Factory Automation"
-              width={180}
-              height={56}
-              className={`h-11 w-auto transition-all duration-300 ${
+          <Link to="/" className="flex items-center group" aria-label="IDC Tecnología — Inicio">
+            <video
+              src={logoVideo}
+              autoPlay
+              loop
+              muted
+              playsInline
+              aria-hidden
+              className={`h-11 w-auto object-contain transition-all duration-300 [mask-image:linear-gradient(black,black)] ${
                 scrolled
                   ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                   : "drop-shadow-[0_0_14px_rgba(120,170,255,0.55)]"

@@ -43,7 +43,7 @@ export function SiteHeader() {
               muted
               playsInline
               aria-hidden
-              className={`h-11 w-auto object-contain transition-all duration-300 [mask-image:linear-gradient(black,black)] ${
+              className={`h-16 md:h-20 w-auto object-contain transition-all duration-300 [mask-image:linear-gradient(black,black)] ${
                 scrolled
                   ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                   : "drop-shadow-[0_0_14px_rgba(120,170,255,0.55)]"

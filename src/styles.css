@@ -60,7 +60,7 @@
   --popover-foreground: oklch(0.22 0.025 255);
 
   /* Lighter "graphite" — luminous deep slate-blue */
-  --graphite: oklch(0.72 0.09 235);
+  --graphite: oklch(0.56 0.08 245);
   --graphite-foreground: oklch(0.99 0.004 240);
 
 
@@ -94,7 +94,7 @@
 
   --gradient-primary: linear-gradient(135deg, oklch(0.6 0.22 255), oklch(0.74 0.16 220));
   --gradient-tech: linear-gradient(135deg, oklch(0.6 0.22 255) 0%, oklch(0.8 0.15 205) 100%);
-  --gradient-dark: linear-gradient(180deg, oklch(0.76 0.09 230) 0%, oklch(0.66 0.11 238) 100%);
+  --gradient-dark: linear-gradient(180deg, oklch(0.6 0.08 245) 0%, oklch(0.48 0.09 250) 100%);
   --gradient-mesh:
     radial-gradient(at 20% 20%, oklch(0.58 0.22 255 / 0.18) 0px, transparent 50%),
     radial-gradient(at 80% 0%, oklch(0.78 0.16 200 / 0.18) 0px, transparent 50%),

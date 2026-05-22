@@ -26,12 +26,12 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2" : "py-4"
+        scrolled ? "py-2" : "py-3"
       }`}
     >
       <div className="container mx-auto px-4">
         <div
-          className={`flex items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 ${
+          className={`flex items-center justify-between rounded-2xl px-4 py-2 transition-all duration-300 ${
             scrolled ? "glass shadow-soft" : "bg-transparent"
           }`}
         >

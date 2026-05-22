@@ -2,7 +2,7 @@ import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import logoVideo from "@/assets/idc-logo.mp4";
+import logo from "@/assets/idc-logo.png";
 
 const NAV = [
   { to: "/", label: "Inicio" },
@@ -26,24 +26,22 @@ export function SiteHeader() {
   return (
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
-        scrolled ? "py-2" : "py-3"
+        scrolled ? "py-2" : "py-4"
       }`}
     >
       <div className="container mx-auto px-4">
         <div
-          className={`flex items-center justify-between rounded-2xl px-4 py-2 transition-all duration-300 ${
+          className={`flex items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 ${
             scrolled ? "glass shadow-soft" : "bg-transparent"
           }`}
         >
-          <Link to="/" className="flex items-center group" aria-label="IDC Tecnología — Inicio">
-            <video
-              src={logoVideo}
-              autoPlay
-              loop
-              muted
-              playsInline
-              aria-hidden
-              className={`h-16 md:h-20 w-auto object-contain transition-all duration-300 [mask-image:linear-gradient(black,black)] ${
+          <Link to="/" className="flex items-center group">
+            <img
+              src={logo}
+              alt="IDC Tecnología — Factory Automation"
+              width={180}
+              height={56}
+              className={`h-11 w-auto transition-all duration-300 ${
                 scrolled
                   ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                   : "drop-shadow-[0_0_14px_rgba(120,170,255,0.55)]"

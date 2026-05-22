@@ -47,7 +47,7 @@ export function SiteFooter() {
                 muted
                 playsInline
                 aria-hidden
-                className="h-14 w-auto object-contain drop-shadow-[0_0_18px_rgba(80,140,255,0.45)]"
+                className="h-24 w-auto object-contain drop-shadow-[0_0_18px_rgba(80,140,255,0.45)]"
               />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">

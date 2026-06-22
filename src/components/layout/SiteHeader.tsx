@@ -1,6 +1,5 @@
 import { Link } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
-import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import logo from "@/assets/idc-logo.png";
 
@@ -14,7 +13,6 @@ const NAV = [
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
-  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -49,12 +47,12 @@ export function SiteHeader() {
             />
           </Link>
 
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="flex items-center gap-0.5 sm:gap-1">
             {NAV.map((item) => (
               <Link
                 key={item.to}
                 to={item.to}
-                className="rounded-lg px-4 py-2 text-sm font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground"
+                className="rounded-lg px-2 py-2 text-[11px] font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground sm:px-3 sm:text-xs md:px-4 md:text-sm"
                 activeProps={{ className: "text-primary" }}
                 activeOptions={{ exact: item.to === "/" }}
               >
@@ -63,44 +61,14 @@ export function SiteHeader() {
             ))}
           </nav>
 
-          <div className="hidden items-center gap-2 lg:flex">
+          <div className="hidden items-center gap-2 sm:flex">
             <Button asChild variant="hero" size="default">
               <Link to="/contacto">Solicitar presupuesto</Link>
             </Button>
           </div>
-
-          <button
-            className="grid h-10 w-10 place-items-center rounded-lg border border-border lg:hidden"
-            onClick={() => setOpen((v) => !v)}
-            aria-label="Menu"
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
         </div>
-
-        {open && (
-          <div className="mt-2 rounded-2xl glass p-4 shadow-elevated lg:hidden animate-fade-up">
-            <nav className="flex flex-col">
-              {NAV.map((item) => (
-                <Link
-                  key={item.to}
-                  to={item.to}
-                  onClick={() => setOpen(false)}
-                  className="rounded-lg px-4 py-3 text-sm font-medium hover:bg-foreground/5"
-                  activeProps={{ className: "text-primary" }}
-                >
-                  {item.label}
-                </Link>
-              ))}
-              <Button asChild variant="hero" className="mt-2">
-                <Link to="/contacto" onClick={() => setOpen(false)}>
-                  Solicitar presupuesto
-                </Link>
-              </Button>
-            </nav>
-          </div>
-        )}
       </div>
     </header>
   );
 }
+

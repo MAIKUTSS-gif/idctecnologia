@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Play, ShieldCheck, Cpu, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroImg from "@/assets/hero-factory.jpg";
+import heroAsset from "@/assets/hero-factory.png.asset.json";
 
 export function Hero() {
   return (
@@ -9,13 +9,13 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0">
         <img
-          src={heroImg}
+          src={heroAsset.url}
           alt="Fábrica inteligente con robots industriales"
           width={1920}
           height={1080}
-          className="h-full w-full object-cover opacity-50"
+          className="h-full w-full object-cover opacity-40"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-graphite/70 via-graphite/60 to-graphite" />
+        <div className="absolute inset-0 bg-gradient-to-b from-graphite/90 via-graphite/80 to-graphite" />
         <div className="absolute inset-0 grid-bg-dark opacity-30" />
       </div>
 

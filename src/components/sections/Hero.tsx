@@ -7,16 +7,16 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-background text-foreground">
       {/* Background image */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0 bg-background">
         <img
           src={heroAsset.url}
           alt="Fábrica inteligente con robots industriales"
           width={1920}
           height={1080}
-          className="h-full w-full object-cover"
+          className="h-full w-full object-contain object-center"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-background/40 via-background/20 to-background" />
-        <div className="absolute inset-0 grid-bg opacity-20" />
+        <div className="absolute inset-0 bg-gradient-to-b from-background/60 via-background/30 to-background" />
+        <div className="absolute inset-0 grid-bg opacity-10" />
       </div>
 
       {/* Glow blobs */}

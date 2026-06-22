@@ -7,17 +7,19 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-graphite text-graphite-foreground">
       {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src={heroAsset.url}
-          alt="Fábrica inteligente con robots industriales"
-          width={1920}
-          height={1080}
-          className="h-full w-full object-cover object-center"
-        />
-        <div className="absolute inset-0 bg-black/[0.35]" />
-        <div className="absolute inset-0 grid-bg-dark opacity-30" />
-      </div>
+      <div
+        className="absolute inset-0 bg-[#f5f7fa]"
+        role="img"
+        aria-label="Fábrica inteligente con robots industriales"
+        style={{
+          backgroundImage: `url(${heroAsset.url})`,
+          backgroundSize: "contain",
+          backgroundPosition: "center center",
+          backgroundRepeat: "no-repeat",
+        }}
+      />
+      <div className="absolute inset-0 bg-black/[0.35]" />
+      <div className="absolute inset-0 grid-bg-dark opacity-30" />
 
       {/* Glow blobs */}
       <div className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-electric/30 blur-[120px] animate-pulse-glow" />

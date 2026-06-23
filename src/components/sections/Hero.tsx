@@ -1,54 +1,57 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Play, ShieldCheck, Cpu, Activity } from "lucide-react";
+import { ArrowRight, Play, Cpu, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroAsset from "@/assets/hero-fondo-idc.png.asset.json";
 
 export function Hero() {
   return (
-    <section className="relative isolate overflow-hidden bg-graphite text-graphite-foreground">
+    <section className="relative isolate overflow-hidden bg-[#f5f7fa]">
       {/* Background image */}
       <div
-        className="absolute inset-0 bg-[#f5f7fa]"
+        className="absolute inset-0"
         role="img"
         aria-label="Fábrica inteligente con robots industriales"
         style={{
           backgroundImage: `url(${heroAsset.url})`,
-          backgroundSize: "contain",
-          backgroundPosition: "center top",
+          backgroundSize: "cover",
+          backgroundPosition: "center right",
           backgroundRepeat: "no-repeat",
         }}
       />
-      <div className="absolute inset-0 bg-black/[0.35]" />
-      <div className="absolute inset-0 grid-bg-dark opacity-30" />
 
-      {/* Glow blobs */}
-      <div className="pointer-events-none absolute -left-32 top-1/3 h-96 w-96 rounded-full bg-electric/30 blur-[120px] animate-pulse-glow" />
-      <div className="pointer-events-none absolute -right-20 top-20 h-80 w-80 rounded-full bg-cyan-tech/20 blur-[120px] animate-pulse-glow" style={{ animationDelay: "1s" }} />
+      {/* White-to-transparent overlay on the left for text readability */}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(90deg, rgba(245,247,250,0.92) 0%, rgba(245,247,250,0.75) 35%, rgba(245,247,250,0.3) 55%, transparent 70%)",
+        }}
+      />
 
-      <div className="container relative mx-auto px-4 pb-32 pt-40 lg:pb-40 lg:pt-48">
-        <div className="mx-auto max-w-4xl text-center animate-fade-up">
-          <div className="mx-auto mb-6 inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-4 py-1.5 text-xs font-medium text-white/80 backdrop-blur-md">
+      <div className="container relative mx-auto px-4 pb-16 pt-32 lg:pb-24 lg:pt-40">
+        <div className="max-w-2xl animate-fade-up">
+          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-foreground/10 bg-white/70 px-4 py-1.5 text-xs font-medium text-foreground/80 backdrop-blur-sm">
             <span className="grid h-1.5 w-1.5 place-items-center rounded-full bg-tech-green animate-pulse" />
             Desde 1996 · Automatización · Ingeniería · Industria 4.0
           </div>
 
-          <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-7xl lg:text-[88px]">
+          <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-[72px]">
             Automatización industrial inteligente para{" "}
-            <span className="text-gradient">fábricas del futuro</span>
+            <span className="text-electric">fábricas del futuro</span>
           </h1>
 
-          <p className="mx-auto mt-8 max-w-2xl text-lg leading-relaxed text-white/70 md:text-xl">
+          <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
             Diseñamos, integramos y mantenemos soluciones industriales avanzadas para empresas
             que buscan máxima eficiencia, productividad y control tecnológico.
           </p>
 
-          <div className="mt-10 flex flex-col items-center justify-center gap-3 sm:flex-row">
+          <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">
             <Button asChild variant="hero" size="xl">
               <Link to="/contacto">
                 Solicitar presupuesto <ArrowRight className="h-4 w-4" />
               </Link>
             </Button>
-            <Button asChild variant="glass" size="xl" className="text-white">
+            <Button asChild variant="secondary" size="xl">
               <Link to="/servicios">
                 <Play className="h-4 w-4" /> Ver servicios
               </Link>
@@ -56,25 +59,25 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Floating dashboard card */}
-        <div className="mx-auto mt-20 max-w-5xl animate-fade-up" style={{ animationDelay: "200ms" }}>
-          <div className="relative rounded-3xl border border-white/10 bg-white/5 p-2 backdrop-blur-xl shadow-elevated">
-            <div className="grid grid-cols-2 gap-2 rounded-2xl bg-graphite/80 p-6 md:grid-cols-4 md:p-8">
+        {/* Stats dashboard */}
+        <div className="mt-16 max-w-4xl animate-fade-up" style={{ animationDelay: "200ms" }}>
+          <div className="relative rounded-2xl bg-graphite p-6 shadow-elevated md:p-8">
+            <div className="grid grid-cols-2 gap-6 md:grid-cols-4">
               {STATS.map((s) => (
                 <div key={s.label} className="text-center">
-                  <div className="font-display text-3xl font-semibold text-gradient md:text-5xl">
+                  <div className="font-display text-3xl font-semibold text-electric md:text-4xl">
                     {s.value}
                   </div>
-                  <div className="mt-2 text-xs uppercase tracking-wider text-white/60 md:text-sm">
+                  <div className="mt-1 text-xs uppercase tracking-wider text-white/60 md:text-sm">
                     {s.label}
                   </div>
                 </div>
               ))}
             </div>
 
-            <div className="absolute -left-4 -top-4 hidden rounded-2xl border border-white/10 bg-graphite/90 px-4 py-3 backdrop-blur-md shadow-elevated md:flex md:items-center md:gap-3 animate-float">
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-electric/20">
-                <Cpu className="h-5 w-5 text-electric" />
+            <div className="absolute -left-3 -top-3 hidden rounded-xl border border-white/10 bg-graphite px-3 py-2 shadow-elevated md:flex md:items-center md:gap-2 animate-float">
+              <div className="grid h-9 w-9 place-items-center rounded-lg bg-electric/20">
+                <Cpu className="h-4 w-4 text-electric" />
               </div>
               <div>
                 <div className="text-xs text-white/60">PLC online</div>
@@ -82,56 +85,15 @@ export function Hero() {
               </div>
             </div>
 
-            <div className="absolute -bottom-4 -right-4 hidden rounded-2xl border border-white/10 bg-graphite/90 px-4 py-3 backdrop-blur-md shadow-elevated md:flex md:items-center md:gap-3 animate-float" style={{ animationDelay: "1.5s" }}>
-              <div className="grid h-10 w-10 place-items-center rounded-xl bg-cyan-tech/20">
-                <Activity className="h-5 w-5 text-cyan-tech" />
+            <div className="absolute -bottom-3 -right-3 hidden rounded-xl border border-white/10 bg-graphite px-3 py-2 shadow-elevated md:flex md:items-center md:gap-2 animate-float" style={{ animationDelay: "1.5s" }}>
+              <div className="grid h-9 w-9 place-items-center rounded-lg bg-cyan-tech/20">
+                <Activity className="h-4 w-4 text-cyan-tech" />
               </div>
               <div>
                 <div className="text-xs text-white/60">OEE planta</div>
                 <div className="font-mono text-sm font-semibold text-cyan-tech">+34%</div>
               </div>
             </div>
-          </div>
-        </div>
-
-        {/* Logos / certificaciones */}
-        <div className="mt-20">
-          <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-white/40">
-            Trabajamos con los líderes globales de la industria
-          </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 opacity-70">
-            {[
-              "Westinghouse",
-              "Valeo",
-              "Zara",
-              "Universidad Carlos III",
-              "Universidad Politécnica",
-              "3M",
-              "Aernnova",
-              "Alter Farmacia",
-              "Antena 3",
-              "Hella",
-              "Nivea",
-              "Campofrío",
-              "Saica",
-              "CSIC",
-              "Saint Gobain",
-              "Danone",
-              "ERCROS",
-              "Exide",
-              "Iberia LAE",
-              "INTA",
-              "International Paper",
-              "Lilly",
-              "OTIS",
-              "Patentes Talgo",
-              "Pladur",
-              "Robert Bosch",
-            ].map((b) => (
-              <span key={b} className="font-display text-sm font-semibold tracking-[0.1em] text-white/60">
-                {b}
-              </span>
-            ))}
           </div>
         </div>
       </div>

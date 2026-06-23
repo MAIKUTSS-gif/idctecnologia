@@ -7,7 +7,7 @@ const PROJECTS = [
   {
     img: p1,
     sector: "Automoción",
-    title: "Línea robotizada de soldadura",
+    title: "Paletizacíon mediante Robot en final de linea",
     desc: "Integración de 12 robots ABB con visión artificial para control de calidad en línea.",
     metrics: ["+38% productividad", "−22% scrap"],
     span: "lg:col-span-2 lg:row-span-2",

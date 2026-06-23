@@ -14,7 +14,7 @@ export function Hero() {
         style={{
           backgroundImage: `url(${heroAsset.url})`,
           backgroundSize: "contain",
-          backgroundPosition: "center center",
+          backgroundPosition: "center top",
           backgroundRepeat: "no-repeat",
         }}
       />

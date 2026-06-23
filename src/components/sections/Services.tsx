@@ -8,7 +8,7 @@ const SERVICES = [
   {
     icon: Cpu,
     tag: "01 / Engineering",
-    title: "Ingeniería Industrial",
+    title: "Ingeniería para la Automatización",
     desc: "Diseño y desarrollo llave en mano de sistemas automatizados con tecnología de vanguardia.",
     points: ["Automatización PLC", "SCADA & HMI", "Visión artificial", "Industria 4.0", "Integración OT/IT"],
     img: engImg,
@@ -24,7 +24,7 @@ const SERVICES = [
   {
     icon: PackageCheck,
     tag: "03 / Distribution",
-    title: "Distribución Tecnológica",
+    title: "Distribución Industrial",
     desc: "Componentes industriales de marcas oficiales con stock disponible y entrega inmediata.",
     points: ["Sensórica avanzada", "Neumática SMC", "Componentes Siemens", "Partners oficiales", "Stock 24h"],
     img: distImg,

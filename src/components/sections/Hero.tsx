@@ -97,17 +97,41 @@ export function Hero() {
         {/* Logos / certificaciones */}
         <div className="mt-20">
           <p className="text-center text-xs font-medium uppercase tracking-[0.2em] text-white/40">
-            Partners oficiales y certificaciones
+            Trabajamos con los líderes globales de la industria
           </p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 opacity-70">
-            {["SIEMENS", "ABB", "SCHNEIDER", "OMRON", "SICK", "SMC", "BOSCH"].map((b) => (
-              <span key={b} className="font-display text-lg font-semibold tracking-[0.15em] text-white/60">
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-x-8 gap-y-4 opacity-70">
+            {[
+              "Westinghouse",
+              "Valeo",
+              "Zara",
+              "Universidad Carlos III",
+              "Universidad Politécnica",
+              "3M",
+              "Aernnova",
+              "Alter Farmacia",
+              "Antena 3",
+              "Hella",
+              "Nivea",
+              "Campofrío",
+              "Saica",
+              "CSIC",
+              "Saint Gobain",
+              "Danone",
+              "ERCROS",
+              "Exide",
+              "Iberia LAE",
+              "INTA",
+              "International Paper",
+              "Lilly",
+              "OTIS",
+              "Patentes Talgo",
+              "Pladur",
+              "Robert Bosch",
+            ].map((b) => (
+              <span key={b} className="font-display text-sm font-semibold tracking-[0.1em] text-white/60">
                 {b}
               </span>
             ))}
-            <span className="ml-2 inline-flex items-center gap-2 rounded-full border border-white/15 px-3 py-1 text-xs">
-              <ShieldCheck className="h-3.5 w-3.5 text-tech-green" /> ISO 9001
-            </span>
           </div>
         </div>
       </div>

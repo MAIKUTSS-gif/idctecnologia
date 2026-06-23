@@ -1,4 +1,31 @@
-const PARTNERS = ["SIEMENS", "ABB", "SCHNEIDER", "OMRON", "SICK", "SMC", "BOSCH REXROTH", "FESTO", "ROCKWELL", "PHOENIX"];
+const PARTNERS = [
+  "Westinghouse",
+  "Valeo",
+  "Zara",
+  "Universidad Carlos III",
+  "Universidad Politécnica",
+  "3M",
+  "Aernnova",
+  "Alter Farmacia",
+  "Antena 3",
+  "Hella",
+  "Nivea",
+  "Campofrío",
+  "Saica",
+  "CSIC",
+  "Saint Gobain",
+  "Danone",
+  "ERCROS",
+  "Exide",
+  "Iberia LAE",
+  "INTA",
+  "International Paper",
+  "Lilly",
+  "OTIS",
+  "Patentes Talgo",
+  "Pladur",
+  "Robert Bosch",
+];
 
 export function Partners() {
   return (

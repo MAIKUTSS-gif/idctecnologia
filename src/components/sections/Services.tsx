@@ -41,7 +41,7 @@ export function Services() {
             Servicios principales
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-            Tres divisiones, <span className="text-gradient">un único partner industrial</span>
+            Tres Áreas de Negocios; <span className="text-gradient">Un Único Socio Industrial</span>
           </h2>
           <p className="mt-5 text-base text-muted-foreground md:text-lg">
             Desde la ingeniería de detalle hasta el suministro y mantenimiento de tus instalaciones.

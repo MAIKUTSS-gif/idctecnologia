@@ -1,3 +1,6 @@
+import logoSick from "@/assets/logo-sick.png";
+import logoSmc from "@/assets/logo-smc.png";
+
 const PARTNERS = [
   "Westinghouse",
   "Valeo",

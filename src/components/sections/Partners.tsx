@@ -38,9 +38,41 @@ export function Partners() {
           Partners oficiales de SICK y SMC
         </p>
 
-        <p className="mt-2 text-center text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
+        <div className="mt-6 flex flex-wrap items-center justify-center gap-x-12 gap-y-6 sm:gap-x-[48px]">
+          <a
+            href="https://www.sick.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="SICK — sitio oficial"
+            className="inline-flex items-center transition-transform duration-300 ease-out hover:scale-105"
+          >
+            <img
+              src={logoSick}
+              alt="SICK Sensor Intelligence"
+              className="h-10 w-auto sm:h-[50px]"
+              loading="lazy"
+            />
+          </a>
+          <a
+            href="https://www.smc.eu"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="SMC — sitio oficial"
+            className="inline-flex items-center transition-transform duration-300 ease-out hover:scale-105"
+          >
+            <img
+              src={logoSmc}
+              alt="SMC"
+              className="h-10 w-auto sm:h-[50px]"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+        <p className="mt-10 text-center text-xs font-medium uppercase tracking-[0.2em] text-muted-foreground">
           Trabajamos con los líderes globales de la industria
         </p>
+
 
         <div className="relative mt-10 overflow-hidden">
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-surface to-transparent" />

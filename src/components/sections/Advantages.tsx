@@ -18,7 +18,7 @@ export function Advantages() {
             <span className="h-1.5 w-1.5 rounded-full bg-tech-green" /> Por qué IDC Tecnología
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-            La diferencia está en la <span className="text-gradient">ingeniería</span>
+            Referentes en <span className="text-gradient">Ingeniería</span>
           </h2>
         </div>
 

@@ -26,7 +26,7 @@ const SERVICES = [
     tag: "03 / Distribution",
     title: "Distribución Industrial",
     desc: "Componentes industriales de marcas oficiales con stock disponible y entrega inmediata.",
-    points: ["Sensórica avanzada", "Neumática SMC", "Componentes Siemens", "Partners oficiales", "Stock 24h"],
+    points: ["Sensorica", "Seguridad de máquinas", "Neumática", "Control de fluidos", "Actuadores eléctricos", "Identificación"],
     img: distImg,
   },
 ] as const;

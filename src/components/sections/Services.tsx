@@ -10,7 +10,7 @@ const SERVICES = [
     tag: "01 / Engineering",
     title: "Ingeniería para la Automatización",
     desc: "Diseño y desarrollo llave en mano de sistemas automatizados con tecnología de vanguardia.",
-    points: ["Automatización PLC", "SCADA & HMI", "Visión artificial", "Industria 4.0", "Integración OT/IT"],
+    points: ["Automatización PLC", "SCADA & HMI", "Visión artificial", "Industria 4.0", "Integración OT/IT", "Seguridad de máquinas"],
     img: engImg,
   },
   {

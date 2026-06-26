@@ -44,7 +44,7 @@ export function Services() {
             Tres Áreas de Negocios; <span className="text-gradient">Un Único Socio Industrial</span>
           </h2>
           <p className="mt-5 text-base text-muted-foreground md:text-lg">
-            Desde la ingeniería de detalle hasta el suministro y mantenimiento de tus instalaciones.
+            Desde la ingeniería conceptual y de detalle hasta el suministro, instalación y mantenimiento de los proyectos realizados.
           </p>
         </div>
 

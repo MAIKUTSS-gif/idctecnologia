@@ -30,7 +30,7 @@ export function Testimonials() {
             <Star className="h-3 w-3 fill-electric text-electric" /> Clientes B2B
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-            Confiados por <span className="text-gradient">líderes industriales</span>
+            Reconocidos por <span className="text-gradient">Referentes Industriales</span>
           </h2>
         </div>
 

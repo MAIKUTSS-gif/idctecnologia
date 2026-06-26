@@ -139,7 +139,7 @@ function ContactPage() {
             <ContactCard icon={Mail} title="Email" value="informacion@idc.es" sub="Respuesta en 24h" />
             <ContactCard icon={MapPin} title="Oficina central" value="Parque Científico TecnoAlcalá" sub="C/ Punto Mobi, 10 · 28805 Alcalá de Henares, Madrid" />
             <a
-              href="https://wa.me/34918796046"
+              href="https://wa.me/34610542283"
               target="_blank"
               rel="noreferrer"
               className="flex items-center gap-4 rounded-2xl border border-border bg-graphite p-5 text-graphite-foreground transition-transform hover:scale-[1.01]"

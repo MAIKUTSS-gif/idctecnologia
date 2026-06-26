@@ -32,7 +32,7 @@ export function CtaFinal() {
             </Link>
           </Button>
           <Button asChild variant="glass" size="xl" className="text-white">
-            <a href="https://wa.me/34918796046" target="_blank" rel="noreferrer">
+            <a href="https://wa.me/34610542283" target="_blank" rel="noreferrer">
               <MessageCircle className="h-4 w-4" /> WhatsApp directo
             </a>
           </Button>

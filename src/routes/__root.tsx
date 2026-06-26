@@ -106,7 +106,7 @@ function RootComponent() {
       </main>
       <SiteFooter />
       <a
-        href="https://wa.me/34910000000"
+        href="https://wa.me/34610542283"
         target="_blank"
         rel="noreferrer"
         aria-label="WhatsApp"

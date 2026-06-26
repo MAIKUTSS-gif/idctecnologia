@@ -23,8 +23,8 @@ export function Industry40() {
             Industria 4.0
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            Convertimos tu planta en una{" "}
-            <span className="text-gradient">fábrica inteligente</span>
+            Transformamos tu Planta Productiva en una{" "}
+            <span className="text-gradient">Fabrica Inteligente</span>
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
             Integramos IoT, IA y plataformas SCADA modernas para que cada decisión

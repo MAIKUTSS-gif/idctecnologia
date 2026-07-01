@@ -16,8 +16,9 @@ export function CtaFinal() {
         </div>
 
         <h2 className="mt-6 font-display text-5xl font-semibold leading-[1.05] tracking-tight md:text-6xl lg:text-7xl">
-          Transforma tu producción con{" "}
-          <span className="text-gradient">ingeniería industrial inteligente</span>.
+          Asóciate con un{" "}
+          <span className="text-gradient">Referente</span>{" "}
+          en la Automatización Industrial de Proyectos
         </h2>
 
         <p className="mx-auto mt-8 max-w-2xl text-lg text-white/70">

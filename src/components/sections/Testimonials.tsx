@@ -59,10 +59,10 @@ export function Testimonials() {
                 <img
                   src={t.image}
                   alt={t.name}
-                  className="h-14 w-14 rounded-xl object-cover"
+                  className="h-[90px] w-[90px] rounded-xl object-cover"
                   loading="lazy"
-                  width={56}
-                  height={56}
+                  width={90}
+                  height={90}
                 />
                 <div>
                   <div className="font-semibold leading-tight">{t.name}</div>

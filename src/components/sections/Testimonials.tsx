@@ -1,4 +1,7 @@
 import { Quote, Star } from "lucide-react";
+import img1 from "@/assets/testimonial-1.png";
+import img2 from "@/assets/testimonial-2.png";
+import img3 from "@/assets/testimonial-3.png";
 
 const TESTIMONIALS = [
   {
@@ -6,18 +9,21 @@ const TESTIMONIALS = [
     name: "Director de Planta",
     role: "Director de Planta",
     company: "Sector Automoción",
+    image: img1,
   },
   {
     quote: "Destacamos su capacidad de respuesta, nivel técnico y soluciones personalizadas.",
     name: "Responsable Técnico",
     role: "Responsable Técnico",
     company: "Industria Alimentaria",
+    image: img2,
   },
   {
     quote: "Un partner tecnológico fiable para proyectos industriales complejos.",
     name: "Production Manager",
     role: "Production Manager",
     company: "Industria Farmacéutica",
+    image: img3,
   },
 ];
 

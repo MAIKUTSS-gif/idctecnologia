@@ -1,4 +1,7 @@
 import { Quote, Star } from "lucide-react";
+import img1 from "@/assets/testimonial-1.png";
+import img2 from "@/assets/testimonial-2.png";
+import img3 from "@/assets/testimonial-3.png";
 
 const TESTIMONIALS = [
   {
@@ -6,18 +9,21 @@ const TESTIMONIALS = [
     name: "Director de Planta",
     role: "Director de Planta",
     company: "Sector Automoción",
+    image: img1,
   },
   {
     quote: "Destacamos su capacidad de respuesta, nivel técnico y soluciones personalizadas.",
     name: "Responsable Técnico",
     role: "Responsable Técnico",
     company: "Industria Alimentaria",
+    image: img2,
   },
   {
     quote: "Un partner tecnológico fiable para proyectos industriales complejos.",
     name: "Production Manager",
     role: "Production Manager",
     company: "Industria Farmacéutica",
+    image: img3,
   },
 ];
 
@@ -50,9 +56,14 @@ export function Testimonials() {
                 ))}
               </div>
               <figcaption className="mt-6 flex items-center gap-3 border-t border-border pt-5">
-                <div className="grid h-11 w-11 place-items-center rounded-xl bg-gradient-tech font-display text-sm font-semibold text-primary-foreground">
-                  {t.name.split(" ").map((s) => s[0]).join("")}
-                </div>
+                <img
+                  src={t.image}
+                  alt={t.name}
+                  className="h-11 w-11 rounded-xl object-cover"
+                  loading="lazy"
+                  width={44}
+                  height={44}
+                />
                 <div>
                   <div className="font-semibold leading-tight">{t.name}</div>
                   <div className="text-xs text-muted-foreground">{t.role} · {t.company}</div>

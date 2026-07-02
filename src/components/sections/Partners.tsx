@@ -1,5 +1,6 @@
 import logoSick from "@/assets/logo-sick.png";
 import logoSmc from "@/assets/logo-smc.png";
+import logo3m from "@/assets/logo-3m.png";
 
 const PARTNERS = [
   "Westinghouse",
@@ -78,15 +79,25 @@ export function Partners() {
           <div className="pointer-events-none absolute inset-y-0 left-0 z-10 w-32 bg-gradient-to-r from-surface to-transparent" />
           <div className="pointer-events-none absolute inset-y-0 right-0 z-10 w-32 bg-gradient-to-l from-surface to-transparent" />
 
-          <div className="flex w-max animate-marquee gap-16">
-            {[...PARTNERS, ...PARTNERS].map((p, i) => (
-              <span
-                key={`${p}-${i}`}
-                className="font-display text-2xl font-semibold tracking-[0.18em] text-foreground/40 transition-colors hover:text-foreground"
-              >
-                {p}
-              </span>
-            ))}
+          <div className="flex w-max animate-marquee gap-16 items-center">
+            {[...PARTNERS, ...PARTNERS].map((p, i) =>
+              p === "3M" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logo3m}
+                  alt="3M"
+                  className="h-7 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : (
+                <span
+                  key={`${p}-${i}`}
+                  className="font-display text-2xl font-semibold tracking-[0.18em] text-foreground/40 transition-colors hover:text-foreground"
+                >
+                  {p}
+                </span>
+              )
+            )}
           </div>
         </div>
       </div>

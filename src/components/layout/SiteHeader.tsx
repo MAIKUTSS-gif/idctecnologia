@@ -37,9 +37,9 @@ export function SiteHeader() {
             <img
               src={logo}
               alt="IDC Tecnología — Factory Automation"
-              width={260}
-              height={80}
-              className={`h-16 w-auto transition-all duration-300 ${
+              width={325}
+              height={100}
+              className={`h-20 w-auto transition-all duration-300 ${
                 scrolled
                   ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                   : "drop-shadow-[0_0_14px_rgba(120,170,255,0.55)]"

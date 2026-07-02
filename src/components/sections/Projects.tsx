@@ -1,11 +1,11 @@
 import { ArrowUpRight } from "lucide-react";
-import p1 from "@/assets/project-1.jpg";
+import p1Asset from "@/assets/project-paletizacion-robot.png.asset.json";
 import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
 
 const PROJECTS = [
   {
-    img: p1,
+    img: p1Asset.url,
     sector: "Automoción",
     title: "Paletizacíon mediante Robot en final de linea",
     desc: "Integración de 12 robots ABB con visión artificial para control de calidad en línea.",

@@ -5,7 +5,7 @@ import p3 from "@/assets/project-3.jpg";
 
 const PROJECTS = [
   {
-    img: p1,
+    img: p1Asset.url,
     sector: "Automoción",
     title: "Paletizacíon mediante Robot en final de linea",
     desc: "Integración de 12 robots ABB con visión artificial para control de calidad en línea.",

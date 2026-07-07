@@ -1,6 +1,7 @@
 import logoSick from "@/assets/logo-sick.png";
 import logoSmc from "@/assets/logo-smc.png";
 import logo3m from "@/assets/logo-3m.png";
+import logoWestinghouse from "@/assets/logo-westinghouse.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",

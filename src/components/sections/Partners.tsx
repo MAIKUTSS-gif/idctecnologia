@@ -95,7 +95,7 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoWestinghouse.url}
                   alt="Westinghouse"
-                  className="h-7 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
               ) : (

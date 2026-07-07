@@ -99,6 +99,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Valeo" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoValeo.url}
+                  alt="Valeo"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
                 <span
                   key={`${p}-${i}`}

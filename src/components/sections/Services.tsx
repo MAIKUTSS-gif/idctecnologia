@@ -24,7 +24,7 @@ const SERVICES = [
   {
     icon: PackageCheck,
     tag: "03 / Distribution",
-    title: "Distribución Industrial",
+    title: "Distribución Técnica",
     desc: "Componentes industriales de marcas oficiales con stock disponible y entrega inmediata.",
     points: ["Sensorica", "Seguridad de máquinas", "Neumática", "Control de fluidos", "Actuadores eléctricos", "Identificación"],
     img: distImg,

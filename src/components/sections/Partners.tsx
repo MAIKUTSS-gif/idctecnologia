@@ -108,6 +108,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Zara" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoZara.url}
+                  alt="Zara"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
                 <span
                   key={`${p}-${i}`}

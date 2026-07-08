@@ -3,6 +3,7 @@ import logoSmc from "@/assets/logo-smc.png";
 import logo3m from "@/assets/logo-3m.png";
 import logoWestinghouse from "@/assets/logo-westinghouse.png.asset.json";
 import logoValeo from "@/assets/logo-valeo.png.asset.json";
+import logoZara from "@/assets/logo-zara.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",
@@ -104,6 +105,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoValeo.url}
                   alt="Valeo"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "Zara" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoZara.url}
+                  alt="Zara"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

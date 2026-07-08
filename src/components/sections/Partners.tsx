@@ -117,6 +117,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Universidad Carlos III" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoUc3m.url}
+                  alt="Universidad Carlos III de Madrid"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
                 <span
                   key={`${p}-${i}`}

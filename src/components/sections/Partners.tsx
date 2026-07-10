@@ -7,6 +7,7 @@ import logoZara from "@/assets/logo-zara.png.asset.json";
 import logoUc3m from "@/assets/logo-uc3m.png.asset.json";
 import logoUpm from "@/assets/logo-upm.png.asset.json";
 import logoAernnova from "@/assets/logo-aernnova.png.asset.json";
+import logoAlter from "@/assets/logo-alter.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",
@@ -140,6 +141,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoAernnova.url}
                   alt="Aernnova"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "Alter Farmacia" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoAlter.url}
+                  alt="Alter Farmacia"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

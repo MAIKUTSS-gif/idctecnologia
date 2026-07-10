@@ -8,6 +8,7 @@ import logoUc3m from "@/assets/logo-uc3m.png.asset.json";
 import logoUpm from "@/assets/logo-upm.png.asset.json";
 import logoAernnova from "@/assets/logo-aernnova.png.asset.json";
 import logoAlter from "@/assets/logo-alter.png.asset.json";
+import logoAntena3 from "@/assets/logo-antena3.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",
@@ -149,6 +150,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoAlter.url}
                   alt="Alter Farmacia"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "Antena 3" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoAntena3.url}
+                  alt="Antena 3"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

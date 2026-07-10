@@ -10,6 +10,7 @@ import logoAernnova from "@/assets/logo-aernnova.png.asset.json";
 import logoAlter from "@/assets/logo-alter.png.asset.json";
 import logoAntena3 from "@/assets/logo-antena3.png.asset.json";
 import logoForvia from "@/assets/logo-forvia.png.asset.json";
+import logoNivea from "@/assets/logo-nivea.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",
@@ -167,6 +168,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoForvia.url}
                   alt="Forvia"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "Nivea" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoNivea.url}
+                  alt="Nivea"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

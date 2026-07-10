@@ -162,6 +162,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Hella" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoForvia.url}
+                  alt="Forvia"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
                 <span
                   key={`${p}-${i}`}

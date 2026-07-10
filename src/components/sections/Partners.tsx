@@ -7,6 +7,7 @@ import logoZara from "@/assets/logo-zara.png.asset.json";
 import logoUc3m from "@/assets/logo-uc3m.png.asset.json";
 import logoUpm from "@/assets/logo-upm.png.asset.json";
 import logoAernnova from "@/assets/logo-aernnova.png.asset.json";
+import logoAlter from "@/assets/logo-alter.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",

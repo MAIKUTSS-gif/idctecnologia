@@ -14,6 +14,7 @@ import logoNivea from "@/assets/logo-nivea.png.asset.json";
 import logoCampofrio from "@/assets/logo-campofrio.png.asset.json";
 import logoSaica from "@/assets/logo-saica.png.asset.json";
 import logoCsic from "@/assets/logo-csic.png.asset.json";
+import logoSaintGobain from "@/assets/saint-gobain.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",

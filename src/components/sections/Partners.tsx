@@ -13,6 +13,7 @@ import logoForvia from "@/assets/logo-forvia.png.asset.json";
 import logoNivea from "@/assets/logo-nivea.png.asset.json";
 import logoCampofrio from "@/assets/logo-campofrio.png.asset.json";
 import logoSaica from "@/assets/logo-saica.png.asset.json";
+import logoCsic from "@/assets/logo-csic.png.asset.json";
 
 const PARTNERS = [
   "Westinghouse",
@@ -194,6 +195,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoSaica.url}
                   alt="Saica"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "CSIC" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoCsic.url}
+                  alt="CSIC"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

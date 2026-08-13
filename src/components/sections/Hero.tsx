@@ -1,7 +1,7 @@
 import { Link } from "@tanstack/react-router";
 import { ArrowRight, Play, Cpu, Activity } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import heroAsset from "@/assets/hero-fondo-idc.png.asset.json";
+import heroImage from "@/assets/hero-fondo-idc.png";
 
 export function Hero() {
   return (
@@ -12,7 +12,7 @@ export function Hero() {
         role="img"
         aria-label="Fábrica inteligente con robots industriales"
         style={{
-          backgroundImage: `url(${heroAsset.url})`,
+          backgroundImage: `url(${heroImage})`,
           backgroundSize: "cover",
           backgroundPosition: "center right",
           backgroundRepeat: "no-repeat",

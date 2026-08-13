@@ -1,21 +1,21 @@
 import logoSick from "@/assets/logo-sick.png";
 import logoSmc from "@/assets/logo-smc.png";
 import logo3m from "@/assets/logo-3m.png";
-import logoWestinghouse from "@/assets/logo-westinghouse.png.asset.json";
-import logoValeo from "@/assets/logo-valeo.png.asset.json";
-import logoZara from "@/assets/logo-zara.png.asset.json";
-import logoUc3m from "@/assets/logo-uc3m.png.asset.json";
-import logoUpm from "@/assets/logo-upm.png.asset.json";
-import logoAernnova from "@/assets/logo-aernnova.png.asset.json";
-import logoAlter from "@/assets/logo-alter.png.asset.json";
-import logoAntena3 from "@/assets/logo-antena3.png.asset.json";
-import logoForvia from "@/assets/logo-forvia.png.asset.json";
-import logoNivea from "@/assets/logo-nivea.png.asset.json";
-import logoCampofrio from "@/assets/logo-campofrio.png.asset.json";
-import logoSaica from "@/assets/logo-saica.png.asset.json";
-import logoCsic from "@/assets/logo-csic.png.asset.json";
-import logoSaintGobain from "@/assets/saint-gobain.png.asset.json";
-import logoDanone from "@/assets/danone.png.asset.json";
+import logoWestinghouse from "@/assets/logo-westinghouse.png";
+import logoValeo from "@/assets/logo-valeo.png";
+import logoZara from "@/assets/logo-zara.png";
+import logoUc3m from "@/assets/logo-uc3m.png";
+import logoUpm from "@/assets/logo-upm.png";
+import logoAernnova from "@/assets/logo-aernnova.png";
+import logoAlter from "@/assets/logo-alter.png";
+import logoAntena3 from "@/assets/logo-antena3.png";
+import logoForvia from "@/assets/logo-forvia.png";
+import logoNivea from "@/assets/logo-nivea.png";
+import logoCampofrio from "@/assets/logo-campofrio.png";
+import logoSaica from "@/assets/logo-saica.png";
+import logoCsic from "@/assets/logo-csic.png";
+import logoSaintGobain from "@/assets/saint-gobain.png";
+import logoDanone from "@/assets/danone.png";
 
 const PARTNERS = [
   "Westinghouse",
@@ -107,7 +107,7 @@ export function Partners() {
               ) : p === "Westinghouse" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoWestinghouse.url}
+                  src={logoWestinghouse}
                   alt="Westinghouse"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -115,7 +115,7 @@ export function Partners() {
               ) : p === "Valeo" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoValeo.url}
+                  src={logoValeo}
                   alt="Valeo"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -123,7 +123,7 @@ export function Partners() {
               ) : p === "Zara" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoZara.url}
+                  src={logoZara}
                   alt="Zara"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -131,7 +131,7 @@ export function Partners() {
               ) : p === "Universidad Carlos III" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoUc3m.url}
+                  src={logoUc3m}
                   alt="Universidad Carlos III de Madrid"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -139,7 +139,7 @@ export function Partners() {
               ) : p === "Universidad Politécnica" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoUpm.url}
+                  src={logoUpm}
                   alt="Universidad Politécnica de Madrid"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -147,7 +147,7 @@ export function Partners() {
               ) : p === "Aernnova" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoAernnova.url}
+                  src={logoAernnova}
                   alt="Aernnova"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -155,7 +155,7 @@ export function Partners() {
               ) : p === "Alter Farmacia" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoAlter.url}
+                  src={logoAlter}
                   alt="Alter Farmacia"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -163,7 +163,7 @@ export function Partners() {
               ) : p === "Antena 3" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoAntena3.url}
+                  src={logoAntena3}
                   alt="Antena 3"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -171,7 +171,7 @@ export function Partners() {
               ) : p === "Hella" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoForvia.url}
+                  src={logoForvia}
                   alt="Forvia"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -179,7 +179,7 @@ export function Partners() {
               ) : p === "Nivea" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoNivea.url}
+                  src={logoNivea}
                   alt="Nivea"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -187,7 +187,7 @@ export function Partners() {
               ) : p === "Campofrío" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoCampofrio.url}
+                  src={logoCampofrio}
                   alt="Campofrío Food Group"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -195,7 +195,7 @@ export function Partners() {
               ) : p === "Saica" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoSaica.url}
+                  src={logoSaica}
                   alt="Saica"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -203,7 +203,7 @@ export function Partners() {
               ) : p === "CSIC" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoCsic.url}
+                  src={logoCsic}
                   alt="CSIC"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -211,7 +211,7 @@ export function Partners() {
               ) : p === "Saint Gobain" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoSaintGobain.url}
+                  src={logoSaintGobain}
                   alt="Saint-Gobain"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
@@ -219,7 +219,7 @@ export function Partners() {
               ) : p === "Danone" ? (
                 <img
                   key={`${p}-${i}`}
-                  src={logoDanone.url}
+                  src={logoDanone}
                   alt="Danone"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"

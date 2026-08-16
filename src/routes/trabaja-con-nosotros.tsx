@@ -321,7 +321,7 @@ const JOBS = [
     title: "Programador PLC",
     location: "Alcalá de Henares · Híbrido",
     contract: "Indefinido · Jornada completa",
-    desc: "Programación de автомат… Siemens TIA Portal y Omron, SCADA y puesta en marcha en planta.",
+    desc: "Programación de autómatas Siemens TIA Portal y Omron, SCADA y puesta en marcha en planta.",
   },
   {
     title: "Programador de Robots",

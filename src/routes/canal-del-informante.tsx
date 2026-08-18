@@ -207,7 +207,7 @@ function CanalInformantePage() {
             <div className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
               <Button asChild variant="hero" size="xl" className="w-full sm:w-auto">
                 <a
-                  href={LEGALSENDING_URL}
+                  href="https://compliance.legalsending.com/canal/communication.php?C=48603469019031486"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -216,7 +216,7 @@ function CanalInformantePage() {
               </Button>
               <Button asChild variant="outline" size="xl" className="w-full sm:w-auto">
                 <a
-                  href={LEGALSENDING_URL}
+                  href="https://compliance.legalsending.com/canal/query.php?C=48603469019031486"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

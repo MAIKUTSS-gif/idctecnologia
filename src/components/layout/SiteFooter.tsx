@@ -90,6 +90,7 @@ export function SiteFooter() {
                 { l: "Sobre nosotros", to: "/sobre-nosotros" as const },
                 { l: "Proyectos", to: "/proyectos" as const },
                 { l: "Contacto", to: "/contacto" as const },
+                { l: "Canal del Informante", to: "/canal-del-informante" as const },
               ].map((s) => (
                 <li key={s.l}>
                   <Link to={s.to} className="text-white/70 transition-colors hover:text-white">

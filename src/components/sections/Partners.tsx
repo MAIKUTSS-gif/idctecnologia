@@ -225,6 +225,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "ERCROS" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoErcros}
+                  alt="Ercros"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
                 <span
                   key={`${p}-${i}`}

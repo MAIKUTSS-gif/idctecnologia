@@ -16,6 +16,7 @@ import logoSaica from "@/assets/logo-saica.png";
 import logoCsic from "@/assets/logo-csic.png";
 import logoSaintGobain from "@/assets/saint-gobain.png";
 import logoDanone from "@/assets/danone.png";
+import logoErcros from "@/assets/logo-ercros.png";
 
 const PARTNERS = [
   "Westinghouse",
@@ -221,6 +222,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoDanone}
                   alt="Danone"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "ERCROS" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoErcros}
+                  alt="Ercros"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

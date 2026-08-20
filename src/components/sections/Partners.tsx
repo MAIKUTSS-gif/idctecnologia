@@ -16,6 +16,7 @@ import logoSaica from "@/assets/logo-saica.png";
 import logoCsic from "@/assets/logo-csic.png";
 import logoSaintGobain from "@/assets/saint-gobain.png";
 import logoDanone from "@/assets/danone.png";
+import logoErcros from "@/assets/logo-ercros.png";
 
 const PARTNERS = [
   "Westinghouse",

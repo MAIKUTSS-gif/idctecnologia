@@ -19,6 +19,7 @@ import logoDanone from "@/assets/danone.png";
 import logoErcros from "@/assets/logo-ercros.png";
 import logoExide from "@/assets/exide.png";
 import logoIberia from "@/assets/logo-iberia.png";
+import logoInta from "@/assets/logo-inta.png";
 
 const PARTNERS = [
   "Westinghouse",

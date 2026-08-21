@@ -21,6 +21,7 @@ import logoExide from "@/assets/exide.png";
 import logoIberia from "@/assets/logo-iberia.png";
 import logoInta from "@/assets/logo-inta.png";
 import logoInternationalPaper from "@/assets/logo-international-paper.png";
+import logoLilly from "@/assets/logo-lilly.png";
 
 const PARTNERS = [
   "Westinghouse",
@@ -266,6 +267,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoInternationalPaper}
                   alt="International Paper"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "Lilly" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoLilly}
+                  alt="Lilly"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

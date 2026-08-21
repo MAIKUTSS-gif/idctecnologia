@@ -261,6 +261,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "International Paper" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoInternationalPaper}
+                  alt="International Paper"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
                 <span
                   key={`${p}-${i}`}

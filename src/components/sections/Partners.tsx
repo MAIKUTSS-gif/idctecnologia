@@ -234,6 +234,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Exide" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoExide}
+                  alt="Exide Technologies"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
                 <span
                   key={`${p}-${i}`}

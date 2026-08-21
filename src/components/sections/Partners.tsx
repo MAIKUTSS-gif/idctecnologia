@@ -21,6 +21,7 @@ import logoExide from "@/assets/exide.png";
 import logoIberia from "@/assets/logo-iberia.png";
 import logoInta from "@/assets/logo-inta.png";
 import logoInternationalPaper from "@/assets/logo-international-paper.png";
+import logoLilly from "@/assets/logo-lilly.png";
 
 const PARTNERS = [
   "Westinghouse",

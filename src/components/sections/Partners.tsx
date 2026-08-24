@@ -25,6 +25,7 @@ import logoLilly from "@/assets/logo-lilly.png";
 import logoOtis from "@/assets/logo-otis.png";
 import logoTalgo from "@/assets/logo-talgo.png";
 import logoPladur from "@/assets/logo-pladur.png";
+import logoBosch from "@/assets/logo-bosch.png";
 
 
 const PARTNERS = [
@@ -303,6 +304,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoPladur}
                   alt="Pladur"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "Robert Bosch" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoBosch}
+                  alt="Robert Bosch"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

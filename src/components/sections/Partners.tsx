@@ -287,7 +287,16 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Patentes Talgo" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoTalgo}
+                  alt="Patentes Talgo"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
+
                 <span
                   key={`${p}-${i}`}
                   className="font-display text-2xl font-semibold tracking-[0.18em] text-foreground/40 transition-colors hover:text-foreground"

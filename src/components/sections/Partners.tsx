@@ -298,6 +298,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Pladur" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoPladur}
+                  alt="Pladur"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
 
                 <span

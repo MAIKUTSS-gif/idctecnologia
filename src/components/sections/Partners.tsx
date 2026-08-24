@@ -307,6 +307,14 @@ export function Partners() {
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />
+              ) : p === "Robert Bosch" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoBosch}
+                  alt="Robert Bosch"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
               ) : (
 
                 <span

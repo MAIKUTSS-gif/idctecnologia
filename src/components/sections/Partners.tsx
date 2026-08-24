@@ -24,6 +24,7 @@ import logoInternationalPaper from "@/assets/logo-international-paper.png";
 import logoLilly from "@/assets/logo-lilly.png";
 import logoOtis from "@/assets/logo-otis.png";
 import logoTalgo from "@/assets/logo-talgo.png";
+import logoPladur from "@/assets/logo-pladur.png";
 
 
 const PARTNERS = [
@@ -294,6 +295,14 @@ export function Partners() {
                   key={`${p}-${i}`}
                   src={logoTalgo}
                   alt="Patentes Talgo"
+                  className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
+                  loading="lazy"
+                />
+              ) : p === "Pladur" ? (
+                <img
+                  key={`${p}-${i}`}
+                  src={logoPladur}
+                  alt="Pladur"
                   className="h-14 w-auto opacity-60 transition-opacity hover:opacity-100"
                   loading="lazy"
                 />

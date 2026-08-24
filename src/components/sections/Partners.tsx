@@ -25,6 +25,7 @@ import logoLilly from "@/assets/logo-lilly.png";
 import logoOtis from "@/assets/logo-otis.png";
 import logoTalgo from "@/assets/logo-talgo.png";
 import logoPladur from "@/assets/logo-pladur.png";
+import logoBosch from "@/assets/logo-bosch.png";
 
 
 const PARTNERS = [

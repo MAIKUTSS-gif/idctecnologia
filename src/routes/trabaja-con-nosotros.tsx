@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import {
   Rocket,
@@ -16,10 +17,12 @@ import {
   Send,
   CheckCircle2,
   Paperclip,
+  Building2,
 } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/use-reveal";
+import { listPublishedOffers } from "@/lib/jobs";
 import heroImage from "@/assets/careers-hero.jpg";
 import ctaImage from "@/assets/careers-cta.jpg";
 
@@ -316,35 +319,13 @@ function Journey() {
 
 /* ---------------- 6. OFERTAS ---------------- */
 
-const JOBS = [
-  {
-    title: "Programador PLC",
-    location: "Alcalá de Henares · Híbrido",
-    contract: "Indefinido · Jornada completa",
-    desc: "Programación de autómatas Siemens TIA Portal y Omron, SCADA y puesta en marcha en planta.",
-  },
-  {
-    title: "Programador de Robots",
-    location: "Madrid · Movilidad nacional",
-    contract: "Indefinido · Jornada completa",
-    desc: "Programación de robots ABB y KUKA para paletizado, soldadura y manipulación.",
-  },
-  {
-    title: "Ingeniero de Automatización",
-    location: "Alcalá de Henares",
-    contract: "Indefinido · Jornada completa",
-    desc: "Diseño de arquitecturas de control, esquemas eléctricos y dirección técnica de proyecto.",
-  },
-  {
-    title: "Técnico SAT",
-    location: "Comunidad de Madrid",
-    contract: "Indefinido · Jornada completa",
-    desc: "Mantenimiento correctivo y preventivo de instalaciones automatizadas en cliente.",
-  },
-];
-
 function Jobs() {
   const { ref, shown } = useReveal<HTMLDivElement>();
+  const { data: jobs = [], isLoading } = useQuery({
+    queryKey: ["published-job-offers"],
+    queryFn: listPublishedOffers,
+    refetchOnWindowFocus: true,
+  });
   return (
     <section id="ofertas" className="scroll-mt-28 py-24">
       <div ref={ref} className="container mx-auto px-4">
@@ -355,27 +336,46 @@ function Jobs() {
           </h2>
         </div>
 
+        {isLoading && (
+          <p className="mt-12 text-center text-sm text-muted-foreground">Cargando ofertas…</p>
+        )}
+
+        {!isLoading && jobs.length === 0 && (
+          <p className="mt-12 text-center text-sm text-muted-foreground">
+            No hay ofertas activas en este momento. Puedes enviarnos tu candidatura espontánea.
+          </p>
+        )}
+
         <div className="mt-12 grid gap-6 lg:grid-cols-2">
-          {JOBS.map((j, i) => (
+          {jobs.map((j, i) => (
             <article
-              key={j.title}
+              key={j.id}
               className={`group flex flex-col rounded-3xl border border-border bg-card p-7 shadow-soft transition-all duration-700 hover:-translate-y-1 hover:border-electric/40 hover:shadow-elevated ${shown ? "translate-y-0 opacity-100" : "translate-y-8 opacity-0"}`}
               style={{ transitionDelay: `${i * 110}ms` }}
             >
               <h3 className="font-display text-2xl font-semibold tracking-tight">{j.title}</h3>
               <div className="mt-3 flex flex-wrap gap-3 text-xs text-muted-foreground">
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
-                  <MapPin className="h-3.5 w-3.5" /> {j.location}
-                </span>
-                <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
-                  <Briefcase className="h-3.5 w-3.5" /> {j.contract}
-                </span>
+                {j.location && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
+                    <MapPin className="h-3.5 w-3.5" /> {j.location}
+                  </span>
+                )}
+                {j.department && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
+                    <Building2 className="h-3.5 w-3.5" /> {j.department}
+                  </span>
+                )}
+                {j.contract_type && (
+                  <span className="inline-flex items-center gap-1.5 rounded-full border border-border px-3 py-1">
+                    <Briefcase className="h-3.5 w-3.5" /> {j.contract_type}
+                  </span>
+                )}
               </div>
-              <p className="mt-4 flex-1 text-sm text-muted-foreground">{j.desc}</p>
+              <p className="mt-4 flex-1 text-sm text-muted-foreground line-clamp-4">{j.description}</p>
               <Button asChild variant="hero" className="mt-6 self-start">
-                <a href="#candidatura">
-                  Inscribirme <ArrowUpRight className="h-4 w-4" />
-                </a>
+                <Link to="/empleo/$id" params={{ id: j.id }}>
+                  Ver oferta <ArrowUpRight className="h-4 w-4" />
+                </Link>
               </Button>
             </article>
           ))}
@@ -402,6 +402,10 @@ function ApplicationForm() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [fileName, setFileName] = useState("");
+  const { data: positions = [] } = useQuery({
+    queryKey: ["published-job-offers"],
+    queryFn: listPublishedOffers,
+  });
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -465,8 +469,8 @@ function ApplicationForm() {
                     <option value="" disabled>
                       Selecciona un puesto
                     </option>
-                    {JOBS.map((j) => (
-                      <option key={j.title}>{j.title}</option>
+                    {positions.map((j) => (
+                      <option key={j.id}>{j.title}</option>
                     ))}
                     <option>Candidatura espontánea</option>
                   </select>

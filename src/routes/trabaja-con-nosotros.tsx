@@ -316,35 +316,13 @@ function Journey() {
 
 /* ---------------- 6. OFERTAS ---------------- */
 
-const JOBS = [
-  {
-    title: "Programador PLC",
-    location: "Alcalá de Henares · Híbrido",
-    contract: "Indefinido · Jornada completa",
-    desc: "Programación de autómatas Siemens TIA Portal y Omron, SCADA y puesta en marcha en planta.",
-  },
-  {
-    title: "Programador de Robots",
-    location: "Madrid · Movilidad nacional",
-    contract: "Indefinido · Jornada completa",
-    desc: "Programación de robots ABB y KUKA para paletizado, soldadura y manipulación.",
-  },
-  {
-    title: "Ingeniero de Automatización",
-    location: "Alcalá de Henares",
-    contract: "Indefinido · Jornada completa",
-    desc: "Diseño de arquitecturas de control, esquemas eléctricos y dirección técnica de proyecto.",
-  },
-  {
-    title: "Técnico SAT",
-    location: "Comunidad de Madrid",
-    contract: "Indefinido · Jornada completa",
-    desc: "Mantenimiento correctivo y preventivo de instalaciones automatizadas en cliente.",
-  },
-];
-
 function Jobs() {
   const { ref, shown } = useReveal<HTMLDivElement>();
+  const { data: jobs = [], isLoading } = useQuery({
+    queryKey: ["published-job-offers"],
+    queryFn: listPublishedOffers,
+    refetchOnWindowFocus: true,
+  });
   return (
     <section id="ofertas" className="scroll-mt-28 py-24">
       <div ref={ref} className="container mx-auto px-4">

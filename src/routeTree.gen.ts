@@ -17,6 +17,7 @@ import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CanalDelInformanteRouteImport } from './routes/canal-del-informante'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
 
 const TrabajaConNosotrosRoute = TrabajaConNosotrosRouteImport.update({
   id: '/trabaja-con-nosotros',
@@ -58,6 +59,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminEmpleoRoute = AdminEmpleoRouteImport.update({
+  id: '/admin/empleo',
+  path: '/admin/empleo',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -67,6 +73,7 @@ export interface FileRoutesByFullPath {
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
+  '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
 }
 export interface FileRoutesByTo {
@@ -77,6 +84,7 @@ export interface FileRoutesByTo {
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
+  '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
 }
 export interface FileRoutesById {
@@ -88,6 +96,7 @@ export interface FileRoutesById {
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
+  '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
 }
 export interface FileRouteTypes {
@@ -100,6 +109,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/sobre-nosotros'
     | '/trabaja-con-nosotros'
+    | '/admin/empleo'
     | '/admin/login'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -110,6 +120,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/sobre-nosotros'
     | '/trabaja-con-nosotros'
+    | '/admin/empleo'
     | '/admin/login'
   id:
     | '__root__'
@@ -120,6 +131,7 @@ export interface FileRouteTypes {
     | '/servicios'
     | '/sobre-nosotros'
     | '/trabaja-con-nosotros'
+    | '/admin/empleo'
     | '/admin/login'
   fileRoutesById: FileRoutesById
 }
@@ -131,6 +143,7 @@ export interface RootRouteChildren {
   ServiciosRoute: typeof ServiciosRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
   TrabajaConNosotrosRoute: typeof TrabajaConNosotrosRoute
+  AdminEmpleoRoute: typeof AdminEmpleoRoute
   AdminLoginRoute: typeof AdminLoginRoute
 }
 
@@ -192,6 +205,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/empleo': {
+      id: '/admin/empleo'
+      path: '/admin/empleo'
+      fullPath: '/admin/empleo'
+      preLoaderRoute: typeof AdminEmpleoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -203,6 +223,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServiciosRoute: ServiciosRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,
   TrabajaConNosotrosRoute: TrabajaConNosotrosRoute,
+  AdminEmpleoRoute: AdminEmpleoRoute,
   AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport

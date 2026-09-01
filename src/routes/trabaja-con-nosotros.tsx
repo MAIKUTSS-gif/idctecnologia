@@ -1,4 +1,5 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { useQuery } from "@tanstack/react-query";
 import { useState } from "react";
 import {
   Rocket,
@@ -16,10 +17,12 @@ import {
   Send,
   CheckCircle2,
   Paperclip,
+  Building2,
 } from "lucide-react";
 import { z } from "zod";
 import { Button } from "@/components/ui/button";
 import { useReveal } from "@/hooks/use-reveal";
+import { listPublishedOffers } from "@/lib/jobs";
 import heroImage from "@/assets/careers-hero.jpg";
 import ctaImage from "@/assets/careers-cta.jpg";
 
@@ -462,8 +465,8 @@ function ApplicationForm() {
                     <option value="" disabled>
                       Selecciona un puesto
                     </option>
-                    {JOBS.map((j) => (
-                      <option key={j.title}>{j.title}</option>
+                    {positions.map((j) => (
+                      <option key={j.id}>{j.title}</option>
                     ))}
                     <option>Candidatura espontánea</option>
                   </select>

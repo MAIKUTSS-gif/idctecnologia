@@ -402,6 +402,10 @@ function ApplicationForm() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [fileName, setFileName] = useState("");
+  const { data: positions = [] } = useQuery({
+    queryKey: ["published-job-offers"],
+    queryFn: listPublishedOffers,
+  });
 
   function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();

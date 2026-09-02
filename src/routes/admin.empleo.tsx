@@ -218,7 +218,7 @@ function AdminJobsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-muted/40 pb-20 pt-44">
+    <div className="min-h-screen bg-muted/40 pb-20 pt-48">
       <Toaster />
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center justify-between gap-4">

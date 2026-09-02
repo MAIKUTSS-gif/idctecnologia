@@ -209,7 +209,7 @@ function AdminJobsPage() {
           <p className="mt-2 text-sm text-muted-foreground">
             Tu cuenta no tiene permisos de administración.
           </p>
-          <Button className="mt-6" onClick={handleSignOut}>
+          <Button type="button" className="mt-6" onClick={handleSignOut}>
             Cerrar sesión
           </Button>
         </div>
@@ -218,7 +218,7 @@ function AdminJobsPage() {
   }
 
   return (
-    <div className="min-h-screen bg-muted/40 pb-20 pt-28">
+    <div className="min-h-screen bg-muted/40 pb-20 pt-48">
       <Toaster />
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
@@ -227,10 +227,10 @@ function AdminJobsPage() {
             <p className="text-sm text-muted-foreground">Gestión interna de las vacantes publicadas.</p>
           </div>
           <div className="flex items-center gap-2">
-            <Button onClick={openCreate}>
+            <Button type="button" onClick={openCreate}>
               <Plus className="h-4 w-4" /> Nueva oferta
             </Button>
-            <Button variant="outline" onClick={handleSignOut}>
+            <Button type="button" variant="outline" onClick={handleSignOut}>
               <LogOut className="h-4 w-4" /> Cerrar sesión
             </Button>
           </div>
@@ -281,15 +281,16 @@ function AdminJobsPage() {
                     <td className="px-4 py-3 text-muted-foreground">{formatDate(offer.updated_at)}</td>
                     <td className="px-4 py-3">
                       <div className="flex justify-end gap-1">
-                        <Button size="sm" variant="ghost" onClick={() => openEdit(offer)}>
+                        <Button size="sm" type="button" variant="ghost" onClick={() => openEdit(offer)}>
                           <Pencil className="h-4 w-4" /> Editar
                         </Button>
-                        <Button size="sm" variant="ghost" onClick={() => togglePublished(offer)}>
+                        <Button size="sm" type="button" variant="ghost" onClick={() => togglePublished(offer)}>
                           {offer.published ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                           {offer.published ? "Despublicar" : "Publicar"}
                         </Button>
                         <Button
                           size="sm"
+                          type="button"
                           variant="ghost"
                           className="text-destructive"
                           onClick={() => setToDelete(offer)}
@@ -385,10 +386,10 @@ function AdminJobsPage() {
           </div>
 
           <DialogFooter className="gap-2">
-            <Button variant="outline" onClick={() => save(false)} disabled={saving}>
+            <Button type="button" variant="outline" onClick={() => save(false)} disabled={saving}>
               Guardar borrador
             </Button>
-            <Button onClick={() => save(editing ? undefined : true)} disabled={saving}>
+            <Button type="button" onClick={() => save(editing ? undefined : true)} disabled={saving}>
               {saving && <Loader2 className="h-4 w-4 animate-spin" />}
               {editing ? "Guardar cambios" : "Publicar"}
             </Button>

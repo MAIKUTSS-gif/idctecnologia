@@ -3,6 +3,7 @@ import { useQuery } from "@tanstack/react-query";
 import { ArrowLeft, MapPin, Briefcase, Building2, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getPublishedOffer } from "@/lib/jobs";
+import { ApplicationForm } from "@/components/jobs/ApplicationForm";
 
 export const Route = createFileRoute("/empleo/$id")({
   ssr: false,

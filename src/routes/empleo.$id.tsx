@@ -101,6 +101,8 @@ function JobDetailPage() {
             <Block title="Descripción" content={data.description} />
             <Block title="Requisitos" content={data.requirements} />
             <Block title="Beneficios" content={data.benefits} />
+
+            <ApplicationForm jobOfferId={data.id} />
           </article>
         )}
       </div>

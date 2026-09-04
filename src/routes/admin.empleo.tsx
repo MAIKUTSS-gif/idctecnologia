@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
-import { Loader2, LogOut, Pencil, Trash2, Eye, EyeOff, Plus } from "lucide-react";
+import { Loader2, LogOut, Pencil, Trash2, Eye, EyeOff, Plus, Users } from "lucide-react";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { supabase } from "@/lib/supabase";

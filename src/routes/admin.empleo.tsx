@@ -86,6 +86,17 @@ function AdminJobsPage() {
   const [form, setForm] = useState<JobOfferInput>(EMPTY);
   const [saving, setSaving] = useState(false);
   const [toDelete, setToDelete] = useState<JobOffer | null>(null);
+  const [tab, setTab] = useState<"offers" | "applications">("offers");
+  const [counts, setCounts] = useState<Record<string, number>>({});
+  const [filterOffer, setFilterOffer] = useState<JobOffer | null>(null);
+
+  const refreshCounts = useCallback(async () => {
+    try {
+      setCounts(await countApplicationsByOffer());
+    } catch {
+      /* el contador es informativo; no bloquea la gestión de ofertas */
+    }
+  }, []);
 
   const refresh = useCallback(async () => {
     setLoadingList(true);
@@ -96,7 +107,8 @@ function AdminJobsPage() {
     } finally {
       setLoadingList(false);
     }
-  }, []);
+    void refreshCounts();
+  }, [refreshCounts]);
 
   useEffect(() => {
     let active = true;

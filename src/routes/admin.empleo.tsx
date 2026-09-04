@@ -1,6 +1,6 @@
 import { createFileRoute, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
-import { Loader2, LogOut, Pencil, Trash2, Eye, EyeOff, Plus } from "lucide-react";
+import { Loader2, LogOut, Pencil, Trash2, Eye, EyeOff, Plus, Users } from "lucide-react";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { supabase } from "@/lib/supabase";
@@ -37,6 +37,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { AdminApplications } from "@/components/jobs/AdminApplications";
+import { countApplicationsByOffer } from "@/lib/applications";
 
 export const Route = createFileRoute("/admin/empleo")({
   ssr: false,
@@ -84,6 +86,17 @@ function AdminJobsPage() {
   const [form, setForm] = useState<JobOfferInput>(EMPTY);
   const [saving, setSaving] = useState(false);
   const [toDelete, setToDelete] = useState<JobOffer | null>(null);
+  const [tab, setTab] = useState<"offers" | "applications">("offers");
+  const [counts, setCounts] = useState<Record<string, number>>({});
+  const [filterOffer, setFilterOffer] = useState<JobOffer | null>(null);
+
+  const refreshCounts = useCallback(async () => {
+    try {
+      setCounts(await countApplicationsByOffer());
+    } catch {
+      /* el contador es informativo; no bloquea la gestión de ofertas */
+    }
+  }, []);
 
   const refresh = useCallback(async () => {
     setLoadingList(true);
@@ -94,7 +107,8 @@ function AdminJobsPage() {
     } finally {
       setLoadingList(false);
     }
-  }, []);
+    void refreshCounts();
+  }, [refreshCounts]);
 
   useEffect(() => {
     let active = true;
@@ -223,18 +237,56 @@ function AdminJobsPage() {
       <div className="container mx-auto px-4">
         <div className="flex flex-wrap items-center justify-between gap-4">
           <div>
-            <h1 className="font-display text-2xl font-semibold">Ofertas de empleo</h1>
-            <p className="text-sm text-muted-foreground">Gestión interna de las vacantes publicadas.</p>
+            <h1 className="font-display text-2xl font-semibold">Empleo</h1>
+            <p className="text-sm text-muted-foreground">
+              Gestión interna de vacantes y candidaturas.
+            </p>
           </div>
           <div className="flex items-center gap-2">
-            <Button type="button" onClick={openCreate}>
-              <Plus className="h-4 w-4" /> Nueva oferta
-            </Button>
+            {tab === "offers" && (
+              <Button type="button" onClick={openCreate}>
+                <Plus className="h-4 w-4" /> Nueva oferta
+              </Button>
+            )}
             <Button type="button" variant="outline" onClick={handleSignOut}>
               <LogOut className="h-4 w-4" /> Cerrar sesión
             </Button>
           </div>
         </div>
+
+        <div className="mt-6 inline-flex rounded-full border border-border bg-card p-1 shadow-soft">
+          <Button
+            type="button"
+            size="sm"
+            variant={tab === "offers" ? "default" : "ghost"}
+            className="rounded-full"
+            onClick={() => setTab("offers")}
+          >
+            Ofertas
+          </Button>
+          <Button
+            type="button"
+            size="sm"
+            variant={tab === "applications" ? "default" : "ghost"}
+            className="rounded-full"
+            onClick={() => setTab("applications")}
+          >
+            Candidaturas
+          </Button>
+        </div>
+
+        {tab === "applications" && (
+          <AdminApplications
+            jobOfferId={filterOffer?.id ?? null}
+            jobOfferTitle={filterOffer?.title ?? null}
+            onClearOfferFilter={() => setFilterOffer(null)}
+            onChanged={refreshCounts}
+          />
+        )}
+
+        {tab === "offers" && (
+        <>
+
 
         <div className="mt-8 overflow-x-auto rounded-2xl border border-border bg-card shadow-soft">
           <table className="w-full min-w-[900px] text-sm">
@@ -245,6 +297,7 @@ function AdminJobsPage() {
                 <th className="px-4 py-3">Departamento</th>
                 <th className="px-4 py-3">Contrato</th>
                 <th className="px-4 py-3">Publicada</th>
+                <th className="px-4 py-3">Candidatos</th>
                 <th className="px-4 py-3">Creada</th>
                 <th className="px-4 py-3">Actualizada</th>
                 <th className="px-4 py-3 text-right">Acciones</th>
@@ -253,14 +306,14 @@ function AdminJobsPage() {
             <tbody>
               {loadingList && (
                 <tr>
-                  <td colSpan={8} className="px-4 py-10 text-center text-muted-foreground">
+                  <td colSpan={9} className="px-4 py-10 text-center text-muted-foreground">
                     Cargando ofertas…
                   </td>
                 </tr>
               )}
               {!loadingList && offers.length === 0 && (
                 <tr>
-                  <td colSpan={8} className="px-4 py-10 text-center text-muted-foreground">
+                  <td colSpan={9} className="px-4 py-10 text-center text-muted-foreground">
                     Todavía no hay ofertas creadas.
                   </td>
                 </tr>
@@ -276,6 +329,19 @@ function AdminJobsPage() {
                       <Badge variant={offer.published ? "default" : "secondary"}>
                         {offer.published ? "Sí" : "No"}
                       </Badge>
+                    </td>
+                    <td className="px-4 py-3">
+                      <Button
+                        size="sm"
+                        type="button"
+                        variant="ghost"
+                        onClick={() => {
+                          setFilterOffer(offer);
+                          setTab("applications");
+                        }}
+                      >
+                        <Users className="h-4 w-4" /> {counts[offer.id] ?? 0}
+                      </Button>
                     </td>
                     <td className="px-4 py-3 text-muted-foreground">{formatDate(offer.created_at)}</td>
                     <td className="px-4 py-3 text-muted-foreground">{formatDate(offer.updated_at)}</td>
@@ -304,7 +370,10 @@ function AdminJobsPage() {
             </tbody>
           </table>
         </div>
+        </>
+        )}
       </div>
+
 
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="max-h-[85vh] overflow-y-auto sm:max-w-2xl">

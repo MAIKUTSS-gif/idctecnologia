@@ -297,6 +297,7 @@ function AdminJobsPage() {
                 <th className="px-4 py-3">Departamento</th>
                 <th className="px-4 py-3">Contrato</th>
                 <th className="px-4 py-3">Publicada</th>
+                <th className="px-4 py-3">Candidatos</th>
                 <th className="px-4 py-3">Creada</th>
                 <th className="px-4 py-3">Actualizada</th>
                 <th className="px-4 py-3 text-right">Acciones</th>

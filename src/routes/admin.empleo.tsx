@@ -306,14 +306,14 @@ function AdminJobsPage() {
             <tbody>
               {loadingList && (
                 <tr>
-                  <td colSpan={8} className="px-4 py-10 text-center text-muted-foreground">
+                  <td colSpan={9} className="px-4 py-10 text-center text-muted-foreground">
                     Cargando ofertas…
                   </td>
                 </tr>
               )}
               {!loadingList && offers.length === 0 && (
                 <tr>
-                  <td colSpan={8} className="px-4 py-10 text-center text-muted-foreground">
+                  <td colSpan={9} className="px-4 py-10 text-center text-muted-foreground">
                     Todavía no hay ofertas creadas.
                   </td>
                 </tr>

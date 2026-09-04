@@ -330,6 +330,19 @@ function AdminJobsPage() {
                         {offer.published ? "Sí" : "No"}
                       </Badge>
                     </td>
+                    <td className="px-4 py-3">
+                      <Button
+                        size="sm"
+                        type="button"
+                        variant="ghost"
+                        onClick={() => {
+                          setFilterOffer(offer);
+                          setTab("applications");
+                        }}
+                      >
+                        <Users className="h-4 w-4" /> {counts[offer.id] ?? 0}
+                      </Button>
+                    </td>
                     <td className="px-4 py-3 text-muted-foreground">{formatDate(offer.created_at)}</td>
                     <td className="px-4 py-3 text-muted-foreground">{formatDate(offer.updated_at)}</td>
                     <td className="px-4 py-3">

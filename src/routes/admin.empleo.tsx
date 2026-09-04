@@ -37,6 +37,8 @@ import {
   AlertDialogHeader,
   AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
+import { AdminApplications } from "@/components/jobs/AdminApplications";
+import { countApplicationsByOffer } from "@/lib/applications";
 
 export const Route = createFileRoute("/admin/empleo")({
   ssr: false,

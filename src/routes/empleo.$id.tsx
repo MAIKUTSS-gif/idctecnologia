@@ -47,7 +47,7 @@ function JobDetailPage() {
   });
 
   return (
-    <section className="py-32">
+    <section className="pb-32 pt-48">
       <div className="container mx-auto max-w-3xl px-4">
         <Link
           to="/trabaja-con-nosotros"

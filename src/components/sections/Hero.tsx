@@ -43,8 +43,8 @@ export function Hero() {
           <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
             Diseñamos, integramos, instalamos y mantenemos máquinas para empresas que buscan
             mejorar su productividad, eficiencia y control tecnológico. Nos avalan 30 años como
-            empresa y la cualificación de las personas que desarrollan nuestras tres áreas de
-            negocio: ingeniería, mantenimiento y distribución industrial.
+            empresa y el compromiso de las personas que desarrollamos las tres áreas de negocio:
+            ingeniería, mantenimiento y distribución industrial.
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">

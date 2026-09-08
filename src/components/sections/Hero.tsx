@@ -36,13 +36,15 @@ export function Hero() {
           </div>
 
           <h1 className="font-display text-5xl font-semibold leading-[1.05] tracking-tight text-foreground md:text-6xl lg:text-[72px]">
-            Automatización industrial inteligente para{" "}
-            <span className="text-electric">fábricas del futuro</span>
+            Soluciones tecnológicas para la{" "}
+            <span className="text-electric">automatización industrial de procesos productivos</span>
           </h1>
 
           <p className="mt-6 max-w-xl text-base leading-relaxed text-foreground/70 md:text-lg">
-            Diseñamos, integramos y mantenemos soluciones industriales avanzadas para empresas
-            que buscan máxima eficiencia, productividad y control tecnológico.
+            Diseñamos, integramos, instalamos y mantenemos máquinas para empresas que buscan
+            mejorar su productividad, eficiencia y control tecnológico. Nos avalan 30 años como
+            empresa y la cualificación de las personas que desarrollan nuestras tres áreas de
+            negocio: ingeniería, mantenimiento y distribución industrial.
           </p>
 
           <div className="mt-8 flex flex-col items-start gap-3 sm:flex-row">

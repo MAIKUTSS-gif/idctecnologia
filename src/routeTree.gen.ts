@@ -13,10 +13,12 @@ import { Route as TrabajaConNosotrosRouteImport } from './routes/trabaja-con-nos
 import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as ProyectosRouteImport } from './routes/proyectos'
+import { Route as FormularioTecnicoRouteImport } from './routes/formulario-tecnico'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CanalDelInformanteRouteImport } from './routes/canal-del-informante'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as EmpleoIdRouteImport } from './routes/empleo.$id'
+import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
 
@@ -40,6 +42,11 @@ const ProyectosRoute = ProyectosRouteImport.update({
   path: '/proyectos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const FormularioTecnicoRoute = FormularioTecnicoRouteImport.update({
+  id: '/formulario-tecnico',
+  path: '/formulario-tecnico',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ContactoRoute = ContactoRouteImport.update({
   id: '/contacto',
   path: '/contacto',
@@ -60,6 +67,11 @@ const EmpleoIdRoute = EmpleoIdRouteImport.update({
   path: '/empleo/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminProyectosRoute = AdminProyectosRouteImport.update({
+  id: '/admin/proyectos',
+  path: '/admin/proyectos',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminLoginRoute = AdminLoginRouteImport.update({
   id: '/admin/login',
   path: '/admin/login',
@@ -75,24 +87,28 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
+  '/formulario-tecnico': typeof FormularioTecnicoRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
   '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
+  '/formulario-tecnico': typeof FormularioTecnicoRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
   '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
 }
 export interface FileRoutesById {
@@ -100,12 +116,14 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
+  '/formulario-tecnico': typeof FormularioTecnicoRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
   '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
 }
 export interface FileRouteTypes {
@@ -114,36 +132,42 @@ export interface FileRouteTypes {
     | '/'
     | '/canal-del-informante'
     | '/contacto'
+    | '/formulario-tecnico'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
     | '/trabaja-con-nosotros'
     | '/admin/empleo'
     | '/admin/login'
+    | '/admin/proyectos'
     | '/empleo/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/canal-del-informante'
     | '/contacto'
+    | '/formulario-tecnico'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
     | '/trabaja-con-nosotros'
     | '/admin/empleo'
     | '/admin/login'
+    | '/admin/proyectos'
     | '/empleo/$id'
   id:
     | '__root__'
     | '/'
     | '/canal-del-informante'
     | '/contacto'
+    | '/formulario-tecnico'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
     | '/trabaja-con-nosotros'
     | '/admin/empleo'
     | '/admin/login'
+    | '/admin/proyectos'
     | '/empleo/$id'
   fileRoutesById: FileRoutesById
 }
@@ -151,12 +175,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CanalDelInformanteRoute: typeof CanalDelInformanteRoute
   ContactoRoute: typeof ContactoRoute
+  FormularioTecnicoRoute: typeof FormularioTecnicoRoute
   ProyectosRoute: typeof ProyectosRoute
   ServiciosRoute: typeof ServiciosRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
   TrabajaConNosotrosRoute: typeof TrabajaConNosotrosRoute
   AdminEmpleoRoute: typeof AdminEmpleoRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminProyectosRoute: typeof AdminProyectosRoute
   EmpleoIdRoute: typeof EmpleoIdRoute
 }
 
@@ -190,6 +216,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProyectosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/formulario-tecnico': {
+      id: '/formulario-tecnico'
+      path: '/formulario-tecnico'
+      fullPath: '/formulario-tecnico'
+      preLoaderRoute: typeof FormularioTecnicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/contacto': {
       id: '/contacto'
       path: '/contacto'
@@ -218,6 +251,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmpleoIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/proyectos': {
+      id: '/admin/proyectos'
+      path: '/admin/proyectos'
+      fullPath: '/admin/proyectos'
+      preLoaderRoute: typeof AdminProyectosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/login': {
       id: '/admin/login'
       path: '/admin/login'
@@ -239,12 +279,14 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CanalDelInformanteRoute: CanalDelInformanteRoute,
   ContactoRoute: ContactoRoute,
+  FormularioTecnicoRoute: FormularioTecnicoRoute,
   ProyectosRoute: ProyectosRoute,
   ServiciosRoute: ServiciosRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,
   TrabajaConNosotrosRoute: TrabajaConNosotrosRoute,
   AdminEmpleoRoute: AdminEmpleoRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminProyectosRoute: AdminProyectosRoute,
   EmpleoIdRoute: EmpleoIdRoute,
 }
 export const routeTree = rootRouteImport

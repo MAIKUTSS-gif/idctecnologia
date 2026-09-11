@@ -13,6 +13,7 @@ import { Route as TrabajaConNosotrosRouteImport } from './routes/trabaja-con-nos
 import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as ProyectosRouteImport } from './routes/proyectos'
+import { Route as FormularioTecnicoRouteImport } from './routes/formulario-tecnico'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as CanalDelInformanteRouteImport } from './routes/canal-del-informante'
 import { Route as IndexRouteImport } from './routes/index'
@@ -38,6 +39,11 @@ const ServiciosRoute = ServiciosRouteImport.update({
 const ProyectosRoute = ProyectosRouteImport.update({
   id: '/proyectos',
   path: '/proyectos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const FormularioTecnicoRoute = FormularioTecnicoRouteImport.update({
+  id: '/formulario-tecnico',
+  path: '/formulario-tecnico',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ContactoRoute = ContactoRouteImport.update({
@@ -75,6 +81,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
+  '/formulario-tecnico': typeof FormularioTecnicoRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
@@ -87,6 +94,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
+  '/formulario-tecnico': typeof FormularioTecnicoRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
@@ -100,6 +108,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
+  '/formulario-tecnico': typeof FormularioTecnicoRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
@@ -114,6 +123,7 @@ export interface FileRouteTypes {
     | '/'
     | '/canal-del-informante'
     | '/contacto'
+    | '/formulario-tecnico'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
@@ -126,6 +136,7 @@ export interface FileRouteTypes {
     | '/'
     | '/canal-del-informante'
     | '/contacto'
+    | '/formulario-tecnico'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
@@ -138,6 +149,7 @@ export interface FileRouteTypes {
     | '/'
     | '/canal-del-informante'
     | '/contacto'
+    | '/formulario-tecnico'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
@@ -151,6 +163,7 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CanalDelInformanteRoute: typeof CanalDelInformanteRoute
   ContactoRoute: typeof ContactoRoute
+  FormularioTecnicoRoute: typeof FormularioTecnicoRoute
   ProyectosRoute: typeof ProyectosRoute
   ServiciosRoute: typeof ServiciosRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
@@ -188,6 +201,13 @@ declare module '@tanstack/react-router' {
       path: '/proyectos'
       fullPath: '/proyectos'
       preLoaderRoute: typeof ProyectosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/formulario-tecnico': {
+      id: '/formulario-tecnico'
+      path: '/formulario-tecnico'
+      fullPath: '/formulario-tecnico'
+      preLoaderRoute: typeof FormularioTecnicoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/contacto': {
@@ -239,6 +259,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CanalDelInformanteRoute: CanalDelInformanteRoute,
   ContactoRoute: ContactoRoute,
+  FormularioTecnicoRoute: FormularioTecnicoRoute,
   ProyectosRoute: ProyectosRoute,
   ServiciosRoute: ServiciosRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,

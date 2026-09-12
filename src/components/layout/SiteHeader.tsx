@@ -7,6 +7,7 @@ import logo from "@/assets/idc-logo.png";
 const EMPRESA_ITEMS = [
   { to: "/sobre-nosotros", label: "Sobre nosotros" },
   { to: "/canal-del-informante", label: "Canal del Informante" },
+  { to: "/formulario-tecnico", label: "Formulario técnico" },
 ] as const;
 
 const NAV = [

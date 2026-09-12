@@ -1,4 +1,4 @@
-import { createFileRoute, useNavigate } from "@tanstack/react-router";
+import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
 import { useCallback, useEffect, useState } from "react";
 import { Loader2, LogOut, Pencil, Trash2, Eye, EyeOff, Plus, Users } from "lucide-react";
 import { toast } from "sonner";
@@ -255,6 +255,15 @@ function AdminJobsPage() {
         </div>
 
         <div className="mt-6 inline-flex rounded-full border border-border bg-card p-1 shadow-soft">
+          <Button type="button" size="sm" className="rounded-full">
+            Empleo
+          </Button>
+          <Button type="button" size="sm" variant="ghost" asChild className="rounded-full">
+            <Link to="/admin/proyectos">Proyectos</Link>
+          </Button>
+        </div>
+
+        <div className="mt-6 inline-flex rounded-full border border-border bg-card p-1 shadow-soft md:ml-3">
           <Button
             type="button"
             size="sm"

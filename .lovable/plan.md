@@ -1,31 +1,22 @@
-# Corrección del INSERT en `/formulario-tecnico`
+# Diagnóstico temporal del formulario técnico
 
-## Causa real
+## Cambios limitados
 
-`submitProjectInformation()` en `src/lib/project-information.ts` ejecuta un INSERT que, por defecto, intenta **devolver la fila creada**. Ese SELECT implícito choca con la política RLS de la tabla, que permite INSERT como `anon` pero no SELECT/retorno de filas. Por eso Supabase devuelve un error y el formulario muestra el mensaje genérico.
-
-## Cambio único a realizar
-
-En `src/lib/project-information.ts`, línea 57, cambiar:
+1. En `submitProjectInformation()`, mantener exactamente el INSERT actual sin retorno:
 
 ```ts
 const { error } = await supabase.from(TABLE).insert(payload);
 ```
 
-por:
+2. Si el INSERT devuelve un error, registrar temporalmente en consola sus campos `message`, `code`, `details` y `hint`, y después relanzar el mismo error.
+3. En el `catch` del formulario, recibir el error y registrarlo como `FORMULARIO TECNICO ERROR`, conservando el mensaje visible actual.
 
-```ts
-const { error } = await supabase.from(TABLE).insert(payload, { returning: "minimal" });
-```
+## Límites
 
-Esto fuerza al cliente a no solicitar la fila insertada, evitando el SELECT que dispara RLS.
-
-## Lo que NO se toca
-
-- `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY` ni ninguna credencial.
-- Tablas, RLS, Lovable Cloud, diseño ni otras secciones.
+- No añadir `.select()`, `.single()`, `.maybeSingle()` ni `returning`.
+- No cambiar URL, claves, tablas, RLS, Lovable Cloud, diseño ni ninguna otra funcionalidad.
 
 ## Verificación
 
-- `npm run build`.
-- Envío real desde `/formulario-tecnico` para confirmar que guarda correctamente.
+- Ejecutar `npm run build`.
+- Confirmar que los dos registros temporales quedan en los puntos solicitados y que el comportamiento visible del formulario no cambia.

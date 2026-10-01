@@ -9,48 +9,23 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as IndexRouteImport } from './routes/index'
-import { Route as CanalDelInformanteRouteImport } from './routes/canal-del-informante'
-import { Route as ContactoRouteImport } from './routes/contacto'
-import { Route as FormularioTecnicoRouteImport } from './routes/formulario-tecnico'
-import { Route as ProyectosRouteImport } from './routes/proyectos'
-import { Route as ServiciosRouteImport } from './routes/servicios'
-import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
 import { Route as TrabajaConNosotrosRouteImport } from './routes/trabaja-con-nosotros'
-import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
-import { Route as AdminLoginRouteImport } from './routes/admin.login'
-import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
+import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
+import { Route as ServiciosRouteImport } from './routes/servicios'
+import { Route as ProyectosRouteImport } from './routes/proyectos'
+import { Route as FormularioTecnicoRouteImport } from './routes/formulario-tecnico'
+import { Route as ContactoRouteImport } from './routes/contacto'
+import { Route as CanalDelInformanteRouteImport } from './routes/canal-del-informante'
+import { Route as IndexRouteImport } from './routes/index'
 import { Route as EmpleoIdRouteImport } from './routes/empleo.$id'
+import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
+import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
 import { Route as ApiPublicSmtpTestRouteImport } from './routes/api/public/smtp-test'
 
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CanalDelInformanteRoute = CanalDelInformanteRouteImport.update({
-  id: '/canal-del-informante',
-  path: '/canal-del-informante',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactoRoute = ContactoRouteImport.update({
-  id: '/contacto',
-  path: '/contacto',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const FormularioTecnicoRoute = FormularioTecnicoRouteImport.update({
-  id: '/formulario-tecnico',
-  path: '/formulario-tecnico',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProyectosRoute = ProyectosRouteImport.update({
-  id: '/proyectos',
-  path: '/proyectos',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServiciosRoute = ServiciosRouteImport.update({
-  id: '/servicios',
-  path: '/servicios',
+const TrabajaConNosotrosRoute = TrabajaConNosotrosRouteImport.update({
+  id: '/trabaja-con-nosotros',
+  path: '/trabaja-con-nosotros',
   getParentRoute: () => rootRouteImport,
 } as any)
 const SobreNosotrosRoute = SobreNosotrosRouteImport.update({
@@ -58,19 +33,39 @@ const SobreNosotrosRoute = SobreNosotrosRouteImport.update({
   path: '/sobre-nosotros',
   getParentRoute: () => rootRouteImport,
 } as any)
-const TrabajaConNosotrosRoute = TrabajaConNosotrosRouteImport.update({
-  id: '/trabaja-con-nosotros',
-  path: '/trabaja-con-nosotros',
+const ServiciosRoute = ServiciosRouteImport.update({
+  id: '/servicios',
+  path: '/servicios',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminEmpleoRoute = AdminEmpleoRouteImport.update({
-  id: '/admin/empleo',
-  path: '/admin/empleo',
+const ProyectosRoute = ProyectosRouteImport.update({
+  id: '/proyectos',
+  path: '/proyectos',
   getParentRoute: () => rootRouteImport,
 } as any)
-const AdminLoginRoute = AdminLoginRouteImport.update({
-  id: '/admin/login',
-  path: '/admin/login',
+const FormularioTecnicoRoute = FormularioTecnicoRouteImport.update({
+  id: '/formulario-tecnico',
+  path: '/formulario-tecnico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactoRoute = ContactoRouteImport.update({
+  id: '/contacto',
+  path: '/contacto',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CanalDelInformanteRoute = CanalDelInformanteRouteImport.update({
+  id: '/canal-del-informante',
+  path: '/canal-del-informante',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const EmpleoIdRoute = EmpleoIdRouteImport.update({
+  id: '/empleo/$id',
+  path: '/empleo/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdminProyectosRoute = AdminProyectosRouteImport.update({
@@ -78,9 +73,14 @@ const AdminProyectosRoute = AdminProyectosRouteImport.update({
   path: '/admin/proyectos',
   getParentRoute: () => rootRouteImport,
 } as any)
-const EmpleoIdRoute = EmpleoIdRouteImport.update({
-  id: '/empleo/$id',
-  path: '/empleo/$id',
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminEmpleoRoute = AdminEmpleoRouteImport.update({
+  id: '/admin/empleo',
+  path: '/admin/empleo',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ApiPublicSmtpTestRoute = ApiPublicSmtpTestRouteImport.update({
@@ -201,46 +201,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/canal-del-informante': {
-      id: '/canal-del-informante'
-      path: '/canal-del-informante'
-      fullPath: '/canal-del-informante'
-      preLoaderRoute: typeof CanalDelInformanteRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contacto': {
-      id: '/contacto'
-      path: '/contacto'
-      fullPath: '/contacto'
-      preLoaderRoute: typeof ContactoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/formulario-tecnico': {
-      id: '/formulario-tecnico'
-      path: '/formulario-tecnico'
-      fullPath: '/formulario-tecnico'
-      preLoaderRoute: typeof FormularioTecnicoRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/proyectos': {
-      id: '/proyectos'
-      path: '/proyectos'
-      fullPath: '/proyectos'
-      preLoaderRoute: typeof ProyectosRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/servicios': {
-      id: '/servicios'
-      path: '/servicios'
-      fullPath: '/servicios'
-      preLoaderRoute: typeof ServiciosRouteImport
+    '/trabaja-con-nosotros': {
+      id: '/trabaja-con-nosotros'
+      path: '/trabaja-con-nosotros'
+      fullPath: '/trabaja-con-nosotros'
+      preLoaderRoute: typeof TrabajaConNosotrosRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/sobre-nosotros': {
@@ -250,25 +215,53 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof SobreNosotrosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/trabaja-con-nosotros': {
-      id: '/trabaja-con-nosotros'
-      path: '/trabaja-con-nosotros'
-      fullPath: '/trabaja-con-nosotros'
-      preLoaderRoute: typeof TrabajaConNosotrosRouteImport
+    '/servicios': {
+      id: '/servicios'
+      path: '/servicios'
+      fullPath: '/servicios'
+      preLoaderRoute: typeof ServiciosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/empleo': {
-      id: '/admin/empleo'
-      path: '/admin/empleo'
-      fullPath: '/admin/empleo'
-      preLoaderRoute: typeof AdminEmpleoRouteImport
+    '/proyectos': {
+      id: '/proyectos'
+      path: '/proyectos'
+      fullPath: '/proyectos'
+      preLoaderRoute: typeof ProyectosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/admin/login': {
-      id: '/admin/login'
-      path: '/admin/login'
-      fullPath: '/admin/login'
-      preLoaderRoute: typeof AdminLoginRouteImport
+    '/formulario-tecnico': {
+      id: '/formulario-tecnico'
+      path: '/formulario-tecnico'
+      fullPath: '/formulario-tecnico'
+      preLoaderRoute: typeof FormularioTecnicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contacto': {
+      id: '/contacto'
+      path: '/contacto'
+      fullPath: '/contacto'
+      preLoaderRoute: typeof ContactoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/canal-del-informante': {
+      id: '/canal-del-informante'
+      path: '/canal-del-informante'
+      fullPath: '/canal-del-informante'
+      preLoaderRoute: typeof CanalDelInformanteRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/empleo/$id': {
+      id: '/empleo/$id'
+      path: '/empleo/$id'
+      fullPath: '/empleo/$id'
+      preLoaderRoute: typeof EmpleoIdRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admin/proyectos': {
@@ -278,11 +271,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminProyectosRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/empleo/$id': {
-      id: '/empleo/$id'
-      path: '/empleo/$id'
-      fullPath: '/empleo/$id'
-      preLoaderRoute: typeof EmpleoIdRouteImport
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/empleo': {
+      id: '/admin/empleo'
+      path: '/admin/empleo'
+      fullPath: '/admin/empleo'
+      preLoaderRoute: typeof AdminEmpleoRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/api/public/smtp-test': {

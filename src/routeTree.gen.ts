@@ -21,7 +21,6 @@ import { Route as EmpleoIdRouteImport } from './routes/empleo.$id'
 import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
-import { Route as ApiPublicSmtpTestRouteImport } from './routes/api/public/smtp-test'
 
 const TrabajaConNosotrosRoute = TrabajaConNosotrosRouteImport.update({
   id: '/trabaja-con-nosotros',
@@ -83,11 +82,6 @@ const AdminEmpleoRoute = AdminEmpleoRouteImport.update({
   path: '/admin/empleo',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ApiPublicSmtpTestRoute = ApiPublicSmtpTestRouteImport.update({
-  id: '/api/public/smtp-test',
-  path: '/api/public/smtp-test',
-  getParentRoute: () => rootRouteImport,
-} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -102,7 +96,6 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
-  '/api/public/smtp-test': typeof ApiPublicSmtpTestRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -117,7 +110,6 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
-  '/api/public/smtp-test': typeof ApiPublicSmtpTestRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -133,7 +125,6 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
-  '/api/public/smtp-test': typeof ApiPublicSmtpTestRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -150,7 +141,6 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/proyectos'
     | '/empleo/$id'
-    | '/api/public/smtp-test'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -165,7 +155,6 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/proyectos'
     | '/empleo/$id'
-    | '/api/public/smtp-test'
   id:
     | '__root__'
     | '/'
@@ -180,7 +169,6 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/proyectos'
     | '/empleo/$id'
-    | '/api/public/smtp-test'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -196,7 +184,6 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   AdminProyectosRoute: typeof AdminProyectosRoute
   EmpleoIdRoute: typeof EmpleoIdRoute
-  ApiPublicSmtpTestRoute: typeof ApiPublicSmtpTestRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -285,13 +272,6 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminEmpleoRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/api/public/smtp-test': {
-      id: '/api/public/smtp-test'
-      path: '/api/public/smtp-test'
-      fullPath: '/api/public/smtp-test'
-      preLoaderRoute: typeof ApiPublicSmtpTestRouteImport
-      parentRoute: typeof rootRouteImport
-    }
   }
 }
 
@@ -308,7 +288,6 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   AdminProyectosRoute: AdminProyectosRoute,
   EmpleoIdRoute: EmpleoIdRoute,
-  ApiPublicSmtpTestRoute: ApiPublicSmtpTestRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

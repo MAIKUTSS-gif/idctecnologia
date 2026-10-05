@@ -28,9 +28,13 @@ const schema = z.object({
 function ContactPage() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [sendError, setSendError] = useState(false);
+  const [startedAt] = useState(() => Date.now());
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submitting) return;
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd.entries());
     const result = schema.safeParse(data);
@@ -41,7 +45,26 @@ function ContactPage() {
       return;
     }
     setErrors({});
-    setSent(true);
+    setSendError(false);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...result.data,
+          website: String(data.website ?? ""),
+          elapsed: Date.now() - startedAt,
+        }),
+      });
+      const json = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+      if (!res.ok || !json?.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (

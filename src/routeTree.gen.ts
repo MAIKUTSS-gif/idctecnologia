@@ -21,6 +21,8 @@ import { Route as EmpleoIdRouteImport } from './routes/empleo.$id'
 import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
+import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as ApiPublicApplicationEmailRouteImport } from './routes/api/public/application-email'
 
 const TrabajaConNosotrosRoute = TrabajaConNosotrosRouteImport.update({
   id: '/trabaja-con-nosotros',
@@ -82,6 +84,17 @@ const AdminEmpleoRoute = AdminEmpleoRouteImport.update({
   path: '/admin/empleo',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
+  id: '/api/public/contact',
+  path: '/api/public/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiPublicApplicationEmailRoute =
+  ApiPublicApplicationEmailRouteImport.update({
+    id: '/api/public/application-email',
+    path: '/api/public/application-email',
+    getParentRoute: () => rootRouteImport,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -96,6 +109,8 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -110,6 +125,8 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,6 +142,8 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
+  '/api/public/contact': typeof ApiPublicContactRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -141,6 +160,8 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/proyectos'
     | '/empleo/$id'
+    | '/api/public/application-email'
+    | '/api/public/contact'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -155,6 +176,8 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/proyectos'
     | '/empleo/$id'
+    | '/api/public/application-email'
+    | '/api/public/contact'
   id:
     | '__root__'
     | '/'
@@ -169,6 +192,8 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/proyectos'
     | '/empleo/$id'
+    | '/api/public/application-email'
+    | '/api/public/contact'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -184,6 +209,8 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   AdminProyectosRoute: typeof AdminProyectosRoute
   EmpleoIdRoute: typeof EmpleoIdRoute
+  ApiPublicApplicationEmailRoute: typeof ApiPublicApplicationEmailRoute
+  ApiPublicContactRoute: typeof ApiPublicContactRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -272,6 +299,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminEmpleoRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/contact': {
+      id: '/api/public/contact'
+      path: '/api/public/contact'
+      fullPath: '/api/public/contact'
+      preLoaderRoute: typeof ApiPublicContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/public/application-email': {
+      id: '/api/public/application-email'
+      path: '/api/public/application-email'
+      fullPath: '/api/public/application-email'
+      preLoaderRoute: typeof ApiPublicApplicationEmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -288,6 +329,8 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   AdminProyectosRoute: AdminProyectosRoute,
   EmpleoIdRoute: EmpleoIdRoute,
+  ApiPublicApplicationEmailRoute: ApiPublicApplicationEmailRoute,
+  ApiPublicContactRoute: ApiPublicContactRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

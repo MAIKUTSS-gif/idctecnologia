@@ -77,6 +77,13 @@ export function ApplicationForm({ jobOfferId }: { jobOfferId: string }) {
     setSubmitting(true);
     try {
       await submitApplication(jobOfferId, values, file as File);
+      // Correos tras guardar: no bloquea ni afecta a la candidatura si falla.
+      void fetch("/api/public/application-email", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ jobOfferId, ...values }),
+        keepalive: true,
+      }).catch(() => undefined);
       setDone(true);
       setValues(EMPTY);
       setFile(null);

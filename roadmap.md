@@ -1,17 +1,12 @@
 # Roadmap
 
-## Prueba SMTP en Vercel (Nodemailer, plan aprobado)
-- [x] Confirmar runtime Node en Vercel (nodejs24.x) — hecho por el usuario
-- [x] Instalar nodemailer + @types/nodemailer
-- [x] Helper `src/lib/smtp-test.server.ts` (SMTP_HOST/PORT/USER/PASSWORD, EMAIL_FROM/EMAIL_NOTIFICATIONS, 587 STARTTLS)
-- [x] Endpoint temporal `src/routes/api/public/smtp-test.ts` (POST, cabecera x-smtp-test-token vs SMTP_TEST_TOKEN, 404 si falla)
-- [x] `npm run build` + verificación de que nodemailer y las SMTP no llegan al cliente
-- [ ] Retirada del endpoint y del helper cuando el usuario confirme el correo (y borrar SMTP_TEST_TOKEN en Vercel)
+## Correos SMTP (plan aprobado)
+- [x] Retirar prueba SMTP temporal
+- [x] Helper `src/lib/email.server.ts`
+- [x] Contacto/Presupuesto → aviso interno + confirmación (según servicio)
+- [x] Candidaturas → aviso interno + confirmación tras guardar
+- [x] typecheck + build + SMTP fuera del bundle cliente
+- [ ] Prueba real en Vercel (usuario)
 
 ## Módulo Empleo — candidaturas
-- [x] Capa de datos `src/lib/applications.ts` (subida CV, insert, listado, estados, notas, signed URL, borrado)
-- [ ] Formulario público de candidatura en `/empleo/$id` (validación, 10 MB, PDF/DOC/DOCX, consentimiento, anti doble envío)
-- [ ] Panel admin: pestañas Ofertas / Candidaturas, contador de candidatos, "Ver candidatos"
-- [ ] Detalle de candidato: datos, estado, notas internas, descarga CV (signed URL 60 s), eliminar candidato + CV
-- [ ] Condiciones extra: limpiar CV huérfano, advertencia si el CV no se puede borrar, aviso si no hay `cv_path`
-- [ ] `npm run build` y verificación
+- [x] Capa de datos, formulario, panel admin, detalle (implementados anteriormente)

@@ -28,9 +28,13 @@ const schema = z.object({
 function ContactPage() {
   const [sent, setSent] = useState(false);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [submitting, setSubmitting] = useState(false);
+  const [sendError, setSendError] = useState(false);
+  const [startedAt] = useState(() => Date.now());
 
-  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    if (submitting) return;
     const fd = new FormData(e.currentTarget);
     const data = Object.fromEntries(fd.entries());
     const result = schema.safeParse(data);
@@ -41,7 +45,26 @@ function ContactPage() {
       return;
     }
     setErrors({});
-    setSent(true);
+    setSendError(false);
+    setSubmitting(true);
+    try {
+      const res = await fetch("/api/public/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          ...result.data,
+          website: String(data.website ?? ""),
+          elapsed: Date.now() - startedAt,
+        }),
+      });
+      const json = (await res.json().catch(() => null)) as { ok?: boolean } | null;
+      if (!res.ok || !json?.ok) throw new Error("send failed");
+      setSent(true);
+    } catch {
+      setSendError(true);
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   return (
@@ -126,8 +149,23 @@ function ContactPage() {
                   {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
                 </div>
 
-                <Button type="submit" variant="hero" size="xl" className="w-full">
-                  Enviar solicitud <Send className="h-4 w-4" />
+                {/* Campo trampa antispam: invisible para personas */}
+                <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+                  <label>
+                    Web
+                    <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                  </label>
+                </div>
+
+                {sendError && (
+                  <p className="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+                    No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos a
+                    informacion@idc.es / llámanos al +34 91 879 60 46.
+                  </p>
+                )}
+
+                <Button type="submit" variant="hero" size="xl" className="w-full" disabled={submitting}>
+                  {submitting ? "Enviando…" : "Enviar solicitud"} <Send className="h-4 w-4" />
                 </Button>
               </form>
             )}

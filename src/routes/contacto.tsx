@@ -149,8 +149,23 @@ function ContactPage() {
                   {errors.message && <p className="mt-1 text-xs text-destructive">{errors.message}</p>}
                 </div>
 
-                <Button type="submit" variant="hero" size="xl" className="w-full">
-                  Enviar solicitud <Send className="h-4 w-4" />
+                {/* Campo trampa antispam: invisible para personas */}
+                <div aria-hidden="true" style={{ position: "absolute", left: "-10000px", width: 1, height: 1, overflow: "hidden" }}>
+                  <label>
+                    Web
+                    <input type="text" name="website" tabIndex={-1} autoComplete="off" defaultValue="" />
+                  </label>
+                </div>
+
+                {sendError && (
+                  <p className="rounded-xl border border-destructive/30 bg-destructive/5 px-4 py-3 text-sm text-destructive">
+                    No hemos podido enviar tu solicitud. Inténtalo de nuevo o escríbenos a
+                    informacion@idc.es / llámanos al +34 91 879 60 46.
+                  </p>
+                )}
+
+                <Button type="submit" variant="hero" size="xl" className="w-full" disabled={submitting}>
+                  {submitting ? "Enviando…" : "Enviar solicitud"} <Send className="h-4 w-4" />
                 </Button>
               </form>
             )}

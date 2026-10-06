@@ -55,26 +55,26 @@ export function logEmailError(kind: string, error: unknown) {
 }
 
 /** Aviso interno: siempre a EMAIL_NOTIFICATIONS. */
-export async function sendInternalNotice(opts: { subject: string; text: string; replyTo?: string }) {
+export async function sendInternalNotice(opts: { subject: string; text: string; replyTo?: string; html?: string }) {
   const { transporter, from, notifications } = getTransport();
   await transporter.sendMail({
     from,
     to: notifications,
     subject: clean(opts.subject),
     text: opts.text,
-    html: toHtml(opts.text),
+    html: opts.html ?? toHtml(opts.text),
     replyTo: opts.replyTo ? clean(opts.replyTo) : undefined,
   });
 }
 
 /** Confirmación automática al usuario. */
-export async function sendUserConfirmation(opts: { to: string; subject: string; text: string }) {
+export async function sendUserConfirmation(opts: { to: string; subject: string; text: string; html?: string }) {
   const { transporter, from } = getTransport();
   await transporter.sendMail({
     from,
     to: clean(opts.to),
     subject: clean(opts.subject),
     text: opts.text,
-    html: toHtml(opts.text),
+    html: opts.html ?? toHtml(opts.text),
   });
 }

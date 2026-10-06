@@ -6,6 +6,7 @@ import {
   sendInternalNotice,
   sendUserConfirmation,
 } from "@/lib/email.server";
+import { confirmationEmail, internalEmail, resolveLogoUrl } from "@/lib/email-templates.server";
 
 const SERVICES = [
   "Automatización industrial",
@@ -55,8 +56,22 @@ export const Route = createFileRoute("/api/public/contact")({
           ["Mensaje", d.message],
         ]);
 
+        const logoUrl = resolveLogoUrl(request);
+
         try {
           await sendInternalNotice({
+            html: internalEmail({
+              logoUrl,
+              heading: isQuote ? "Nueva solicitud de presupuesto" : "Nueva consulta web",
+              fields: [
+                ["Nombre", d.name],
+                ["Empresa", d.company],
+                ["Email", d.email, "email"],
+                ["Teléfono", d.phone],
+                ["Servicio", d.service],
+              ],
+              message: d.message,
+            }),
             subject: isQuote
               ? "Nueva solicitud de presupuesto - IDC Tecnología"
               : "Nueva consulta web - IDC Tecnología",
@@ -71,6 +86,22 @@ export const Route = createFileRoute("/api/public/contact")({
         try {
           await sendUserConfirmation({
             to: d.email,
+            html: confirmationEmail({
+              logoUrl,
+              heading: isQuote ? "Hemos recibido tu solicitud" : "Hemos recibido tu consulta",
+              name: d.name,
+              paragraphs: isQuote
+                ? [
+                    "Hemos recibido correctamente tu solicitud de presupuesto.",
+                    "Nuestro equipo revisará la información facilitada y se pondrá en contacto contigo.",
+                    "Gracias por confiar en IDC Tecnología.",
+                  ]
+                : [
+                    "Hemos recibido correctamente tu consulta a través de la web de IDC Tecnología.",
+                    "Nuestro equipo revisará la información y se pondrá en contacto contigo lo antes posible.",
+                    "Gracias por contactar con IDC Tecnología.",
+                  ],
+            }),
             subject: isQuote
               ? "Hemos recibido tu solicitud - IDC Tecnología"
               : "Hemos recibido tu consulta - IDC Tecnología",

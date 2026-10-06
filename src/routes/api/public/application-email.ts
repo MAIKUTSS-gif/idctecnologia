@@ -7,6 +7,7 @@ import {
   sendInternalNotice,
   sendUserConfirmation,
 } from "@/lib/email.server";
+import { confirmationEmail, internalEmail, resolveLogoUrl } from "@/lib/email-templates.server";
 
 const schema = z.object({
   jobOfferId: z.string().uuid(),
@@ -50,8 +51,26 @@ export const Route = createFileRoute("/api/public/application-email")({
         const title = String((offer as { title: string }).title);
         const fullName = `${d.first_name} ${d.last_name}`;
 
+        const logoUrl = resolveLogoUrl(request);
+
         try {
           await sendInternalNotice({
+            html: internalEmail({
+              logoUrl,
+              heading: "Nueva candidatura",
+              fields: [
+                ["Candidato", fullName],
+                ["Oferta", title],
+                ["Email", d.email, "email"],
+                ["Teléfono", d.phone],
+                ["Ciudad", d.city],
+                ["LinkedIn", d.linkedin],
+              ],
+              message: d.message,
+              notes: [
+                "El CV y los datos completos del candidato están disponibles en el panel de administración de IDC Tecnología.",
+              ],
+            }),
             subject: `Nueva candidatura - ${title}`,
             text:
               "Nueva candidatura recibida.\n\n" +
@@ -74,6 +93,16 @@ export const Route = createFileRoute("/api/public/application-email")({
         try {
           await sendUserConfirmation({
             to: d.email,
+            html: confirmationEmail({
+              logoUrl,
+              heading: "Hemos recibido tu candidatura",
+              name: d.first_name,
+              paragraphs: [
+                `Hemos recibido correctamente tu candidatura para la oferta “${title}”.`,
+                "Nuestro equipo revisará tu perfil y se pondrá en contacto contigo si tu candidatura continúa en el proceso de selección.",
+                "Gracias por tu interés en formar parte de IDC Tecnología.",
+              ],
+            }),
             subject: "Hemos recibido tu candidatura - IDC Tecnología",
             text: `Hola ${d.first_name},\n\nHemos recibido correctamente tu candidatura para la oferta “${title}”.\n\nNuestro equipo revisará tu perfil y se pondrá en contacto contigo si tu candidatura continúa en el proceso de selección.\n\nEste es un mensaje automático. Por favor, no respondas a este correo.\n\nGracias por tu interés en formar parte de IDC Tecnología.`,
           });

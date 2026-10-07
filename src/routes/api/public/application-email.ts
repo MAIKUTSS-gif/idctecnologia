@@ -10,7 +10,9 @@ import {
 import { confirmationEmail, internalEmail, resolveLogoUrl } from "@/lib/email-templates.server";
 
 const schema = z.object({
-  jobOfferId: z.string().uuid(),
+  jobOfferId: z
+    .union([z.string().trim().min(1).max(64), z.number().int().positive()])
+    .transform(String),
   first_name: z.string().trim().min(1).max(80),
   last_name: z.string().trim().min(1).max(120),
   email: z.string().trim().email().max(255),

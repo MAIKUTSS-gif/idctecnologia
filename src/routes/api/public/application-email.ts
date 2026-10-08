@@ -34,32 +34,8 @@ export const Route = createFileRoute("/api/public/application-email")({
           return Response.json({ ok: false }, { status: 400 });
         }
         const parsed = schema.safeParse(body);
-        if (!parsed.success) {
-          // DIAGNÓSTICO TEMPORAL: solo campo, código y mensaje de Zod; nunca valores.
-          const isObj = typeof body === "object" && body !== null;
-          const jobOfferIdType =
-            body === null ? "null" : isObj ? typeof (body as Record<string, unknown>).jobOfferId : "no-object";
-          const issues = parsed.error.issues.map((issue) => {
-            const entry: {
-              field: string;
-              code: string;
-              message: string;
-              unionIssues?: { code: string; message: string }[];
-            } = {
-              field: issue.path.length ? issue.path.join(".") : "(raíz)",
-              code: issue.code,
-              message: issue.message,
-            };
-            if (issue.code === "invalid_union") {
-              entry.unionIssues = issue.unionErrors.flatMap((e) =>
-                e.issues.map((i) => ({ code: i.code, message: i.message })),
-              );
-            }
-            return entry;
-          });
-          console.error("APPLICATION_EMAIL_VALIDATION_ERROR", JSON.stringify({ jobOfferIdType, issues }));
-          return Response.json({ ok: false }, { status: 400 });
-        }
+        if (!parsed.success) return Response.json({ ok: false }, { status: 400 });
+
         const d = parsed.data;
         if (d.website) return Response.json({ ok: true });
 

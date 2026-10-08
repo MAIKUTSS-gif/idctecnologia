@@ -6,7 +6,9 @@
 - [x] Contacto/Presupuesto → aviso interno + confirmación (según servicio)
 - [x] Candidaturas → aviso interno + confirmación tras guardar
 - [x] typecheck + build + SMTP fuera del bundle cliente
-- [ ] Prueba real en Vercel (usuario)
+- [x] Prueba real en Vercel (usuario): Contacto/Presupuesto OK, candidaturas OK (aviso interno + confirmación)
+- [x] Corrección `jobOfferId` (acepta texto o número) y retirada del diagnóstico temporal del 400
+
 
 ## Módulo Empleo — candidaturas
 - [x] Capa de datos, formulario, panel admin, detalle (implementados anteriormente)

@@ -19,6 +19,7 @@ import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
 import { Route as TrabajaConNosotrosRouteImport } from './routes/trabaja-con-nosotros'
 import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
+import { Route as AdminNoticiasRouteImport } from './routes/admin.noticias'
 import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
 import { Route as EmpleoIdRouteImport } from './routes/empleo.$id'
 import { Route as ApiPublicApplicationEmailRouteImport } from './routes/api/public/application-email'
@@ -74,6 +75,11 @@ const AdminLoginRoute = AdminLoginRouteImport.update({
   path: '/admin/login',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminNoticiasRoute = AdminNoticiasRouteImport.update({
+  id: '/admin/noticias',
+  path: '/admin/noticias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AdminProyectosRoute = AdminProyectosRouteImport.update({
   id: '/admin/proyectos',
   path: '/admin/proyectos',
@@ -107,6 +113,7 @@ export interface FileRoutesByFullPath {
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
   '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
@@ -123,6 +130,7 @@ export interface FileRoutesByTo {
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
   '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
@@ -140,6 +148,7 @@ export interface FileRoutesById {
   '/trabaja-con-nosotros': typeof TrabajaConNosotrosRoute
   '/admin/empleo': typeof AdminEmpleoRoute
   '/admin/login': typeof AdminLoginRoute
+  '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
@@ -158,6 +167,7 @@ export interface FileRouteTypes {
     | '/trabaja-con-nosotros'
     | '/admin/empleo'
     | '/admin/login'
+    | '/admin/noticias'
     | '/admin/proyectos'
     | '/empleo/$id'
     | '/api/public/application-email'
@@ -174,6 +184,7 @@ export interface FileRouteTypes {
     | '/trabaja-con-nosotros'
     | '/admin/empleo'
     | '/admin/login'
+    | '/admin/noticias'
     | '/admin/proyectos'
     | '/empleo/$id'
     | '/api/public/application-email'
@@ -190,6 +201,7 @@ export interface FileRouteTypes {
     | '/trabaja-con-nosotros'
     | '/admin/empleo'
     | '/admin/login'
+    | '/admin/noticias'
     | '/admin/proyectos'
     | '/empleo/$id'
     | '/api/public/application-email'
@@ -207,6 +219,7 @@ export interface RootRouteChildren {
   TrabajaConNosotrosRoute: typeof TrabajaConNosotrosRoute
   AdminEmpleoRoute: typeof AdminEmpleoRoute
   AdminLoginRoute: typeof AdminLoginRoute
+  AdminNoticiasRoute: typeof AdminNoticiasRoute
   AdminProyectosRoute: typeof AdminProyectosRoute
   EmpleoIdRoute: typeof EmpleoIdRoute
   ApiPublicApplicationEmailRoute: typeof ApiPublicApplicationEmailRoute
@@ -285,6 +298,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminLoginRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/noticias': {
+      id: '/admin/noticias'
+      path: '/admin/noticias'
+      fullPath: '/admin/noticias'
+      preLoaderRoute: typeof AdminNoticiasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/admin/proyectos': {
       id: '/admin/proyectos'
       path: '/admin/proyectos'
@@ -327,6 +347,7 @@ const rootRouteChildren: RootRouteChildren = {
   TrabajaConNosotrosRoute: TrabajaConNosotrosRoute,
   AdminEmpleoRoute: AdminEmpleoRoute,
   AdminLoginRoute: AdminLoginRoute,
+  AdminNoticiasRoute: AdminNoticiasRoute,
   AdminProyectosRoute: AdminProyectosRoute,
   EmpleoIdRoute: EmpleoIdRoute,
   ApiPublicApplicationEmailRoute: ApiPublicApplicationEmailRoute,

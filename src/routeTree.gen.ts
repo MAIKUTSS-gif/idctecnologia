@@ -22,6 +22,8 @@ import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminNoticiasRouteImport } from './routes/admin.noticias'
 import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
 import { Route as EmpleoIdRouteImport } from './routes/empleo.$id'
+import { Route as IntranetIndexRouteImport } from './routes/intranet.index'
+import { Route as IntranetLoginRouteImport } from './routes/intranet.login'
 import { Route as ApiPublicApplicationEmailRouteImport } from './routes/api/public/application-email'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
 
@@ -90,6 +92,16 @@ const EmpleoIdRoute = EmpleoIdRouteImport.update({
   path: '/empleo/$id',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IntranetIndexRoute = IntranetIndexRouteImport.update({
+  id: '/intranet/',
+  path: '/intranet/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntranetLoginRoute = IntranetLoginRouteImport.update({
+  id: '/intranet/login',
+  path: '/intranet/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const ApiPublicApplicationEmailRoute =
   ApiPublicApplicationEmailRouteImport.update({
     id: '/api/public/application-email',
@@ -116,6 +128,8 @@ export interface FileRoutesByFullPath {
   '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/intranet/login': typeof IntranetLoginRoute
+  '/intranet/': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
@@ -133,6 +147,8 @@ export interface FileRoutesByTo {
   '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/intranet/login': typeof IntranetLoginRoute
+  '/intranet': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
@@ -151,6 +167,8 @@ export interface FileRoutesById {
   '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/intranet/login': typeof IntranetLoginRoute
+  '/intranet/': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
   '/api/public/contact': typeof ApiPublicContactRoute
 }
@@ -170,6 +188,8 @@ export interface FileRouteTypes {
     | '/admin/noticias'
     | '/admin/proyectos'
     | '/empleo/$id'
+    | '/intranet/login'
+    | '/intranet/'
     | '/api/public/application-email'
     | '/api/public/contact'
   fileRoutesByTo: FileRoutesByTo
@@ -187,6 +207,8 @@ export interface FileRouteTypes {
     | '/admin/noticias'
     | '/admin/proyectos'
     | '/empleo/$id'
+    | '/intranet/login'
+    | '/intranet'
     | '/api/public/application-email'
     | '/api/public/contact'
   id:
@@ -204,6 +226,8 @@ export interface FileRouteTypes {
     | '/admin/noticias'
     | '/admin/proyectos'
     | '/empleo/$id'
+    | '/intranet/login'
+    | '/intranet/'
     | '/api/public/application-email'
     | '/api/public/contact'
   fileRoutesById: FileRoutesById
@@ -222,6 +246,8 @@ export interface RootRouteChildren {
   AdminNoticiasRoute: typeof AdminNoticiasRoute
   AdminProyectosRoute: typeof AdminProyectosRoute
   EmpleoIdRoute: typeof EmpleoIdRoute
+  IntranetLoginRoute: typeof IntranetLoginRoute
+  IntranetIndexRoute: typeof IntranetIndexRoute
   ApiPublicApplicationEmailRoute: typeof ApiPublicApplicationEmailRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
 }
@@ -319,6 +345,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof EmpleoIdRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/intranet/': {
+      id: '/intranet/'
+      path: '/intranet'
+      fullPath: '/intranet/'
+      preLoaderRoute: typeof IntranetIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intranet/login': {
+      id: '/intranet/login'
+      path: '/intranet/login'
+      fullPath: '/intranet/login'
+      preLoaderRoute: typeof IntranetLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/api/public/application-email': {
       id: '/api/public/application-email'
       path: '/api/public/application-email'
@@ -350,6 +390,8 @@ const rootRouteChildren: RootRouteChildren = {
   AdminNoticiasRoute: AdminNoticiasRoute,
   AdminProyectosRoute: AdminProyectosRoute,
   EmpleoIdRoute: EmpleoIdRoute,
+  IntranetLoginRoute: IntranetLoginRoute,
+  IntranetIndexRoute: IntranetIndexRoute,
   ApiPublicApplicationEmailRoute: ApiPublicApplicationEmailRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
 }

@@ -1,5 +1,8 @@
 # Roadmap
 
+## Textos de la web (Inicio, Servicios, Industria 4.0)
+- [x] Titulares, tarjetas y descripciones actualizados con el resaltado azul conservado
+
 ## Noticias de intranet — diseño editorial
 - [x] Portada y tarjetas con entradilla e imágenes privadas solicitadas en lote
 - [x] Detalle protegido de noticia publicada con pie de foto y texto completo

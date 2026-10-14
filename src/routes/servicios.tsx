@@ -27,7 +27,7 @@ function ServiciosPage() {
             Servicios
           </div>
           <h1 className="mt-6 font-display text-5xl font-semibold tracking-tight md:text-6xl lg:text-7xl">
-            Tres divisiones que <span className="text-gradient">cubren toda tu cadena industrial</span>
+            Tres divisiones que <span className="text-gradient">cubren todo tu proceso industrial</span>
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg text-white/70">
             Desde el diseño de ingeniería de detalle hasta el suministro y mantenimiento.

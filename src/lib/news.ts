@@ -14,6 +14,9 @@ export type NewsItem = {
   title: string;
   body: string | null;
   category: NewsCategory | string;
+  subtitle?: string | null;
+  image_path?: string | null;
+  image_caption?: string | null;
   published: boolean;
   published_at: string | null;
   created_at: string;
@@ -24,6 +27,9 @@ export type NewsInput = {
   title: string;
   body: string;
   category: NewsCategory;
+  subtitle: string | null;
+  image_path: string | null;
+  image_caption: string | null;
 };
 
 const TABLE = "news";
@@ -58,9 +64,75 @@ export async function setNewsPublished(id: NewsItem["id"], published: boolean): 
   if (error) throw error;
 }
 
-export async function deleteNews(id: NewsItem["id"]): Promise<void> {
+export async function deleteNews(id: NewsItem["id"], imagePath?: string | null): Promise<void> {
   const { error } = await supabase.from(TABLE).delete().eq("id", id);
   if (error) throw error;
+  if (imagePath) await removeNewsImage(imagePath);
+}
+
+/* ---------- Imágenes (bucket privado news-images) ---------- */
+
+const IMAGE_BUCKET = "news-images";
+export const NEWS_IMAGE_ACCEPT = "image/jpeg,image/png,image/webp";
+const ALLOWED_TYPES = ["image/jpeg", "image/png", "image/webp"];
+const MAX_WIDTH = 1600;
+const MAX_BYTES = 5 * 1024 * 1024;
+
+export function isAllowedNewsImage(file: File): boolean {
+  return ALLOWED_TYPES.includes(file.type);
+}
+
+function canvasToBlob(canvas: HTMLCanvasElement, type: string, quality: number) {
+  return new Promise<Blob | null>((resolve) => canvas.toBlob(resolve, type, quality));
+}
+
+/** Reduce a máx. 1600 px de ancho y convierte a WebP (o JPEG si no hay soporte). */
+export async function compressNewsImage(file: File): Promise<Blob> {
+  const bitmap = await createImageBitmap(file);
+  const scale = Math.min(1, MAX_WIDTH / bitmap.width);
+  const w = Math.round(bitmap.width * scale);
+  const h = Math.round(bitmap.height * scale);
+  const canvas = document.createElement("canvas");
+  canvas.width = w;
+  canvas.height = h;
+  const ctx = canvas.getContext("2d");
+  if (!ctx) throw new Error("Canvas no disponible");
+  ctx.fillStyle = "#ffffff";
+  ctx.fillRect(0, 0, w, h);
+  ctx.drawImage(bitmap, 0, 0, w, h);
+  bitmap.close?.();
+  let blob = await canvasToBlob(canvas, "image/webp", 0.82);
+  if (!blob || blob.type !== "image/webp") blob = await canvasToBlob(canvas, "image/jpeg", 0.85);
+  if (!blob) throw new Error("No se ha podido procesar la imagen");
+  if (blob.size > MAX_BYTES) throw new Error("La imagen sigue pesando más de 5 MB");
+  return blob;
+}
+
+/** Sube la imagen ya comprimida con nombre UUID, sin upsert. Devuelve la ruta. */
+export async function uploadNewsImage(blob: Blob): Promise<string> {
+  const ext = blob.type === "image/webp" ? "webp" : "jpg";
+  const path = `${crypto.randomUUID()}.${ext}`;
+  const { error } = await supabase.storage
+    .from(IMAGE_BUCKET)
+    .upload(path, blob, { contentType: blob.type, upsert: false });
+  if (error) throw error;
+  return path;
+}
+
+/** Borra una imagen; no lanza error (solo lo registra) para no bloquear la operación principal. */
+export async function removeNewsImage(path: string): Promise<boolean> {
+  const { error } = await supabase.storage.from(IMAGE_BUCKET).remove([path]);
+  if (error) {
+    console.error("No se ha podido borrar la imagen de la noticia");
+    return false;
+  }
+  return true;
+}
+
+export async function getNewsImageUrl(path: string, expiresIn = 3600): Promise<string | null> {
+  const { data, error } = await supabase.storage.from(IMAGE_BUCKET).createSignedUrl(path, expiresIn);
+  if (error || !data) return null;
+  return data.signedUrl;
 }
 
 /** Solo noticias publicadas, de la más reciente a la más antigua por fecha de publicación. */

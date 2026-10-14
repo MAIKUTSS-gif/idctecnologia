@@ -62,3 +62,14 @@ export async function deleteNews(id: NewsItem["id"]): Promise<void> {
   const { error } = await supabase.from(TABLE).delete().eq("id", id);
   if (error) throw error;
 }
+
+/** Solo noticias publicadas, de la más reciente a la más antigua por fecha de publicación. */
+export async function listPublishedNews(): Promise<NewsItem[]> {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .select("*")
+    .eq("published", true)
+    .order("published_at", { ascending: false, nullsFirst: false });
+  if (error) throw error;
+  return (data ?? []) as NewsItem[];
+}

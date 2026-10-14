@@ -139,9 +139,35 @@ export async function getNewsImageUrl(path: string, expiresIn = 3600): Promise<s
 export async function listPublishedNews(): Promise<NewsItem[]> {
   const { data, error } = await supabase
     .from(TABLE)
-    .select("*")
+    .select("id,title,body,category,subtitle,image_path,image_caption,published,published_at,created_at,updated_at")
     .eq("published", true)
-    .order("published_at", { ascending: false, nullsFirst: false });
+    .order("published_at", { ascending: false, nullsFirst: false })
+    .order("created_at", { ascending: false });
   if (error) throw error;
   return (data ?? []) as NewsItem[];
+}
+
+/** Detail reads remain restricted to published rows, including for admins. */
+export async function getPublishedNews(id: string): Promise<NewsItem | null> {
+  const { data, error } = await supabase
+    .from(TABLE)
+    .select("id,title,body,category,subtitle,image_path,image_caption,published,published_at,created_at,updated_at")
+    .eq("published", true)
+    .eq("id", id)
+    .maybeSingle();
+  if (error) throw error;
+  return data as NewsItem | null;
+}
+
+/** Fetch all private images in one request; unavailable images are omitted. */
+export async function getPublishedNewsImageUrls(items: NewsItem[]): Promise<Record<string, string>> {
+  const paths = [...new Set(items.filter((item) => item.published).flatMap((item) => item.image_path ? [item.image_path] : []))];
+  if (paths.length === 0) return {};
+  const { data, error } = await supabase.storage.from(IMAGE_BUCKET).createSignedUrls(paths, 3600);
+  if (error || !data) return {};
+  const urls: Record<string, string> = {};
+  for (const image of data) {
+    if (image.path && image.signedUrl && !image.error) urls[image.path] = image.signedUrl;
+  }
+  return urls;
 }

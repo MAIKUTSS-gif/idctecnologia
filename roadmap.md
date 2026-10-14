@@ -1,5 +1,10 @@
 # Roadmap
 
+## Noticias de intranet — diseño editorial
+- [ ] Portada y tarjetas con entradilla e imágenes privadas solicitadas en lote
+- [ ] Detalle protegido de noticia publicada con pie de foto y texto completo
+- [ ] Verificar navegación, presentación móvil y estado de compilación
+
 ## Correos SMTP (plan aprobado)
 - [x] Retirar prueba SMTP temporal
 - [x] Helper `src/lib/email.server.ts`

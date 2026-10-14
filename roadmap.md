@@ -1,5 +1,11 @@
 # Roadmap
 
+## Noticias de intranet — diseño editorial
+- [x] Portada y tarjetas con entradilla e imágenes privadas solicitadas en lote
+- [x] Detalle protegido de noticia publicada con pie de foto y texto completo
+- [x] Verificar navegación y presentación móvil con datos simulados; compilación automática OK
+- [ ] Verificar con la cuenta real y noticias del despliegue externo (requiere prueba del usuario en Vercel)
+
 ## Correos SMTP (plan aprobado)
 - [x] Retirar prueba SMTP temporal
 - [x] Helper `src/lib/email.server.ts`

@@ -42,6 +42,7 @@
 
   --font-sans: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
   --font-display: "Space Grotesk", "Inter", system-ui, sans-serif;
+  --font-editorial: Georgia, "Times New Roman", serif;
 }
 
 :root {

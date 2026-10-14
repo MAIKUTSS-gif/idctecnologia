@@ -26,6 +26,7 @@ import { Route as IntranetIndexRouteImport } from './routes/intranet.index'
 import { Route as IntranetLoginRouteImport } from './routes/intranet.login'
 import { Route as ApiPublicApplicationEmailRouteImport } from './routes/api/public/application-email'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
+import { Route as IntranetNoticiasIdRouteImport } from './routes/intranet.noticias.$id'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -113,6 +114,11 @@ const ApiPublicContactRoute = ApiPublicContactRouteImport.update({
   path: '/api/public/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const IntranetNoticiasIdRoute = IntranetNoticiasIdRouteImport.update({
+  id: '/intranet/noticias/$id',
+  path: '/intranet/noticias/$id',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -132,6 +138,7 @@ export interface FileRoutesByFullPath {
   '/intranet/': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/intranet/noticias/$id': typeof IntranetNoticiasIdRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -151,6 +158,7 @@ export interface FileRoutesByTo {
   '/intranet': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/intranet/noticias/$id': typeof IntranetNoticiasIdRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -171,6 +179,7 @@ export interface FileRoutesById {
   '/intranet/': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
   '/api/public/contact': typeof ApiPublicContactRoute
+  '/intranet/noticias/$id': typeof IntranetNoticiasIdRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -192,6 +201,7 @@ export interface FileRouteTypes {
     | '/intranet/'
     | '/api/public/application-email'
     | '/api/public/contact'
+    | '/intranet/noticias/$id'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -211,6 +221,7 @@ export interface FileRouteTypes {
     | '/intranet'
     | '/api/public/application-email'
     | '/api/public/contact'
+    | '/intranet/noticias/$id'
   id:
     | '__root__'
     | '/'
@@ -230,6 +241,7 @@ export interface FileRouteTypes {
     | '/intranet/'
     | '/api/public/application-email'
     | '/api/public/contact'
+    | '/intranet/noticias/$id'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -250,6 +262,7 @@ export interface RootRouteChildren {
   IntranetIndexRoute: typeof IntranetIndexRoute
   ApiPublicApplicationEmailRoute: typeof ApiPublicApplicationEmailRoute
   ApiPublicContactRoute: typeof ApiPublicContactRoute
+  IntranetNoticiasIdRoute: typeof IntranetNoticiasIdRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -373,6 +386,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiPublicContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/intranet/noticias/$id': {
+      id: '/intranet/noticias/$id'
+      path: '/intranet/noticias/$id'
+      fullPath: '/intranet/noticias/$id'
+      preLoaderRoute: typeof IntranetNoticiasIdRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -394,6 +414,7 @@ const rootRouteChildren: RootRouteChildren = {
   IntranetIndexRoute: IntranetIndexRoute,
   ApiPublicApplicationEmailRoute: ApiPublicApplicationEmailRoute,
   ApiPublicContactRoute: ApiPublicContactRoute,
+  IntranetNoticiasIdRoute: IntranetNoticiasIdRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

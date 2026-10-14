@@ -54,7 +54,7 @@ function NewsDetail({ id }: { id: string }) {
   return (
     <div className="mt-6">
       <Button asChild variant="ghost" size="sm">
-        <Link to="/intranet/"><ArrowLeft className="h-4 w-4" />Volver a noticias</Link>
+        <Link to="/intranet"><ArrowLeft className="h-4 w-4" />Volver a noticias</Link>
       </Button>
       {loading ? <NewsLoading /> : !item ? (
         <p className="py-12 text-center text-muted-foreground">Noticia no disponible</p>

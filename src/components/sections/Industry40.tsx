@@ -23,12 +23,14 @@ export function Industry40() {
             Industria 4.0
           </div>
           <h2 className="mt-6 font-display text-4xl font-semibold leading-tight tracking-tight md:text-5xl lg:text-6xl">
-            Transformamos tu Planta Productiva en una{" "}
-            <span className="text-gradient">Fabrica Inteligente</span>
+            Evaluamos y mejoramos tus procesos de producción transformándolos en una{" "}
+            <span className="text-gradient">fabricación inteligente</span>
           </h2>
           <p className="mt-6 max-w-lg text-base leading-relaxed text-white/70 md:text-lg">
-            Integramos IoT, IA y plataformas SCADA modernas para que cada decisión
-            se tome con datos en tiempo real. Digitalización real, no powerpoints.
+            Integramos las tecnologías de última generación disponibles (IoT, IA,
+            plataformas SCADA) asegurando que cada decisión productiva se toma con
+            datos reales y en tiempo real: digitalización sustentada en la experiencia
+            y casos de éxito realizados, no en PowerPoints.
           </p>
 
           <div className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">

@@ -38,12 +38,12 @@ export function Projects() {
               <span className="h-1.5 w-1.5 rounded-full bg-electric" /> Proyectos destacados
             </div>
             <h2 className="mt-6 max-w-2xl font-display text-4xl font-semibold tracking-tight md:text-5xl lg:text-6xl">
-              Casos reales de <span className="text-gradient">ingeniería industrial</span>
+              Casos de éxito reales en <span className="text-gradient">automatización industrial</span>
             </h2>
           </div>
           <p className="max-w-md text-muted-foreground">
-            Más de 450 proyectos llave en mano para sectores de automoción, alimentación,
-            farma, energía y logística.
+            Más de 450 proyectos llave en mano “con nombre y apellido” para sectores
+            diversos: automoción, alimentación, farma, energía, logística y militar.
           </p>
         </div>
 

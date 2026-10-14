@@ -1,13 +1,19 @@
 import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
-import { useCallback, useEffect, useState } from "react";
-import { Eye, EyeOff, Loader2, LogOut, Pencil, Plus, Trash2 } from "lucide-react";
+import { useCallback, useEffect, useRef, useState } from "react";
+import { Eye, EyeOff, ImageIcon, Loader2, LogOut, Pencil, Plus, Trash2, X } from "lucide-react";
 import { toast } from "sonner";
 import { Toaster } from "@/components/ui/sonner";
 import { supabase } from "@/lib/supabase";
 import { checkIsAdmin } from "@/lib/jobs";
 import {
+  compressNewsImage,
   createNews,
   deleteNews,
+  getNewsImageUrl,
+  isAllowedNewsImage,
+  NEWS_IMAGE_ACCEPT,
+  removeNewsImage,
+  uploadNewsImage,
   listAllNews,
   NEWS_CATEGORIES,
   NEWS_CATEGORY_LABELS,
@@ -72,8 +78,42 @@ function categoryLabel(c: string) {
   return NEWS_CATEGORY_LABELS[c as NewsCategory] ?? c;
 }
 
-type FormState = { title: string; category: NewsCategory; body: string };
-const emptyForm: FormState = { title: "", category: "comunicado", body: "" };
+type FormState = {
+  title: string;
+  category: NewsCategory;
+  subtitle: string;
+  body: string;
+  image_caption: string;
+};
+const emptyForm: FormState = {
+  title: "",
+  category: "comunicado",
+  subtitle: "",
+  body: "",
+  image_caption: "",
+};
+
+function NewsThumb({ path }: { path: string }) {
+  const [url, setUrl] = useState<string | null>(null);
+  useEffect(() => {
+    let active = true;
+    getNewsImageUrl(path).then((u) => active && setUrl(u));
+    return () => {
+      active = false;
+    };
+  }, [path]);
+  return (
+    <div className="h-20 w-28 shrink-0 overflow-hidden rounded-xl border border-border bg-muted">
+      {url ? (
+        <img src={url} alt="" className="h-full w-full object-cover" loading="lazy" />
+      ) : (
+        <div className="flex h-full w-full items-center justify-center">
+          <ImageIcon className="h-5 w-5 text-muted-foreground" />
+        </div>
+      )}
+    </div>
+  );
+}
 
 function AdminNewsPage() {
   const navigate = useNavigate();
@@ -85,6 +125,53 @@ function AdminNewsPage() {
   const [form, setForm] = useState<FormState>(emptyForm);
   const [saving, setSaving] = useState(false);
   const [toDelete, setToDelete] = useState<NewsItem | null>(null);
+  // Imagen en el formulario
+  const [existingPath, setExistingPath] = useState<string | null>(null);
+  const [newImage, setNewImage] = useState<Blob | null>(null);
+  const [previewUrl, setPreviewUrl] = useState<string | null>(null);
+  const [processing, setProcessing] = useState(false);
+  const fileRef = useRef<HTMLInputElement>(null);
+
+  function setLocalPreview(blob: Blob | null) {
+    setPreviewUrl((prev) => {
+      if (prev && prev.startsWith("blob:")) URL.revokeObjectURL(prev);
+      return blob ? URL.createObjectURL(blob) : null;
+    });
+  }
+
+  function resetImageState() {
+    setExistingPath(null);
+    setNewImage(null);
+    setLocalPreview(null);
+    if (fileRef.current) fileRef.current.value = "";
+  }
+
+  async function handleFile(e: React.ChangeEvent<HTMLInputElement>) {
+    const file = e.target.files?.[0];
+    if (!file) return;
+    if (!isAllowedNewsImage(file)) {
+      toast.error("Formato no válido. Usa JPG, PNG o WebP.");
+      e.target.value = "";
+      return;
+    }
+    setProcessing(true);
+    try {
+      const blob = await compressNewsImage(file);
+      setNewImage(blob);
+      setLocalPreview(blob);
+    } catch {
+      toast.error("No se ha podido procesar la imagen");
+    } finally {
+      setProcessing(false);
+      e.target.value = "";
+    }
+  }
+
+  function handleRemoveImage() {
+    setExistingPath(null);
+    setNewImage(null);
+    setLocalPreview(null);
+  }
 
   const refresh = useCallback(async () => {
     setLoading(true);
@@ -127,6 +214,7 @@ function AdminNewsPage() {
   function openCreate() {
     setEditing(null);
     setForm(emptyForm);
+    resetImageState();
     setFormOpen(true);
   }
 
@@ -137,8 +225,18 @@ function AdminNewsPage() {
       category: (NEWS_CATEGORIES as readonly string[]).includes(item.category)
         ? (item.category as NewsCategory)
         : "comunicado",
+      subtitle: item.subtitle ?? "",
       body: item.body ?? "",
+      image_caption: item.image_caption ?? "",
     });
+    resetImageState();
+    if (item.image_path) {
+      const path = item.image_path;
+      setExistingPath(path);
+      void getNewsImageUrl(path).then((u) => {
+        setPreviewUrl((prev) => prev ?? u);
+      });
+    }
     setFormOpen(true);
   }
 
@@ -149,14 +247,31 @@ function AdminNewsPage() {
       return;
     }
     setSaving(true);
+    let uploadedPath: string | null = null;
     try {
-      const input = { title, category: form.category, body: form.body };
+      if (newImage) uploadedPath = await uploadNewsImage(newImage);
+      const finalPath = uploadedPath ?? existingPath;
+      const subtitle = form.subtitle.trim();
+      const caption = form.image_caption.trim();
+      const input = {
+        title,
+        category: form.category,
+        body: form.body,
+        subtitle: subtitle || null,
+        image_path: finalPath,
+        image_caption: finalPath && caption ? caption : null,
+      };
       if (editing) await updateNews(editing.id, input);
       else await createNews(input);
+      // Borrar la imagen anterior si se ha sustituido o quitado
+      const oldPath = editing?.image_path ?? null;
+      if (oldPath && oldPath !== finalPath) await removeNewsImage(oldPath);
       toast.success(editing ? "Noticia actualizada" : "Noticia creada como borrador");
       setFormOpen(false);
+      resetImageState();
       await refresh();
     } catch {
+      if (uploadedPath) await removeNewsImage(uploadedPath);
       toast.error("No se ha podido guardar la noticia");
     } finally {
       setSaving(false);
@@ -176,7 +291,7 @@ function AdminNewsPage() {
   async function confirmDelete() {
     if (!toDelete) return;
     try {
-      await deleteNews(toDelete.id);
+      await deleteNews(toDelete.id, toDelete.image_path ?? null);
       toast.success("Noticia eliminada");
       setToDelete(null);
       await refresh();
@@ -256,6 +371,7 @@ function AdminNewsPage() {
                 className="rounded-2xl border border-border bg-card p-5 shadow-soft"
               >
                 <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
+                  {item.image_path ? <NewsThumb path={item.image_path} /> : null}
                   <div className="min-w-0 flex-1">
                     <div className="flex flex-wrap items-center gap-2">
                       <Badge variant={item.published ? "default" : "secondary"}>
@@ -270,6 +386,9 @@ function AdminNewsPage() {
                       Creada {formatDate(item.created_at)}
                       {item.published_at ? ` · Publicada ${formatDate(item.published_at)}` : ""}
                     </p>
+                    {item.subtitle ? (
+                      <p className="mt-2 break-words text-sm font-medium">{item.subtitle}</p>
+                    ) : null}
                     {item.body ? (
                       <p className="mt-3 line-clamp-4 whitespace-pre-wrap break-words text-sm text-muted-foreground">
                         {item.body}
@@ -349,6 +468,72 @@ function AdminNewsPage() {
               </select>
             </div>
             <div className="space-y-2">
+              <Label htmlFor="news-subtitle">Entradilla (opcional)</Label>
+              <Textarea
+                id="news-subtitle"
+                rows={2}
+                maxLength={300}
+                value={form.subtitle}
+                onChange={(e) => setForm((f) => ({ ...f, subtitle: e.target.value }))}
+              />
+              <p className="text-right text-xs text-muted-foreground">{form.subtitle.length}/300</p>
+            </div>
+            <div className="space-y-2">
+              <Label htmlFor="news-image">Imagen (opcional)</Label>
+              {previewUrl ? (
+                <div className="relative overflow-hidden rounded-xl border border-border bg-muted">
+                  <img src={previewUrl} alt="Vista previa" className="max-h-64 w-full object-contain" />
+                  <Button
+                    type="button"
+                    size="sm"
+                    variant="secondary"
+                    className="absolute right-2 top-2"
+                    onClick={handleRemoveImage}
+                  >
+                    <X className="h-4 w-4" /> Quitar
+                  </Button>
+                </div>
+              ) : null}
+              <div className="flex flex-wrap items-center gap-2">
+                <input
+                  ref={fileRef}
+                  id="news-image"
+                  type="file"
+                  accept={NEWS_IMAGE_ACCEPT}
+                  className="hidden"
+                  onChange={handleFile}
+                />
+                <Button
+                  type="button"
+                  variant="outline"
+                  size="sm"
+                  disabled={processing}
+                  onClick={() => fileRef.current?.click()}
+                >
+                  {processing ? (
+                    <Loader2 className="h-4 w-4 animate-spin" />
+                  ) : (
+                    <ImageIcon className="h-4 w-4" />
+                  )}
+                  {previewUrl || existingPath ? "Cambiar imagen" : "Elegir imagen"}
+                </Button>
+                <span className="text-xs text-muted-foreground">
+                  JPG, PNG o WebP. Se reduce a 1600 px antes de subirla.
+                </span>
+              </div>
+            </div>
+            {previewUrl || existingPath || newImage ? (
+              <div className="space-y-2">
+                <Label htmlFor="news-caption">Pie de foto (opcional)</Label>
+                <Input
+                  id="news-caption"
+                  maxLength={200}
+                  value={form.image_caption}
+                  onChange={(e) => setForm((f) => ({ ...f, image_caption: e.target.value }))}
+                />
+              </div>
+            ) : null}
+            <div className="space-y-2">
               <Label htmlFor="news-body">Texto</Label>
               <Textarea
                 id="news-body"
@@ -362,7 +547,7 @@ function AdminNewsPage() {
             <Button type="button" variant="outline" onClick={() => setFormOpen(false)}>
               Cancelar
             </Button>
-            <Button type="button" onClick={handleSave} disabled={saving}>
+            <Button type="button" onClick={handleSave} disabled={saving || processing}>
               {saving ? <Loader2 className="h-4 w-4 animate-spin" /> : null}
               Guardar
             </Button>

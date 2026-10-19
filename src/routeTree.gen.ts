@@ -21,8 +21,10 @@ import { Route as AdminEmpleoRouteImport } from './routes/admin.empleo'
 import { Route as AdminLoginRouteImport } from './routes/admin.login'
 import { Route as AdminNoticiasRouteImport } from './routes/admin.noticias'
 import { Route as AdminProyectosRouteImport } from './routes/admin.proyectos'
+import { Route as AdminSugerenciasRouteImport } from './routes/admin.sugerencias'
 import { Route as EmpleoIdRouteImport } from './routes/empleo.$id'
 import { Route as IntranetIndexRouteImport } from './routes/intranet.index'
+import { Route as IntranetBuzonRouteImport } from './routes/intranet.buzon'
 import { Route as IntranetLoginRouteImport } from './routes/intranet.login'
 import { Route as ApiPublicApplicationEmailRouteImport } from './routes/api/public/application-email'
 import { Route as ApiPublicContactRouteImport } from './routes/api/public/contact'
@@ -88,6 +90,11 @@ const AdminProyectosRoute = AdminProyectosRouteImport.update({
   path: '/admin/proyectos',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminSugerenciasRoute = AdminSugerenciasRouteImport.update({
+  id: '/admin/sugerencias',
+  path: '/admin/sugerencias',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EmpleoIdRoute = EmpleoIdRouteImport.update({
   id: '/empleo/$id',
   path: '/empleo/$id',
@@ -96,6 +103,11 @@ const EmpleoIdRoute = EmpleoIdRouteImport.update({
 const IntranetIndexRoute = IntranetIndexRouteImport.update({
   id: '/intranet/',
   path: '/intranet/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const IntranetBuzonRoute = IntranetBuzonRouteImport.update({
+  id: '/intranet/buzon',
+  path: '/intranet/buzon',
   getParentRoute: () => rootRouteImport,
 } as any)
 const IntranetLoginRoute = IntranetLoginRouteImport.update({
@@ -133,7 +145,9 @@ export interface FileRoutesByFullPath {
   '/admin/login': typeof AdminLoginRoute
   '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
+  '/admin/sugerencias': typeof AdminSugerenciasRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/intranet/buzon': typeof IntranetBuzonRoute
   '/intranet/login': typeof IntranetLoginRoute
   '/intranet/': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
@@ -153,7 +167,9 @@ export interface FileRoutesByTo {
   '/admin/login': typeof AdminLoginRoute
   '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
+  '/admin/sugerencias': typeof AdminSugerenciasRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/intranet/buzon': typeof IntranetBuzonRoute
   '/intranet/login': typeof IntranetLoginRoute
   '/intranet': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
@@ -174,7 +190,9 @@ export interface FileRoutesById {
   '/admin/login': typeof AdminLoginRoute
   '/admin/noticias': typeof AdminNoticiasRoute
   '/admin/proyectos': typeof AdminProyectosRoute
+  '/admin/sugerencias': typeof AdminSugerenciasRoute
   '/empleo/$id': typeof EmpleoIdRoute
+  '/intranet/buzon': typeof IntranetBuzonRoute
   '/intranet/login': typeof IntranetLoginRoute
   '/intranet/': typeof IntranetIndexRoute
   '/api/public/application-email': typeof ApiPublicApplicationEmailRoute
@@ -196,7 +214,9 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/noticias'
     | '/admin/proyectos'
+    | '/admin/sugerencias'
     | '/empleo/$id'
+    | '/intranet/buzon'
     | '/intranet/login'
     | '/intranet/'
     | '/api/public/application-email'
@@ -216,7 +236,9 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/noticias'
     | '/admin/proyectos'
+    | '/admin/sugerencias'
     | '/empleo/$id'
+    | '/intranet/buzon'
     | '/intranet/login'
     | '/intranet'
     | '/api/public/application-email'
@@ -236,7 +258,9 @@ export interface FileRouteTypes {
     | '/admin/login'
     | '/admin/noticias'
     | '/admin/proyectos'
+    | '/admin/sugerencias'
     | '/empleo/$id'
+    | '/intranet/buzon'
     | '/intranet/login'
     | '/intranet/'
     | '/api/public/application-email'
@@ -257,7 +281,9 @@ export interface RootRouteChildren {
   AdminLoginRoute: typeof AdminLoginRoute
   AdminNoticiasRoute: typeof AdminNoticiasRoute
   AdminProyectosRoute: typeof AdminProyectosRoute
+  AdminSugerenciasRoute: typeof AdminSugerenciasRoute
   EmpleoIdRoute: typeof EmpleoIdRoute
+  IntranetBuzonRoute: typeof IntranetBuzonRoute
   IntranetLoginRoute: typeof IntranetLoginRoute
   IntranetIndexRoute: typeof IntranetIndexRoute
   ApiPublicApplicationEmailRoute: typeof ApiPublicApplicationEmailRoute
@@ -351,6 +377,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AdminProyectosRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/sugerencias': {
+      id: '/admin/sugerencias'
+      path: '/admin/sugerencias'
+      fullPath: '/admin/sugerencias'
+      preLoaderRoute: typeof AdminSugerenciasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/empleo/$id': {
       id: '/empleo/$id'
       path: '/empleo/$id'
@@ -363,6 +396,13 @@ declare module '@tanstack/react-router' {
       path: '/intranet'
       fullPath: '/intranet/'
       preLoaderRoute: typeof IntranetIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/intranet/buzon': {
+      id: '/intranet/buzon'
+      path: '/intranet/buzon'
+      fullPath: '/intranet/buzon'
+      preLoaderRoute: typeof IntranetBuzonRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/intranet/login': {
@@ -409,7 +449,9 @@ const rootRouteChildren: RootRouteChildren = {
   AdminLoginRoute: AdminLoginRoute,
   AdminNoticiasRoute: AdminNoticiasRoute,
   AdminProyectosRoute: AdminProyectosRoute,
+  AdminSugerenciasRoute: AdminSugerenciasRoute,
   EmpleoIdRoute: EmpleoIdRoute,
+  IntranetBuzonRoute: IntranetBuzonRoute,
   IntranetLoginRoute: IntranetLoginRoute,
   IntranetIndexRoute: IntranetIndexRoute,
   ApiPublicApplicationEmailRoute: ApiPublicApplicationEmailRoute,

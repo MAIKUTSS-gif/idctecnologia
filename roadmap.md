@@ -1,5 +1,10 @@
 # Roadmap
 
+## Buzón de sugerencias
+- [ ] Formulario privado de empleados y menú Noticias/Buzón
+- [ ] Gestión privada de sugerencias y enlaces del panel
+- [ ] Pruebas de límites, anonimato e INSERT sin retorno; verificación de navegación
+
 ## Textos de la web (Inicio, Servicios, Industria 4.0)
 - [x] Titulares, tarjetas y descripciones actualizados con el resaltado azul conservado
 

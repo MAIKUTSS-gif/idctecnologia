@@ -229,6 +229,9 @@ function AdminProjectsPage() {
           <Button type="button" size="sm" variant="ghost" asChild className="rounded-full">
             <Link to="/admin/noticias">Noticias</Link>
           </Button>
+          <Button type="button" size="sm" variant="ghost" asChild className="rounded-full">
+            <Link to="/admin/sugerencias">Sugerencias</Link>
+          </Button>
         </div>
 
         <div className="mt-6 flex flex-wrap items-center gap-3">

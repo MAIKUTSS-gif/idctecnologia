@@ -1,13 +1,13 @@
 import { beforeEach, describe, expect, mock, test } from "bun:test";
 
-const insert = mock(async (_input: unknown) => ({ error: null }));
-const order = mock(async (_column: string, _options: unknown) => ({ data: [], error: null }));
-const select = mock((_columns: string) => ({ order }));
-const eq = mock(async (_column: string, _id: unknown) => ({ error: null }));
-const update = mock((_input: unknown) => ({ eq }));
+const insert = mock(async (_input) => ({ error: null }));
+const order = mock(async (_column, _options) => ({ data: [], error: null }));
+const select = mock((_columns) => ({ order }));
+const eq = mock(async (_column, _id) => ({ error: null }));
+const update = mock((_input) => ({ eq }));
 const remove = mock(() => ({ eq }));
 mock.module("@/lib/supabase", () => ({
-  supabase: { from: (_table: string) => ({ insert, select, update, delete: remove }) },
+  supabase: { from: (_table) => ({ insert, select, update, delete: remove }) },
 }));
 
 const { createSuggestion, listSuggestions, setSuggestionStatus, deleteSuggestion, suggestionInputSchema } = await import("./suggestions");

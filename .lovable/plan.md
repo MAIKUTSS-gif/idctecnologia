@@ -25,11 +25,11 @@ Notas de desarrollo:
 ## 2. Cambios
 
 1. Crear `public/og-image.jpg` (1200x630, recortado) a partir de `src/assets/industry40.jpg` (o `hero-fondo-idc.png`).
-2. En `__root.tsx`: og:image/twitter:image → `https://idctecnologia.vercel.app/og-image.jpg`; author → "IDC Tecnología"; añadir favicon derivado de `src/assets/idc-logo.png` en `public/favicon.png` y enlazarlo; borrar `public/favicon.ico` si existe.
+2. En `__root.tsx`: og:image/twitter:image → `https://idctecnologia.vercel.app/og-image.jpg`; author → "IDC Tecnología"; añadir favicon cuadrado con solo el símbolo redondo rojo del logo (recortado de `src/assets/idc-logo.png`, sin texto) en `public/favicon.png` y enlazarlo; borrar `public/favicon.ico` si existe.
 3. Canonical y og:url de las dos páginas → `https://idctecnologia.vercel.app/...`.
 4. Eliminar el comentario de `vite.config.ts` (sin cambiar la configuración).
 5. Crear `README.md` neutro: IDC Tecnología, tecnologías (React 19, TanStack Start, Vite, Tailwind CSS v4, Supabase, Nodemailer), arranque local (`bun install`, `bun run dev`), variables sin valores: `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`, `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASSWORD`, `EMAIL_FROM`, `EMAIL_NOTIFICATIONS` (se verificarán contra el código).
-6. Eliminar `roadmap.md` y `AGENTS.md`. Se conserva `.lovable/` porque la usa el editor.
+6. Eliminar `roadmap.md`. Conservar `AGENTS.md` con su contenido, quitando solo menciones a Lovable si las hay. Se conserva `.lovable/` porque la usa el editor.
 
 ## 3. Se mantiene sin cambios
 

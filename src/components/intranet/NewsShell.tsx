@@ -1,13 +1,14 @@
 import { useEffect, useState, type ReactNode } from "react";
-import { useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useRouterState } from "@tanstack/react-router";
 import { Loader2, LogOut } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { supabase } from "@/lib/supabase";
 import { checkIntranetAccess } from "@/lib/intranet";
 import { NEWS_CATEGORY_LABELS, type NewsCategory, type NewsItem } from "@/lib/news";
 
-export function NewsShell({ children }: { children: ReactNode }) {
+export function NewsShell({ children, title = "Noticias internas" }: { children: ReactNode; title?: string }) {
   const navigate = useNavigate();
+  const pathname = useRouterState({ select: (state) => state.location.pathname });
   const [state, setState] = useState<"checking" | "denied" | "ready">("checking");
 
   useEffect(() => {
@@ -50,7 +51,7 @@ export function NewsShell({ children }: { children: ReactNode }) {
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6">
         <header className="flex items-start justify-between gap-3 border-b border-border pb-6">
           <div>
-            <h1 className="font-display text-2xl font-semibold tracking-normal">Noticias internas</h1>
+            <h1 className="font-display text-2xl font-semibold tracking-normal">{title}</h1>
             <p className="text-sm text-muted-foreground">Área privada de empleados.</p>
           </div>
           <Button type="button" variant="outline" size="sm" onClick={handleSignOut}>
@@ -59,6 +60,10 @@ export function NewsShell({ children }: { children: ReactNode }) {
             <span className="sr-only sm:hidden">Cerrar sesión</span>
           </Button>
         </header>
+        <nav aria-label="Área de empleados" className="mt-4 flex gap-2">
+          <Button type="button" size="sm" variant={pathname === "/intranet/buzon" ? "ghost" : "default"} asChild><Link to="/intranet" aria-current={pathname === "/intranet/buzon" ? undefined : "page"}>Noticias</Link></Button>
+          <Button type="button" size="sm" variant={pathname === "/intranet/buzon" ? "default" : "ghost"} asChild><Link to="/intranet/buzon" aria-current={pathname === "/intranet/buzon" ? "page" : undefined}>Buzón</Link></Button>
+        </nav>
         {children}
       </div>
     </div>

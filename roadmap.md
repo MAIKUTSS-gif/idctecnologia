@@ -1,5 +1,11 @@
 # Roadmap
 
+## Buzón de sugerencias
+- [x] Formulario privado de empleados y menú Noticias/Buzón
+- [x] Gestión privada de sugerencias y enlaces del panel
+- [x] Ocho pruebas de límites, anonimato e INSERT sin retorno; flujo simulado de envío/error, estados y eliminación; navegación sin sesión; compilación automática OK
+- [ ] Verificar envío y lectura con cuentas reales del backend externo (requiere prueba del usuario en su despliegue; no hay sesión externa disponible en el entorno)
+
 ## Textos de la web (Inicio, Servicios, Industria 4.0)
 - [x] Titulares, tarjetas y descripciones actualizados con el resaltado azul conservado
 

@@ -353,6 +353,9 @@ function AdminNewsPage() {
           <Button type="button" size="sm" className="rounded-full">
             Noticias
           </Button>
+          <Button type="button" size="sm" variant="ghost" asChild className="rounded-full">
+            <Link to="/admin/sugerencias">Sugerencias</Link>
+          </Button>
         </div>
 
         <div className="mt-6 space-y-4">

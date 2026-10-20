@@ -38,13 +38,13 @@ export const Route = createFileRoute("/canal-del-informante")({
           "Canal confidencial de IDC Tecnología para comunicar posibles irregularidades o incumplimientos de forma segura y confidencial.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://idctecnologia.lovable.app/canal-del-informante" },
+      { property: "og:url", content: "https://idctecnologia.vercel.app/canal-del-informante" },
       { name: "twitter:card", content: "summary" },
     ],
     links: [
       {
         rel: "canonical",
-        href: "https://idctecnologia.lovable.app/canal-del-informante",
+        href: "https://idctecnologia.vercel.app/canal-del-informante",
       },
     ],
   }),

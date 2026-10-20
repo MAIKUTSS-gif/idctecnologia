@@ -41,10 +41,10 @@ export const Route = createFileRoute("/trabaja-con-nosotros")({
         content: "Ofertas de empleo en automatización industrial, robótica y digitalización de procesos.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://idctecnologia.lovable.app/trabaja-con-nosotros" },
+      { property: "og:url", content: "https://idctecnologia.vercel.app/trabaja-con-nosotros" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
-    links: [{ rel: "canonical", href: "https://idctecnologia.lovable.app/trabaja-con-nosotros" }],
+    links: [{ rel: "canonical", href: "https://idctecnologia.vercel.app/trabaja-con-nosotros" }],
   }),
   component: CareersPage,
 });

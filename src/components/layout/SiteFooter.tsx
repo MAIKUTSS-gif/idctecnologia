@@ -91,6 +91,7 @@ export function SiteFooter() {
                 { l: "Proyectos", to: "/proyectos" as const },
                 { l: "Contacto", to: "/contacto" as const },
                 { l: "Canal del Informante", to: "/canal-del-informante" as const },
+                { l: "Área de empleados", to: "/intranet" as const },
               ].map((s) => (
                 <li key={s.l}>
                   <Link to={s.to} className="text-white/70 transition-colors hover:text-white">
@@ -125,12 +126,6 @@ export function SiteFooter() {
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row">
           <p>© {new Date().getFullYear()} IDC Tecnología. Todos los derechos reservados.</p>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end">
-            <Link
-              to="/intranet"
-              className="text-white/50 underline-offset-4 transition-colors hover:text-white hover:underline"
-            >
-              Área de empleados
-            </Link>
             <span>ISO 9001:2015</span>
             <span>ISO 14001</span>
             <span>ISO 45001</span>

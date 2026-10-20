@@ -26,7 +26,7 @@ const SERVICES = [
     tag: "03 / Distribution",
     title: "Distribución Técnica",
     desc: "Componentes industriales de marcas oficiales con stock disponible y entrega inmediata.",
-    points: ["Sensorica", "Seguridad de máquinas", "Neumática", "Control de fluidos", "Actuadores eléctricos", "Identificación"],
+    points: ["Sensórica", "Seguridad de máquinas", "Neumática", "Control de fluidos", "Actuadores eléctricos", "Identificación"],
     img: distImg,
   },
 ] as const;

@@ -1,16 +1,14 @@
-# Buzón de sugerencias: ya implementado
+# Aviso para administradores en el buzón
 
-El buzón ya está creado. Esta petición es la misma que se hizo antes, así que no hace falta cambiar nada.
+## Cambio
+En `/intranet/buzon`, una vez superado el control de acceso actual, se comprueba si la sesión es de la cuenta de empleados (`is_intranet_user()`).
+- Si es la cuenta de empleados, se muestra el formulario de siempre, sin cambios.
+- Si no lo es (es decir, quien ha entrado es un administrador), no se muestra el formulario y aparece este aviso:
+  "Estás conectado como administrador. El buzón es para la cuenta de empleados; para probarlo, cierra sesión y entra con la contraseña de empleados."
+- Mientras se hace la comprobación, se muestra el indicador de carga que ya existe.
 
-## Lo que ya existe
-- `/intranet/buzon`: protegida igual que `/intranet`. Tiene un formulario con el mensaje (obligatorio, máximo 5000 caracteres), el nombre (opcional, máximo 120) y el texto de ayuda sobre el anonimato. Si el nombre está vacío, se guarda como anónimo. El envío no pide que se devuelva la fila. Si todo va bien, se muestra una confirmación y el formulario se vacía. Si falla, se muestra un error y se conserva lo escrito.
-- Menú de la intranet con "Noticias" y "Buzón", sin cambiar el diseño de las noticias.
-- `/admin/sugerencias`: protegida igual que `/admin/noticias`. Muestra la lista de la más reciente a la más antigua, con la fecha, el nombre o "Anónimo", el estado y el mensaje en texto plano. Tiene botones para marcar como revisada o nueva y para eliminar con confirmación.
-- Enlace "Sugerencias" en la navegación de todas las páginas de admin.
+## Archivo
+- Solo se modifica `src/routes/intranet.buzon.tsx`. La función que comprueba el acceso, el login, el menú y las noticias no se tocan.
 
-## Paso propuesto
-- Volver a ejecutar la revisión de tipos y `npm run build` para confirmar que todo sigue correcto, sin cambiar nada más.
-
-## Archivos (ya existentes)
-- Creados: `src/lib/suggestions.ts`, `src/lib/suggestions.test.js`, `src/routes/intranet.buzon.tsx`, `src/routes/admin.sugerencias.tsx`
-- Modificados: `src/components/intranet/NewsShell.tsx`, `src/routes/admin.empleo.tsx`, `src/routes/admin.proyectos.tsx`, `src/routes/admin.noticias.tsx`
+## Verificación
+- Revisión de tipos (`npx tsgo --noEmit`) y `npm run build`.

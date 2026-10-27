@@ -1,7 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type FormEvent } from "react";
+import { useEffect, useState, type FormEvent } from "react";
 import { Loader2, Send } from "lucide-react";
-import { NewsShell } from "@/components/intranet/NewsShell";
+import { NewsLoading, NewsShell } from "@/components/intranet/NewsShell";
+import { supabase } from "@/lib/supabase";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -23,7 +24,29 @@ export const Route = createFileRoute("/intranet/buzon")({
 });
 
 function SuggestionsPage() {
-  return <NewsShell title="Buzón de sugerencias"><SuggestionForm /></NewsShell>;
+  return <NewsShell title="Buzón de sugerencias"><SuggestionGate /></NewsShell>;
+}
+
+function SuggestionGate() {
+  const [isEmployee, setIsEmployee] = useState<boolean | null>(null);
+
+  useEffect(() => {
+    let active = true;
+    supabase.rpc("is_intranet_user").then(({ data, error }) => {
+      if (active) setIsEmployee(!error && data === true);
+    });
+    return () => { active = false; };
+  }, []);
+
+  if (isEmployee === null) return <NewsLoading />;
+  if (!isEmployee) {
+    return (
+      <p role="status" className="mt-8 max-w-2xl rounded-lg border border-border bg-muted p-4 text-sm text-muted-foreground">
+        Estás conectado como administrador. El buzón es para la cuenta de empleados; para probarlo, cierra sesión y entra con la contraseña de empleados.
+      </p>
+    );
+  }
+  return <SuggestionForm />;
 }
 
 function SuggestionForm() {

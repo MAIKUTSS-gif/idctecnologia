@@ -3,6 +3,17 @@ import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
 import logo from "@/assets/idc-logo-header.png";
+import logoLight from "@/assets/idc-logo-header-light.png";
+
+const DARK_TOP_ROUTES = new Set([
+  "/servicios",
+  "/proyectos",
+  "/trabaja-con-nosotros",
+  "/contacto",
+  "/sobre-nosotros",
+  "/canal-del-informante",
+  "/formulario-tecnico",
+]);
 
 const EMPRESA_ITEMS = [
   { to: "/sobre-nosotros", label: "Sobre nosotros" },
@@ -23,6 +34,11 @@ export function SiteHeader() {
   const [empresaOpen, setEmpresaOpen] = useState(false);
   const empresaRef = useRef<HTMLDivElement>(null);
   const pathname = useRouterState({ select: (s) => s.location.pathname });
+  const onDark = DARK_TOP_ROUTES.has(pathname) && !scrolled;
+  const linkColor = onDark
+    ? "text-white/90 hover:bg-white/10 hover:text-white"
+    : "text-foreground/80 hover:bg-foreground/5 hover:text-foreground";
+  const activeColor = onDark ? "text-sky-300" : "text-primary";
   const empresaActive = EMPRESA_ITEMS.some((item) => pathname === item.to);
 
   useEffect(() => {
@@ -51,10 +67,12 @@ export function SiteHeader() {
       <div className="container mx-auto px-4">
         <div
           className={`flex items-center justify-between rounded-2xl px-4 py-3 transition-all duration-300 ${
-            scrolled ? "glass shadow-soft" : "bg-transparent"
+            scrolled
+              ? "border border-foreground/10 bg-surface-elevated/95 shadow-soft backdrop-blur-xl"
+              : "border border-transparent bg-transparent"
           }`}
         >
-          <Link to="/" className="flex items-center group">
+          <Link to="/" className="relative flex items-center group">
             <img
               src={logo}
               alt="IDC Tecnología — Factory Automation"
@@ -64,6 +82,16 @@ export function SiteHeader() {
                 scrolled
                   ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                   : "drop-shadow-[0_0_14px_rgba(120,170,255,0.55)]"
+              } ${onDark ? "opacity-0" : "opacity-100"}`}
+            />
+            <img
+              src={logoLight}
+              alt=""
+              aria-hidden="true"
+              width={1272}
+              height={352}
+              className={`pointer-events-none absolute left-0 top-1/2 h-[46px] w-auto max-w-none -translate-y-1/2 object-contain transition-opacity duration-300 sm:h-[54px] md:h-[62px] ${
+                onDark ? "opacity-100" : "opacity-0"
               }`}
             />
           </Link>
@@ -73,8 +101,9 @@ export function SiteHeader() {
               <Link
                 key={item.to}
                 to={item.to}
-                className="rounded-lg px-2 py-2 text-[11px] font-medium text-foreground/80 transition-colors hover:bg-foreground/5 hover:text-foreground sm:px-3 sm:text-xs md:px-4 md:text-sm"
-                activeProps={{ className: "text-primary" }}
+                className={`rounded-lg px-2 py-2 text-[11px] font-medium transition-colors duration-300 sm:px-3 sm:text-xs md:px-4 md:text-sm ${onDark ? "hover:bg-white/10" : "hover:bg-foreground/5"}`}
+                activeProps={{ className: activeColor }}
+                inactiveProps={{ className: linkColor }}
                 activeOptions={{ exact: item.to === "/" }}
               >
                 {item.label}
@@ -87,9 +116,7 @@ export function SiteHeader() {
                 type="button"
                 onClick={() => setEmpresaOpen((v) => !v)}
                 onMouseEnter={() => setEmpresaOpen(true)}
-                className={`flex items-center gap-1 rounded-lg px-2 py-2 text-[11px] font-medium transition-colors hover:bg-foreground/5 hover:text-foreground sm:px-3 sm:text-xs md:px-4 md:text-sm ${
-                  empresaActive ? "text-primary" : "text-foreground/80"
-                }`}
+                className={`flex items-center gap-1 rounded-lg px-2 py-2 text-[11px] font-medium transition-colors duration-300 sm:px-3 sm:text-xs md:px-4 md:text-sm ${empresaActive ? `${activeColor} ${onDark ? "hover:bg-white/10" : "hover:bg-foreground/5"}` : linkColor}`}
                 aria-haspopup="true"
                 aria-expanded={empresaOpen}
               >

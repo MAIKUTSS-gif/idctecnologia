@@ -2,7 +2,7 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import logo from "@/assets/idc-logo.png";
+import logo from "@/assets/idc-logo-header.png";
 
 const EMPRESA_ITEMS = [
   { to: "/sobre-nosotros", label: "Sobre nosotros" },
@@ -58,9 +58,9 @@ export function SiteHeader() {
             <img
               src={logo}
               alt="IDC Tecnología — Factory Automation"
-              width={325}
-              height={100}
-              className={`h-16 sm:h-20 md:h-28 w-auto transition-all duration-300 ${
+              width={1272}
+              height={352}
+              className={`h-[46px] sm:h-[54px] md:h-[62px] w-auto max-w-none object-contain transition-all duration-300 ${
                 scrolled
                   ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
                   : "drop-shadow-[0_0_14px_rgba(120,170,255,0.55)]"

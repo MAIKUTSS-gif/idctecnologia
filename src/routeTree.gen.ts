@@ -14,6 +14,7 @@ import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as CanalDelInformanteRouteImport } from './routes/canal-del-informante'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as FormularioTecnicoRouteImport } from './routes/formulario-tecnico'
+import { Route as PoliticaPrivacidadRouteImport } from './routes/politica-privacidad'
 import { Route as ProyectosRouteImport } from './routes/proyectos'
 import { Route as ServiciosRouteImport } from './routes/servicios'
 import { Route as SobreNosotrosRouteImport } from './routes/sobre-nosotros'
@@ -54,6 +55,11 @@ const ContactoRoute = ContactoRouteImport.update({
 const FormularioTecnicoRoute = FormularioTecnicoRouteImport.update({
   id: '/formulario-tecnico',
   path: '/formulario-tecnico',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PoliticaPrivacidadRoute = PoliticaPrivacidadRouteImport.update({
+  id: '/politica-privacidad',
+  path: '/politica-privacidad',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ProyectosRoute = ProyectosRouteImport.update({
@@ -144,6 +150,7 @@ export interface FileRoutesByFullPath {
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
   '/formulario-tecnico': typeof FormularioTecnicoRoute
+  '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
@@ -167,6 +174,7 @@ export interface FileRoutesByTo {
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
   '/formulario-tecnico': typeof FormularioTecnicoRoute
+  '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
@@ -191,6 +199,7 @@ export interface FileRoutesById {
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
   '/formulario-tecnico': typeof FormularioTecnicoRoute
+  '/politica-privacidad': typeof PoliticaPrivacidadRoute
   '/proyectos': typeof ProyectosRoute
   '/servicios': typeof ServiciosRoute
   '/sobre-nosotros': typeof SobreNosotrosRoute
@@ -216,6 +225,7 @@ export interface FileRouteTypes {
     | '/canal-del-informante'
     | '/contacto'
     | '/formulario-tecnico'
+    | '/politica-privacidad'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
@@ -239,6 +249,7 @@ export interface FileRouteTypes {
     | '/canal-del-informante'
     | '/contacto'
     | '/formulario-tecnico'
+    | '/politica-privacidad'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
@@ -262,6 +273,7 @@ export interface FileRouteTypes {
     | '/canal-del-informante'
     | '/contacto'
     | '/formulario-tecnico'
+    | '/politica-privacidad'
     | '/proyectos'
     | '/servicios'
     | '/sobre-nosotros'
@@ -286,6 +298,7 @@ export interface RootRouteChildren {
   CanalDelInformanteRoute: typeof CanalDelInformanteRoute
   ContactoRoute: typeof ContactoRoute
   FormularioTecnicoRoute: typeof FormularioTecnicoRoute
+  PoliticaPrivacidadRoute: typeof PoliticaPrivacidadRoute
   ProyectosRoute: typeof ProyectosRoute
   ServiciosRoute: typeof ServiciosRoute
   SobreNosotrosRoute: typeof SobreNosotrosRoute
@@ -339,6 +352,13 @@ declare module '@tanstack/react-router' {
       path: '/formulario-tecnico'
       fullPath: '/formulario-tecnico'
       preLoaderRoute: typeof FormularioTecnicoRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/politica-privacidad': {
+      id: '/politica-privacidad'
+      path: '/politica-privacidad'
+      fullPath: '/politica-privacidad'
+      preLoaderRoute: typeof PoliticaPrivacidadRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/proyectos': {
@@ -462,6 +482,7 @@ const rootRouteChildren: RootRouteChildren = {
   CanalDelInformanteRoute: CanalDelInformanteRoute,
   ContactoRoute: ContactoRoute,
   FormularioTecnicoRoute: FormularioTecnicoRoute,
+  PoliticaPrivacidadRoute: PoliticaPrivacidadRoute,
   ProyectosRoute: ProyectosRoute,
   ServiciosRoute: ServiciosRoute,
   SobreNosotrosRoute: SobreNosotrosRoute,

@@ -14,6 +14,7 @@ const DARK_TOP_ROUTES = new Set([
   "/canal-del-informante",
   "/formulario-tecnico",
   "/aviso-legal",
+  "/politica-privacidad",
 ]);
 
 const EMPRESA_ITEMS = [

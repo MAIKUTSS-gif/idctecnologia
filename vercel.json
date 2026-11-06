@@ -1,5 +1,6 @@
 {
   "redirects": [
-    { "source": "/aviso_legal.php", "destination": "/aviso-legal", "statusCode": 301 }
+    { "source": "/aviso_legal.php", "destination": "/aviso-legal", "statusCode": 301 },
+    { "source": "/politica.php", "destination": "/politica-privacidad", "statusCode": 301 }
   ]
 }

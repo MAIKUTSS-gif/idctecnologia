@@ -17,7 +17,7 @@ export const AVISO_LEGAL_SECTIONS: { title: string; paragraphs: string[] }[] = [
   {
     "title": "Privacidad",
     "paragraphs": [
-      "La Empresa cumple en todo momento lo relativo a la Ley Orgánica 15/1999, de Protección de Datos de Carácter Personal, y cualquier otra normativa vigente en la materia, manteniendo en todo momento una Política de Privacidad."
+      "La Empresa cumple en todo momento con lo dispuesto en el Reglamento (UE) 2016/679, General de Protección de Datos (RGPD), en la Ley Orgánica 3/2018, de 5 de diciembre, de Protección de Datos Personales y garantía de los derechos digitales (LOPDGDD), y en cualquier otra normativa vigente en la materia, manteniendo en todo momento una Política de Privacidad."
     ]
   },
   {

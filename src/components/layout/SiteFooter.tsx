@@ -129,6 +129,9 @@ export function SiteFooter() {
             <Link to="/aviso-legal" className="transition-colors hover:text-white/80">
               Aviso legal
             </Link>
+            <Link to="/politica-privacidad" className="transition-colors hover:text-white/80">
+              Política de privacidad
+            </Link>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end">
             <span>ISO 9001:2015</span>

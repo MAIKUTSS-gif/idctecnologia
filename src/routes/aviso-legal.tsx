@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import type { ReactNode } from "react";
 import { Scale } from "lucide-react";
 import { AVISO_LEGAL_SECTIONS } from "@/lib/aviso-legal-text";
@@ -26,8 +26,10 @@ export const Route = createFileRoute("/aviso-legal")({
 const linkClass = "text-electric underline-offset-2 hover:underline";
 
 function linkify(text: string, keyBase: string): ReactNode[] {
-  const re = /(\(\+34\) 91 879 60 46|[\w.+-]+@[\w-]+\.[\w.]+[a-z])/g;
+  const re = /(\(\+34\) 91 879 60 46|Política de Privacidad|[\w.+-]+@[\w-]+\.[\w.]+[a-z])/g;
   return text.split(re).map((part, i) => {
+    if (part === "Política de Privacidad")
+      return <Link key={`${keyBase}-${i}`} to="/politica-privacidad" className={linkClass}>{part}</Link>;
     if (part === "(+34) 91 879 60 46")
       return <a key={`${keyBase}-${i}`} href="tel:+34918796046" className={linkClass}>{part}</a>;
     if (/^[\w.+-]+@[\w-]+\.[\w.]+$/.test(part))

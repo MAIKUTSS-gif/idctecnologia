@@ -515,7 +515,16 @@ function ApplicationForm() {
                   className="mt-0.5 h-4 w-4 rounded border-input accent-[var(--electric,#2563eb)]"
                 />
                 <span>
-                  He leído y acepto la política de privacidad y el tratamiento de mis datos con
+                  He leído y acepto la{" "}
+                  <a
+                    href="/politica-privacidad"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-electric underline-offset-2 hover:underline"
+                  >
+                    política de privacidad
+                  </a>{" "}
+                  y el tratamiento de mis datos con
                   fines de selección de personal (RGPD).
                 </span>
               </label>

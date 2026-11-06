@@ -216,7 +216,16 @@ export function ApplicationForm({ jobOfferId }: { jobOfferId: string }) {
               className="mt-0.5"
             />
             <Label htmlFor="privacy" className="text-sm font-normal leading-relaxed text-muted-foreground">
-              He leído y acepto la Política de Privacidad y autorizo el tratamiento de mis datos para
+              He leído y acepto la{" "}
+              <a
+                href="/politica-privacidad"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-electric underline-offset-2 hover:underline"
+              >
+                Política de Privacidad
+              </a>{" "}
+              y autorizo el tratamiento de mis datos para
               gestionar mi candidatura.
             </Label>
           </div>

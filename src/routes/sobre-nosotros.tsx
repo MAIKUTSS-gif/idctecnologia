@@ -6,7 +6,7 @@ import { CtaFinal } from "@/components/sections/CtaFinal";
 export const Route = createFileRoute("/sobre-nosotros")({
   head: () => ({
     meta: [
-      { title: "Sobre IDC Tecnología — +25 años de ingeniería industrial" },
+      { title: "Sobre IDC Tecnología — +30 años de ingeniería industrial" },
       { name: "description", content: "Desde 1996 en Alcalá de Henares (Madrid). Más de 1.100 proyectos industriales y 340 clientes activos en automatización, ingeniería y mantenimiento." },
       { property: "og:title", content: "Sobre IDC Tecnología" },
       { property: "og:description", content: "Equipo, metodología y visión de IDC Tecnología — automatización industrial e Industria 4.0." },
@@ -41,7 +41,7 @@ function AboutPage() {
 
           <div className="mt-16 grid gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 md:grid-cols-4">
             {[
-              { v: "+25", l: "Años" },
+              { v: "+30", l: "Años" },
               { v: "+1.100", l: "Proyectos" },
               { v: "+340", l: "Clientes" },
               { v: "51-200", l: "Empleados" },

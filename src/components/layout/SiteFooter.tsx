@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Send } from "lucide-react";
+import { Linkedin, Mail, Phone, MapPin, Send } from "lucide-react";
 import logo from "@/assets/idc-logo-claro.png";
 
 export function SiteFooter() {
@@ -53,16 +53,15 @@ export function SiteFooter() {
               quieren ser más eficientes, seguras y rentables.
             </p>
             <div className="mt-6 flex gap-2">
-              {[Linkedin, Twitter, Youtube].map((Icon, i) => (
-                <a
-                  key={i}
-                  href="#"
-                  className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 transition-colors hover:bg-white/10"
-                  aria-label="Social"
-                >
-                  <Icon className="h-4 w-4" />
-                </a>
-              ))}
+              <a
+                href="https://es.linkedin.com/company/idc-tecnolog%C3%ADa"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="grid h-10 w-10 place-items-center rounded-xl border border-white/10 bg-white/5 transition-colors hover:bg-white/10"
+                aria-label="LinkedIn de IDC Tecnología"
+              >
+                <Linkedin className="h-4 w-4" />
+              </a>
             </div>
           </div>
 

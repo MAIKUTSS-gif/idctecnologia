@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Linkedin, Twitter, Youtube, Mail, Phone, MapPin, Send } from "lucide-react";
-import logo from "@/assets/idc-logo.png";
+import logo from "@/assets/idc-logo-claro.png";
 
 export function SiteFooter() {
   return (
@@ -43,9 +43,9 @@ export function SiteFooter() {
               <img
                 src={logo}
                 alt="IDC Tecnología — Factory Automation"
-                width={220}
-                height={68}
-                className="h-14 w-auto drop-shadow-[0_0_18px_rgba(80,140,255,0.45)]"
+                width={1000}
+                height={244}
+                className="h-14 w-auto"
               />
             </Link>
             <p className="mt-6 max-w-sm text-sm leading-relaxed text-white/70">

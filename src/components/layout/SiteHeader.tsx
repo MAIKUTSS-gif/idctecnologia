@@ -2,8 +2,8 @@ import { Link, useRouterState } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { ChevronDown } from "lucide-react";
-import logo from "@/assets/idc-logo-header.png";
-import logoLight from "@/assets/idc-logo-header-light.png";
+import logo from "@/assets/idc-logo.png";
+import logoLight from "@/assets/idc-logo-claro.png";
 
 const DARK_TOP_ROUTES = new Set([
   "/servicios",
@@ -78,8 +78,8 @@ export function SiteHeader() {
             <img
               src={logo}
               alt="IDC Tecnología — Factory Automation"
-              width={1272}
-              height={352}
+              width={1000}
+              height={244}
               className={`h-[46px] sm:h-[54px] md:h-[62px] w-auto max-w-none object-contain transition-all duration-300 ${
                 scrolled
                   ? "drop-shadow-[0_2px_6px_rgba(0,0,0,0.15)]"
@@ -90,8 +90,8 @@ export function SiteHeader() {
               src={logoLight}
               alt=""
               aria-hidden="true"
-              width={1272}
-              height={352}
+              width={1000}
+              height={244}
               className={`pointer-events-none absolute left-0 top-1/2 h-[46px] w-auto max-w-none -translate-y-1/2 object-contain transition-opacity duration-300 sm:h-[54px] md:h-[62px] ${
                 onDark ? "opacity-100" : "opacity-0"
               }`}

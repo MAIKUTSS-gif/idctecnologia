@@ -38,7 +38,7 @@ export function resolveLogoUrl(request?: Request): string | null {
 
 export function header(logoUrl: string | null) {
   const brand = logoUrl
-    ? `<img src="${escapeHtml(logoUrl)}" alt="IDC Tecnología" height="48" style="display:block;height:48px;width:auto;border:0;outline:none;text-decoration:none">`
+    ? `<img src="${escapeHtml(logoUrl)}" alt="IDC Tecnología" width="197" height="48" style="display:block;height:48px;width:auto;border:0;outline:none;text-decoration:none">`
     : `<span style="font-family:${FONT};font-size:20px;font-weight:bold;color:${TEXT};letter-spacing:-0.3px">IDC <span style="color:${BLUE}">Tecnología</span></span>`;
   return `<tr><td style="padding:24px 32px 20px;border-bottom:3px solid ${BLUE}">${brand}</td></tr>`;
 }

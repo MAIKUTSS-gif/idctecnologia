@@ -21,6 +21,12 @@ export const AVISO_LEGAL_SECTIONS: { title: string; paragraphs: string[] }[] = [
     ]
   },
   {
+    "title": "Cookies",
+    "paragraphs": [
+      "Este sitio web no utiliza cookies de análisis ni publicitarias. Únicamente utiliza el almacenamiento técnico imprescindible para mantener la sesión de los usuarios autorizados en las áreas privadas, que está exento de consentimiento conforme al artículo 22.2 de la LSSI-CE."
+    ]
+  },
+  {
     "title": "Seguridad",
     "paragraphs": [
       "La Empresa mantiene en su Portal todos los medios técnicos a su alcance para evitar la pérdida, mal uso, alteración, acceso no autorizado y robo de los datos y la información que usted pueda facilitar a través del mismo, sin perjuicio de que las medidas de seguridad en Internet no sean inexpugnables."

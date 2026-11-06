@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AvisoLegalRouteImport } from './routes/aviso-legal'
 import { Route as CanalDelInformanteRouteImport } from './routes/canal-del-informante'
 import { Route as ContactoRouteImport } from './routes/contacto'
 import { Route as FormularioTecnicoRouteImport } from './routes/formulario-tecnico'
@@ -33,6 +34,11 @@ import { Route as IntranetNoticiasIdRouteImport } from './routes/intranet.notici
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AvisoLegalRoute = AvisoLegalRouteImport.update({
+  id: '/aviso-legal',
+  path: '/aviso-legal',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CanalDelInformanteRoute = CanalDelInformanteRouteImport.update({
@@ -134,6 +140,7 @@ const IntranetNoticiasIdRoute = IntranetNoticiasIdRouteImport.update({
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
   '/formulario-tecnico': typeof FormularioTecnicoRoute
@@ -156,6 +163,7 @@ export interface FileRoutesByFullPath {
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
   '/formulario-tecnico': typeof FormularioTecnicoRoute
@@ -179,6 +187,7 @@ export interface FileRoutesByTo {
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/aviso-legal': typeof AvisoLegalRoute
   '/canal-del-informante': typeof CanalDelInformanteRoute
   '/contacto': typeof ContactoRoute
   '/formulario-tecnico': typeof FormularioTecnicoRoute
@@ -203,6 +212,7 @@ export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/aviso-legal'
     | '/canal-del-informante'
     | '/contacto'
     | '/formulario-tecnico'
@@ -225,6 +235,7 @@ export interface FileRouteTypes {
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/aviso-legal'
     | '/canal-del-informante'
     | '/contacto'
     | '/formulario-tecnico'
@@ -247,6 +258,7 @@ export interface FileRouteTypes {
   id:
     | '__root__'
     | '/'
+    | '/aviso-legal'
     | '/canal-del-informante'
     | '/contacto'
     | '/formulario-tecnico'
@@ -270,6 +282,7 @@ export interface FileRouteTypes {
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AvisoLegalRoute: typeof AvisoLegalRoute
   CanalDelInformanteRoute: typeof CanalDelInformanteRoute
   ContactoRoute: typeof ContactoRoute
   FormularioTecnicoRoute: typeof FormularioTecnicoRoute
@@ -298,6 +311,13 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/aviso-legal': {
+      id: '/aviso-legal'
+      path: '/aviso-legal'
+      fullPath: '/aviso-legal'
+      preLoaderRoute: typeof AvisoLegalRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/canal-del-informante': {
@@ -438,6 +458,7 @@ declare module '@tanstack/react-router' {
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AvisoLegalRoute: AvisoLegalRoute,
   CanalDelInformanteRoute: CanalDelInformanteRoute,
   ContactoRoute: ContactoRoute,
   FormularioTecnicoRoute: FormularioTecnicoRoute,

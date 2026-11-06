@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/aviso_legal.php", "destination": "/aviso-legal", "statusCode": 301 }
+  ]
+}

@@ -124,7 +124,12 @@ export function SiteFooter() {
         </div>
 
         <div className="mt-16 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-8 text-xs text-white/50 md:flex-row">
-          <p>© {new Date().getFullYear()} IDC Tecnología. Todos los derechos reservados.</p>
+          <div className="flex flex-col items-center gap-2 md:flex-row md:gap-6">
+            <p>© {new Date().getFullYear()} IDC Tecnología. Todos los derechos reservados.</p>
+            <Link to="/aviso-legal" className="transition-colors hover:text-white/80">
+              Aviso legal
+            </Link>
+          </div>
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-end">
             <span>ISO 9001:2015</span>
             <span>ISO 14001</span>

@@ -73,7 +73,7 @@ export const POLITICA_PRIVACIDAD_SECTIONS: { title: string; blocks: PrivacyBlock
       { type: "h3", text: "Comunicaciones comerciales y boletín de noticias" },
       {
         type: "p",
-        text: "La Empresa solo le enviará comunicaciones comerciales o su boletín de noticias, por correo electrónico u otro medio, si usted lo ha autorizado expresamente mediante una casilla destinada específicamente a ello, o si es cliente de la Empresa y las comunicaciones se refieren a productos o servicios similares a los contratados, conforme al artículo 21.2 de la LSSI-CE.",
+        text: "La Empresa solo le enviará comunicaciones comerciales o su boletín de noticias, por correo electrónico u otro medio, si usted lo ha autorizado expresamente mediante una casilla destinada específicamente a ello, o si es cliente de la Empresa y las comunicaciones se refieren a productos o servicios similares a los contratados, conforme al artículo 21.2 de la LSSI-CE. La base jurídica es su consentimiento o, en el caso de clientes, el interés legítimo de la Empresa reconocido en dicho artículo.",
       },
       {
         type: "p",
@@ -121,7 +121,7 @@ export const POLITICA_PRIVACIDAD_SECTIONS: { title: string; blocks: PrivacyBlock
     blocks: [
       {
         type: "p",
-        text: "Usted puede ejercer en cualquier momento sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de sus datos, así como retirar el consentimiento prestado, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.",
+        text: "Usted puede ejercer en cualquier momento y de forma gratuita sus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad de sus datos, así como retirar el consentimiento prestado, sin que ello afecte a la licitud del tratamiento basado en el consentimiento previo a su retirada.",
       },
       {
         type: "p",

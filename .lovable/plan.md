@@ -5,7 +5,7 @@
 2. **Texto literal** del archivo, sin cambiar una palabra. Solo formato: subtítulos, negritas en los inicios indicados ("Uso incorrecto del Portal:", "Utilización de los contenidos:", "Publicidad:", "Virus:", etc.), enlace `tel:+34918796046` en el teléfono y `mailto:` en los correos.
 3. **Metadatos**: título "Aviso legal | IDC Tecnología", descripción breve, og/twitter y canónica `https://idctecnologia.vercel.app/aviso-legal`.
 4. **Pie de página**: enlace "Aviso legal" en la línea inferior junto al copyright, mismo estilo discreto.
-5. **Redirección 301** `/aviso_legal.php` → `/aviso-legal` en un `vercel.json` nuevo (`redirects` con `"permanent": true`, que Vercel sirve como 308; para forzar exactamente 301 se usa `"statusCode": 301`). Se aplica en el borde de Vercel antes de llegar a la app.
+5. **Redirección 301** `/aviso_legal.php` → `/aviso-legal` en un `vercel.json` nuevo (`redirects` con `"permanent": true`, que Vercel sirve como 308; para forzar exactamente 301 se usa `"statusCode": 301`). Se aplica en el borde de Vercel antes de llegar a la app. El archivo contendrá únicamente la sección "redirects", sin ninguna otra configuración.
 
 Al terminar: typecheck y build, y lista de archivos.
 

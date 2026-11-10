@@ -14,10 +14,10 @@ Solo textos (y un icono). Sin tocar diseño ni estilos.
 ## Soporte permanente
 5. `Advantages.tsx`: título "Soporte técnico 24/7" -> "Soporte técnico permanente".
    Otras menciones de "24/7" referidas al soporte de IDC, que también cambiaré:
-   - `Hero.tsx`: cifra "24/7 · Soporte especializado" -> "Permanente".
    - `Services.tsx`: "soporte 24/7" -> "soporte permanente"; "Asistencia 24/7" -> "Asistencia permanente".
-   - `SiteFooter.tsx`: "Mantenimiento 24/7" -> "Mantenimiento permanente".
+   - `SiteFooter.tsx`: "Mantenimiento 24/7" -> "Mantenimiento industrial".
    No se cambia: `Projects.tsx` "producción 24/7" (es la planta del cliente).
+   No se cambia: `Hero.tsx` cifra "24/7 · Soporte especializado" (se mantiene; "+340 Clientes activos" ya está en esa fila).
 
 ## Sobre nosotros (`src/routes/sobre-nosotros.tsx`)
 6. "51-200" -> "90" Empleados. No aparece en ningún otro sitio.

@@ -44,7 +44,7 @@ function AboutPage() {
               { v: "+30", l: "Años" },
               { v: "+1.100", l: "Proyectos" },
               { v: "+340", l: "Clientes" },
-              { v: "51-200", l: "Empleados" },
+              { v: "90", l: "Empleados" },
             ].map((s) => (
               <div key={s.l} className="bg-graphite p-8 text-center">
                 <div className="font-display text-4xl font-semibold text-gradient md:text-5xl">{s.v}</div>

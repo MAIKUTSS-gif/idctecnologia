@@ -2,7 +2,7 @@ import { Award, Headphones, Settings2, Zap, MapPin, Layers } from "lucide-react"
 
 const ITEMS = [
   { icon: Award, title: "+30 años de experiencia", desc: "Más de tres décadas integrando soluciones industriales en sectores exigentes desde 1996." },
-  { icon: Headphones, title: "Soporte técnico 24/7", desc: "Ingenieros especializados disponibles en remoto y on-site cuando los necesitas." },
+  { icon: Headphones, title: "Soporte técnico permanente", desc: "Ingenieros especializados disponibles en remoto y on-site cuando los necesitas." },
   { icon: Settings2, title: "Ingeniería llave en mano", desc: "Diseñamos cada proyecto según los KPIs reales de tu planta, de principio a fin." },
   { icon: Zap, title: "+1.100 proyectos entregados", desc: "Resultados demostrados con +340 clientes activos en toda España." },
   { icon: Layers, title: "Proveedores oficiales de marcas líderes", desc: "Siemens, ABB, SICK, SMC, Omron y Schneider Electric." },

@@ -10,7 +10,7 @@ import {
   ShieldCheck,
   Factory,
   Cpu,
-  Clock,
+  Users,
   ArrowUpRight,
   MapPin,
   Briefcase,
@@ -128,7 +128,7 @@ const REASONS = [
   {
     icon: Globe2,
     title: "Clientes nacionales e internacionales",
-    desc: "Trabajarás con líderes industriales dentro y fuera de España.",
+    desc: "Desarrollarás tus capacidades en colaboración con compañías líderes.",
   },
   {
     icon: TrendingUp,
@@ -154,7 +154,7 @@ function WhyIdc() {
           </h2>
           <p className="mt-5 text-muted-foreground">
             Somos una empresa especializada en automatización industrial, programación PLC,
-            robótica, visión artificial, puesta en marcha y digitalización de procesos
+            robótica, visión artificial, mantenimiento electromecánico, puestas en marcha y digitalización de procesos
             industriales. Desde 1996 ayudamos a las fábricas a producir mejor, y lo hacemos con
             un equipo técnico que aprende en cada proyecto.
           </p>
@@ -232,7 +232,7 @@ const OFFERS = [
   { icon: ShieldCheck, title: "Estabilidad laboral", desc: "Contratación indefinida y cartera de clientes sólida." },
   { icon: Factory, title: "Proyectos reales", desc: "Puesta en marcha en planta desde el primer mes." },
   { icon: Cpu, title: "Equipamiento moderno", desc: "Portátil, licencias y herramienta de campo actualizada." },
-  { icon: Clock, title: "Flexibilidad", desc: "Horario flexible y jornada intensiva los viernes." },
+  { icon: Users, title: "Equipos multidisciplinares de trabajo", desc: "Sectores estratégicos de actividad: automoción, energía, farmacia, alimentación, envase y embalaje." },
   { icon: TrendingUp, title: "Posibilidad de crecimiento", desc: "Promoción interna a jefe de proyecto." },
 ];
 

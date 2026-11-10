@@ -173,7 +173,7 @@ function ContactPage() {
 
           {/* Aside contact */}
           <div className="space-y-4">
-            <ContactCard icon={Phone} title="Teléfono" value="+34 91 879 60 46" sub="Lun–Vie 8:00–20:00" />
+            <ContactCard icon={Phone} title="Teléfono" value="+34 91 879 60 46" sub="Lun–Vie 8:00–18:00" />
             <ContactCard icon={Mail} title="Email" value="informacion@idc.es" sub="Respuesta en 24h" />
             <ContactCard icon={MapPin} title="Oficina central" value="Parque Científico TecnoAlcalá" sub="C/ Punto Mobi, 10 · 28805 Alcalá de Henares, Madrid" />
             <a

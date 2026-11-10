@@ -17,8 +17,8 @@ const SERVICES = [
     icon: Wrench,
     tag: "02 / Maintenance",
     title: "Mantenimiento Industrial",
-    desc: "Garantizamos la disponibilidad de tus líneas con planes preventivos, predictivos y soporte 24/7.",
-    points: ["Preventivo programado", "Correctivo express", "Predictivo IoT", "Asistencia 24/7", "Optimización líneas"],
+    desc: "Garantizamos la disponibilidad de tus líneas con planes preventivos, predictivos y soporte permanente.",
+    points: ["Preventivo programado", "Correctivo express", "Predictivo IoT", "Asistencia permanente", "Optimización líneas"],
     img: maintImg,
   },
   {

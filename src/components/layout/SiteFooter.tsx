@@ -70,7 +70,7 @@ export function SiteFooter() {
               Servicios
             </h4>
             <ul className="mt-4 space-y-3 text-sm">
-              {["Ingeniería Industrial", "Automatización PLC/SCADA", "Mantenimiento 24/7", "Distribución técnica", "Industria 4.0"].map((s) => (
+              {["Ingeniería Industrial", "Automatización PLC/SCADA", "Mantenimiento industrial", "Distribución técnica", "Industria 4.0"].map((s) => (
                 <li key={s}>
                   <Link to="/servicios" className="text-white/70 transition-colors hover:text-white">
                     {s}
